@@ -1,33 +1,52 @@
-import { VStack, SimpleGrid, Box, Heading, Text } from '@chakra-ui/react';
+import { Flex, SimpleGrid, Text } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
-import { theme } from '../styles/theme';
+import { theme } from '../../styles/theme';
 
+const StyledContainer = styled(Flex)`
+  flex-direction: column;
+  background: linear-gradient(180deg, #0f0f0e 38.61%, #2b2c34 87.02%);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+`;
 const StyledHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
   letter-spacing: 1.2px;
-  color: ${({ color }) => (color ? color : 'white')};
+  color: white;
   text-align: center;
+  margin-bottom: 2rem;
 `;
-const StyledVStack = styled(VStack)`
+const StyledCard = styled(Flex)`
+  flex-direction: column;
   min-height: 380px;
   background: linear-gradient(180deg, #2b2c34 0%, #0f0f0e 100%);
   border-radius: 8px;
   padding: 20px 24px;
+`;
+const StyledCardHeading = styled(Text)`
+  width: 100%;
+  min-height: 50px;
+  font-family: ${theme.fonts.uncial};
+  letter-spacing: 1.2px;
+  color: ${theme.colors.red};
+  text-align: center;
+  margin-bottom: 1rem;
 `;
 const StyledCostText = styled(Text)`
   font-family: ${theme.fonts.uncial};
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
+  margin-top: auto;
 `;
-const StyledBodyText = styled(Text)`
+const StyledCardText = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.texturina};
   letter-spacing: 1.2px;
   color: #fcfcfc;
   text-align: left;
+  margin-bottom: 1rem;
 `;
 
 const membership_levels = [
@@ -53,41 +72,26 @@ const membership_levels = [
 
 export const Membership = () => {
   return (
-    <VStack
-      background='linear-gradient(180deg, #0F0F0E 38.61%, #2B2C34 87.02%);'
-      color='white'
-      px={{ lg: '8rem', md: '4rem', base: '2rem' }}
-      py='5rem'
-    >
-      <StyledHeading fontSize={{ lg: '32px', base: '20px' }} mb='2rem'>
+    <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
+      <StyledHeading fontSize={{ lg: '32px', base: '20px' }}>
         Levels of Membership
       </StyledHeading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
         {membership_levels.map((level, index) => (
-          <StyledVStack key={index}>
-            <StyledHeading
-              color={theme.colors.red}
-              fontSize={{ lg: '20px', base: '16px' }}
-              minH='70px'
-              mb='1rem'
-            >
+          <StyledCard key={index}>
+            <StyledCardHeading fontSize={{ lg: '20px', base: '16px' }}>
               {level.title}
-            </StyledHeading>
-            <StyledBodyText fontWeight='bold' my='1rem'>
+            </StyledCardHeading>
+            <StyledCardText fontWeight='bold' my='1rem'>
               {level.loot}
-            </StyledBodyText>
-            <StyledBodyText
-              fontSize={{ lg: '14px', base: '12px' }}
-              style={{ marginBottom: '1rem' }}
-            >
+            </StyledCardText>
+            <StyledCardText fontSize={{ lg: '14px', base: '12px' }}>
               {level.desc}
-            </StyledBodyText>
-            <StyledCostText style={{ marginTop: 'auto' }}>
-              {level.cost}
-            </StyledCostText>
-          </StyledVStack>
+            </StyledCardText>
+            <StyledCostText>{level.cost}</StyledCostText>
+          </StyledCard>
         ))}
       </SimpleGrid>
-    </VStack>
+    </StyledContainer>
   );
 };
