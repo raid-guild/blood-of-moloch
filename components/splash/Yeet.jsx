@@ -1,13 +1,24 @@
-import { VStack, SimpleGrid, Text, Image } from '@chakra-ui/react';
+import { Flex, SimpleGrid, Text, Image } from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import { theme } from '../styles/theme';
+import { theme } from '../../styles/theme';
 
+const StyledContainer = styled(SimpleGrid)`
+  grid-gap: 1rem;
+  background-color: #0f0f0e;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+`;
+const StyledSubContainer = styled(Flex)`
+  flex-direction: column;
+  justify-content: space-around;
+`;
 const StyledHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
+  margin-bottom: 2rem;
 `;
 const StyledBodyText = styled(Text)`
   font-family: ${theme.fonts.texturina};
@@ -16,18 +27,14 @@ const StyledBodyText = styled(Text)`
   text-align: left;
 `;
 
-export const YeetScreen = () => {
+export const Yeet = () => {
   return (
-    <SimpleGrid
+    <StyledContainer
       columns={{ base: 1, md: 2, lg: 2 }}
-      gap={10}
-      backgroundColor='#0F0F0E'
-      color='white'
       px={{ lg: '8rem', md: '4rem', base: '2rem' }}
-      py='5rem'
     >
-      <VStack justifyContent='space-around'>
-        <StyledHeading fontSize={{ lg: '32px', base: '20px' }} mb='2rem'>
+      <StyledSubContainer>
+        <StyledHeading fontSize={{ lg: '32px', base: '20px' }}>
           Yeet for Membership
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
@@ -35,14 +42,15 @@ export const YeetScreen = () => {
           access to perks, like gift bags and NFTs. If you’re going to
           EthDenver, plan on meeting up, because we brewed some Blood of Moloch.
         </StyledBodyText>
-      </VStack>
+      </StyledSubContainer>
       <Image
         src='/assets/illustration_one.svg'
         alt='illustration'
         w={{ lg: '300px', base: '200px' }}
         ml='auto'
         mr={{ base: 'auto' }}
+        mt={{ base: '2rem', lg: '0', md: '0' }}
       />
-    </SimpleGrid>
+    </StyledContainer>
   );
 };

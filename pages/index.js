@@ -1,19 +1,36 @@
+import { useEffect, useState } from 'react';
+
 import { Meta } from '../shared/Meta';
 import { Layout } from '../shared/Layout';
 import { Header } from '../shared/Header';
-import { HeroScreen } from '../components/HeroScreen';
-import { YeetScreen } from '../components/YeetScreen';
-import { Membership } from '../components/Membership';
 import { Footer } from '../shared/Footer';
 
+import { Hero } from '../components/splash/Hero';
+import { Yeet } from '../components/splash/Yeet';
+import { Membership } from '../components/splash/Membership';
+
 export default function Home() {
+  const [windowWidth, setWindowWidth] = useState('');
+
+  useEffect(() => {
+    try {
+      setWindowWidth(window.innerWidth);
+      window.removeEventListener('resize', () => {});
+      window.addEventListener('resize', (e) => {
+        setWindowWidth(window.innerWidth);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <Layout>
       <Meta />
-      <Header />
+      <Header windowWidth={windowWidth} />
 
-      <HeroScreen />
-      <YeetScreen />
+      <Hero />
+      <Yeet />
       <Membership />
 
       <Footer />

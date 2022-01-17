@@ -1,7 +1,17 @@
-import { VStack, Text, Button } from '@chakra-ui/react';
+import { Flex, Text, Button } from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import { theme } from '../styles/theme';
 
+import { theme } from '../../styles/theme';
+
+const StyledFlex = styled(Flex)`
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/assets/hero_banner.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  justify-content: center;
+`;
 const StyledHeroText = styled(Text)`
   max-width: 70%;
   font-family: ${theme.fonts.uncial};
@@ -30,15 +40,10 @@ const StyledButtonPrimary = styled(Button)`
   }
 `;
 
-export const HeroScreen = () => {
+export const Hero = () => {
   return (
-    <VStack
-      minH='110vh'
-      backgroundImage='/assets/hero_banner.svg'
-      backgroundRepeat='no-repeat'
-      backgroundSize='cover'
-      backgroundPosition='bottom'
-      justifyContent='center'
+    <StyledFlex
+      minH={{ lg: '110vh', base: '90vh' }}
       px={{ lg: '8rem', md: '4rem', base: '2rem' }}
     >
       <StyledHeroText fontSize={{ lg: '50px', base: '24px' }}>
@@ -51,6 +56,6 @@ export const HeroScreen = () => {
       <StyledButtonPrimary fontSize={{ lg: '18px', base: '16px' }}>
         Join Us
       </StyledButtonPrimary>
-    </VStack>
+    </StyledFlex>
   );
 };
