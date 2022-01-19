@@ -43,12 +43,17 @@ export const Header = ({ windowWidth }) => {
       />
 
       <Flex direction='row' alignItems='center'>
-        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
-          <i className='fab fa-twitter-square'></i>
-        </StyledNavLink>
-        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
-          <i className='fab fa-discord'></i>
-        </StyledNavLink>
+        <Image
+          src='/icons/discord_icon.svg'
+          alt='discord'
+          w={{ lg: '32px', base: '24px' }}
+          mr='.5rem'
+        />
+        <Image
+          src='/icons/twitter_icon.svg'
+          alt='twitter'
+          w={{ lg: '32px', base: '24px' }}
+        />
       </Flex>
     </StyledContainer>
   );
