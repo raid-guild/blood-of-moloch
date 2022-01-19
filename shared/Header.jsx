@@ -46,13 +46,13 @@ export const Header = ({ windowWidth }) => {
         <Image
           src='/icons/discord_icon.svg'
           alt='discord'
-          w={{ lg: '32px', base: '24px' }}
+          w={{ lg: '32px', base: '18px' }}
           mr='.5rem'
         />
         <Image
           src='/icons/twitter_icon.svg'
           alt='twitter'
-          w={{ lg: '32px', base: '24px' }}
+          w={{ lg: '32px', base: '18px' }}
         />
       </Flex>
     </StyledContainer>

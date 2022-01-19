@@ -39,6 +39,7 @@ const StyledButtonPrimary = styled(Button)`
   transition: all 0.2s ease-in-out;
   &:hover {
     background: linear-gradient(270deg, #7c3aed 0%, #ec4899 100%);
+    opacity: 80%;
   }
 `;
 
