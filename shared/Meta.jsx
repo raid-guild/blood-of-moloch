@@ -20,6 +20,7 @@ export const Meta = () => {
         integrity='sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=='
         crossorigin='anonymous'
       ></script>
+      <script src='//embed.typeform.com/next/embed.js'></script>
     </Head>
   );
 };
