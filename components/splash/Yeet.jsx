@@ -15,13 +15,13 @@ const StyledSubContainer = styled(Flex)`
 const StyledHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
-  letter-spacing: 1.2px;
+  line-height: 72px;
   color: white;
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 const StyledBodyText = styled(Text)`
-  font-family: ${theme.fonts.texturina};
+  font-family: ${theme.fonts.sourceSansPro};
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
@@ -34,7 +34,7 @@ export const Yeet = () => {
       px={{ lg: '8rem', md: '4rem', base: '2rem' }}
     >
       <StyledSubContainer>
-        <StyledHeading fontSize={{ lg: '32px', base: '20px' }}>
+        <StyledHeading fontSize={{ lg: '64px', base: '20px' }}>
           Yeet for Membership
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
@@ -51,7 +51,7 @@ export const Yeet = () => {
         alt='illustration'
         w={{ lg: '300px', base: '200px' }}
         ml='auto'
-        mr={{ base: 'auto' }}
+        mr={{ lg: '0', base: 'auto' }}
         mt={{ base: '2rem', lg: '0', md: '0' }}
       />
     </StyledContainer>

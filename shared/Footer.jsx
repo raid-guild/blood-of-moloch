@@ -39,9 +39,14 @@ export const Footer = () => {
           </StyledRightsText>
         </Flex>
 
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
-          <i className='fab fa-discord'></i>
-        </StyledNavLink>
+        <Flex direction='row' alignItems='center'>
+          <StyledNavLink fontSize={{ lg: '18px', base: '16px' }} mr='1rem'>
+            <i className='fab fa-twitter-square'></i>
+          </StyledNavLink>
+          <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+            <i className='fab fa-discord'></i>
+          </StyledNavLink>
+        </Flex>
       </Flex>
     </StyledContainer>
   );
