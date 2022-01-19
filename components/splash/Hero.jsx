@@ -59,7 +59,12 @@ export const Hero = () => {
         We have common interests. Let’s gather around them.
       </StyledSloganText>
       <br />
-      <StyledButtonPrimary fontSize={{ lg: '18px', base: '16px' }}>
+      <StyledButtonPrimary
+        data-tf-popup={process.env.NEXT_PUBLIC_TYPEFORM_POPUP_ID}
+        data-tf-iframe-props='title=Brood Guild'
+        data-tf-medium='snippet'
+        fontSize={{ lg: '18px', base: '16px' }}
+      >
         Join Us
       </StyledButtonPrimary>
     </StyledFlex>
