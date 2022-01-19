@@ -39,8 +39,11 @@ export const Yeet = () => {
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
           Decide what kinds of beers we make and where we’ll drink them. Get
-          access to perks, like gift bags and NFTs. If you’re going to
-          EthDenver, plan on meeting up, because we brewed some Blood of Moloch.
+          access to perks, like gift bags and NFTs.
+        </StyledBodyText>
+        <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
+          We brewed some Blood of Moloch, so plan on claiming yours at
+          EthDenver. btw, it’s potent!
         </StyledBodyText>
       </StyledSubContainer>
       <Image
