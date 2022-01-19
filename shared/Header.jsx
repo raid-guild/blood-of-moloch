@@ -10,23 +10,24 @@ const StyledContainer = styled(Flex)`
   top: 24px;
 `;
 const StyledNavLink = styled(Link)`
-  font-family: ${theme.fonts.texturina};
+  font-family: ${theme.fonts.sourceSansPro};
   color: white;
   text-align: center;
   font-weight: bold;
+  line-height: 22px;
 `;
 
 export const Header = ({ windowWidth }) => {
   return (
     <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
       {windowWidth < 750 && (
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
           <i className='fas fa-question-circle'></i>
         </StyledNavLink>
       )}
       {windowWidth > 750 && (
         <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
-          About
+          Lore
         </StyledNavLink>
       )}
 
@@ -38,12 +39,22 @@ export const Header = ({ windowWidth }) => {
         mr='auto'
         src='/assets/logo_full.svg'
         alt='logo'
-        w={{ lg: 'auto', base: '100px' }}
+        w={{ lg: '190px', base: '100px' }}
       />
 
-      <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
-        <i className='fab fa-discord'></i>
-      </StyledNavLink>
+      <Flex direction='row' alignItems='center'>
+        <Image
+          src='/icons/discord_icon.svg'
+          alt='discord'
+          w={{ lg: '32px', base: '18px' }}
+          mr='.5rem'
+        />
+        <Image
+          src='/icons/twitter_icon.svg'
+          alt='twitter'
+          w={{ lg: '32px', base: '18px' }}
+        />
+      </Flex>
     </StyledContainer>
   );
 };

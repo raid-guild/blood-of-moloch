@@ -27,7 +27,8 @@ export const theme = extendTheme({
     jetbrains: `'JetBrains Mono', monospace`,
     rubik: `'Rubik Mono One', sans-serif`,
     uncial: `'Uncial Antiqua', cursive`,
-    spaceMono: `'Space Mono', monospace;`
+    spaceMono: `'Space Mono', monospace;`,
+    sourceSansPro: `'Source Sans Pro', sans-serif;`
   },
   breakpoints
 });

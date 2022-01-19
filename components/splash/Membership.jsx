@@ -1,16 +1,8 @@
-import {
-  Flex,
-  SimpleGrid,
-  Text,
-  List,
-  ListItem,
-  ListIcon
-} from '@chakra-ui/react';
-
-import { CheckIcon } from '@chakra-ui/icons';
+import { Flex, SimpleGrid, Text, List, Image, HStack } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
+import { MEMBERSHIP_TYPES } from '../../utils/constants';
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -21,10 +13,10 @@ const StyledContainer = styled(Flex)`
 const StyledHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
-  letter-spacing: 1.2px;
+  line-height: 72px;
   color: white;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 const StyledCard = styled(Flex)`
   flex-direction: column;
@@ -35,7 +27,7 @@ const StyledCard = styled(Flex)`
 const StyledCardHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
-  letter-spacing: 1.2px;
+  line-height: 40px;
   color: ${theme.colors.red};
   text-align: center;
   margin-bottom: 1rem;
@@ -49,51 +41,15 @@ const StyledCostText = styled(Text)`
 `;
 const StyledCardText = styled(Text)`
   width: 100%;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: ${theme.fonts.spaceMono};
-  letter-spacing: 1.2px;
-  color: #7c3aed;
-  text-align: center;
+  font-family: ${theme.fonts.sourceSansPro};
+  color: ${(color) => color};
+  text-align: left;
   margin-bottom: 1rem;
 `;
-
-const membership_levels = [
-  {
-    title: 'Never let it end',
-    loot: '2400 loot in RaidBrood DAO',
-    points: [
-      'VIP Access to All 2022 Events',
-      'Case of Blood of Moloch',
-      'Whitelisted for Limited Edition Mainnet NFT of brood recipes',
-      'All base membership perks'
-    ],
-    cost: '666 xDai'
-  },
-  {
-    title: 'One in each hand',
-    loot: '200 loot in RaidBrood DAO',
-    points: [
-      'Special EthDenver Event Access',
-      'EthDenver Tasting Room Access',
-      '2 Special Blood of Moloch Collector cans',
-      'All base membership perks'
-    ],
-    cost: '66 xDai'
-  },
-  {
-    title: 'Yeah you can come too',
-    loot: '100 loot in RaidBrood DAO',
-    points: [
-      'Base Membership in RaidBrood DAO',
-      'Governance on new beers and events',
-      'Gift bag pick up at our events',
-      'Limited edition Blood of Moloch collectors can',
-      'Proof of yeet NFT'
-    ],
-    cost: '33 xDai'
-  }
-];
+const StyledList = styled(List)`
+  color: 'white';
+  font-family: ${theme.fonts.sourceSansPro};
+`;
 
 export const Membership = () => {
   return (
@@ -102,30 +58,40 @@ export const Membership = () => {
         Levels of Membership
       </StyledHeading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
-        {membership_levels.map((level, index) => (
+        {MEMBERSHIP_TYPES.map((level, index) => (
           <StyledCard minH={{ lg: '450px', sm: '400px' }} key={index}>
             <StyledCardHeading
               minH={{ lg: '70px', sm: '40px' }}
-              fontSize={{ lg: '20px', base: '16px' }}
+              fontSize={{ lg: '36px', base: '16px' }}
             >
               {level.title}
             </StyledCardHeading>
-            <StyledCardText fontWeight='bold' my='1rem'>
+            <StyledCardText
+              fontWeight='bold'
+              my='1rem'
+              color='#B66AD6'
+              fontSize={{ lg: '18px', base: '16px' }}
+            >
               {level.loot}
             </StyledCardText>
-            <List color='white' fontFamily={theme.fonts.spaceMono}>
+            <StyledList>
               {level.points.map((point, index) => (
-                <ListItem>
-                  <ListIcon
-                    as={CheckIcon}
-                    key={index}
-                    fontSize={{ lg: '14px', base: '12px' }}
+                <HStack key={index} alignItems='start' mb='10px'>
+                  <Image
+                    src='/assets/drop_icon.svg'
+                    w='12px'
+                    mt='5px'
+                    mr='5px'
                   />
-
-                  {point}
-                </ListItem>
+                  <StyledCardText
+                    color='white'
+                    fontSize={{ lg: '16px', base: '14px' }}
+                  >
+                    {point}
+                  </StyledCardText>
+                </HStack>
               ))}
-            </List>
+            </StyledList>
             <br />
             <StyledCostText>{level.cost}</StyledCostText>
           </StyledCard>
