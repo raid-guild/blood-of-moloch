@@ -21,7 +21,7 @@ export const Header = ({ windowWidth }) => {
   return (
     <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
       {windowWidth < 750 && (
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
           <i className='fas fa-question-circle'></i>
         </StyledNavLink>
       )}
@@ -43,10 +43,10 @@ export const Header = ({ windowWidth }) => {
       />
 
       <Flex direction='row' alignItems='center'>
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }} mr='1rem'>
+        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
           <i className='fab fa-twitter-square'></i>
         </StyledNavLink>
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
           <i className='fab fa-discord'></i>
         </StyledNavLink>
       </Flex>

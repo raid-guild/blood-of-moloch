@@ -40,10 +40,10 @@ export const Footer = () => {
         </Flex>
 
         <Flex direction='row' alignItems='center'>
-          <StyledNavLink fontSize={{ lg: '18px', base: '16px' }} mr='1rem'>
+          <StyledNavLink w={{ lg: '32px', base: '24px' }}>
             <i className='fab fa-twitter-square'></i>
           </StyledNavLink>
-          <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+          <StyledNavLink w={{ lg: '32px', base: '24px' }}>
             <i className='fab fa-discord'></i>
           </StyledNavLink>
         </Flex>
