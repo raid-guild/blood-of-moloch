@@ -12,7 +12,7 @@ const StyledFlex = styled(Flex)`
 export const Eevee = () => {
   return (
     <StyledFlex px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
-      <Image src='/assets/eevee_gif.gif' alt='illustration' />
+      <Image src='/assets/eevee_gif.gif' alt='can' />
     </StyledFlex>
   );
 };

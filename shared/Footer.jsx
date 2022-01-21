@@ -45,6 +45,10 @@ export const Footer = () => {
             alt='discord'
             w={{ lg: '32px', base: '18px' }}
             mr='.5rem'
+            cursor='pointer'
+            onClick={() =>
+              window.open('https://discord.gg/XKGM8u8XTQ', '_blank')
+            }
           />
           <Image
             src='/icons/twitter_icon.svg'
