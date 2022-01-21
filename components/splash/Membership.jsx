@@ -70,7 +70,7 @@ export const Membership = () => {
       <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 3 }} gap={10}>
         {MEMBERSHIP_TYPES.map((level, index) => (
           <Box
-            minH={{ xl: '525px', lg: '525px', md: '525px', sm: '400px' }}
+            minH={{ xl: '525px', lg: '525px', md: '525px', sm: '450px' }}
             position='relative'
             cursor='pointer'
           >
@@ -127,7 +127,7 @@ export const Membership = () => {
               </StyledCostText>
             </StyledCard>
             <StyledCard
-              h={{ xl: '525px', lg: '525px', md: '525px', sm: '400px' }}
+              h={{ xl: '525px', lg: '525px', md: '525px', sm: '450px' }}
               key={index}
               className='fader-slide fader-slide--2'
               justifyContent='center'
