@@ -39,6 +39,8 @@ export const Header = ({ windowWidth }) => {
         mr='auto'
         src='/assets/logo_header.svg'
         alt='logo'
+        cursor='pointer'
+        onClick={() => (window.location.href = '/')}
         w={{ lg: '70px', base: '40px' }}
       />
 
@@ -48,6 +50,8 @@ export const Header = ({ windowWidth }) => {
           alt='discord'
           w={{ lg: '32px', base: '18px' }}
           mr='.5rem'
+          cursor='pointer'
+          onClick={() => window.open('https://discord.gg/XKGM8u8XTQ', '_blank')}
         />
         <Image
           src='/icons/twitter_icon.svg'

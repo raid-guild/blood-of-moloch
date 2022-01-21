@@ -62,7 +62,10 @@ export const Hero = () => {
       <br />
       <StyledButtonPrimary
         onClick={() =>
-          window.open(process.env.NEXT_PUBLIC_GOOGLE_FORM, '_blank')
+          window.open(
+            'https://yeet.daohaus.club/dao/0x64/0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf',
+            '_blank'
+          )
         }
         fontSize={{ lg: '18px', base: '16px' }}
       >

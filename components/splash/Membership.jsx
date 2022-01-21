@@ -132,7 +132,7 @@ export const Membership = () => {
               className='fader-slide fader-slide--2'
               justifyContent='center'
             >
-              <Image src={level.canImage} maxH='100%' />
+              <Image src={level.canImage} alt='cans' maxH='100%' />
             </StyledCard>
           </Box>
         ))}
