@@ -1,4 +1,12 @@
-import { Flex, SimpleGrid, Text, List, Image, HStack } from '@chakra-ui/react';
+import {
+  Flex,
+  SimpleGrid,
+  Text,
+  List,
+  Image,
+  HStack,
+  Box
+} from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
@@ -59,42 +67,61 @@ export const Membership = () => {
       </StyledHeading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
         {MEMBERSHIP_TYPES.map((level, index) => (
-          <StyledCard minH={{ lg: '450px', sm: '400px' }} key={index}>
-            <StyledCardHeading
-              minH={{ lg: '70px', sm: '40px' }}
-              fontSize={{ lg: '36px', base: '16px' }}
+          <Box
+            position='relative'
+            cursor='pointer'
+            minH={{ lg: '450px', sm: '400px' }}
+          >
+            <StyledCard
+              minH={{ lg: '450px', sm: '400px' }}
+              key={index}
+              position='absolute'
+              className='fader-slide fader-slide--1'
             >
-              {level.title}
-            </StyledCardHeading>
-            <StyledCardText
-              fontWeight='bold'
-              my='1rem'
-              color='#B66AD6'
-              fontSize={{ lg: '18px', base: '16px' }}
+              <StyledCardHeading
+                minH={{ lg: '75px', sm: '40px' }}
+                fontSize={{ lg: '36px', base: '16px' }}
+              >
+                {level.title}
+              </StyledCardHeading>
+              <StyledCardText
+                fontWeight='bold'
+                my='1rem'
+                color='#B66AD6'
+                fontSize={{ lg: '18px', base: '16px' }}
+              >
+                {level.loot}
+              </StyledCardText>
+              <StyledList>
+                {level.points.map((point, index) => (
+                  <HStack key={index} alignItems='start' mb='10px'>
+                    <Image
+                      src='/icons/drop_icon.svg'
+                      w='12px'
+                      mt='5px'
+                      mr='5px'
+                    />
+                    <StyledCardText
+                      color='white'
+                      fontSize={{ lg: '16px', base: '14px' }}
+                    >
+                      {point}
+                    </StyledCardText>
+                  </HStack>
+                ))}
+              </StyledList>
+              <br />
+              <StyledCostText>{level.cost}</StyledCostText>
+            </StyledCard>
+            <StyledCard
+              minH={{ lg: '450px', sm: '400px' }}
+              key={index}
+              position='absolute'
+              className='fader-slide fader-slide--2'
             >
-              {level.loot}
-            </StyledCardText>
-            <StyledList>
-              {level.points.map((point, index) => (
-                <HStack key={index} alignItems='start' mb='10px'>
-                  <Image
-                    src='/assets/drop_icon.svg'
-                    w='12px'
-                    mt='5px'
-                    mr='5px'
-                  />
-                  <StyledCardText
-                    color='white'
-                    fontSize={{ lg: '16px', base: '14px' }}
-                  >
-                    {point}
-                  </StyledCardText>
-                </HStack>
-              ))}
-            </StyledList>
-            <br />
-            <StyledCostText>{level.cost}</StyledCostText>
-          </StyledCard>
+              <Image src={level.canImage} />
+            </StyledCard>
+          </Box>
         ))}
       </SimpleGrid>
     </StyledContainer>

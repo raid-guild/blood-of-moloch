@@ -53,19 +53,20 @@ export const Hero = () => {
         fontSize={{ lg: '80px', base: '24px' }}
         lineHeight={{ lg: '96px', sm: '32px' }}
       >
-        For those who like beer and slaying Moloch.
+        Beer for Slayers of Moloch
       </StyledHeroText>
       <StyledSloganText fontSize={{ lg: '20px', base: '16px' }}>
-        We have common interests. Let’s gather around them.
+        Pooling our web3 powers to conspire against Moloch in exclusive taverns
+        around the world.
       </StyledSloganText>
       <br />
       <StyledButtonPrimary
-        data-tf-popup={process.env.NEXT_PUBLIC_TYPEFORM_POPUP_ID}
-        data-tf-iframe-props='title=Brood Guild'
-        data-tf-medium='snippet'
+        onClick={() =>
+          window.open(process.env.NEXT_PUBLIC_GOOGLE_FORM, '_blank')
+        }
         fontSize={{ lg: '18px', base: '16px' }}
       >
-        Join Us
+        Yeet
       </StyledButtonPrimary>
     </StyledFlex>
   );

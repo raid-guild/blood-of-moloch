@@ -28,3 +28,27 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #e4728b;
 }
+
+.fader-slide:hover {
+  animation: fade-out 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fader-slide--1 {
+  animation-delay: 2.5s;
+  z-index: 1;
+}
+
+.fader-slide--2 {
+  animation-delay: 5s;
+}

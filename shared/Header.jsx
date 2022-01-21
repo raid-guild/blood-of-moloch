@@ -26,7 +26,7 @@ export const Header = ({ windowWidth }) => {
         </StyledNavLink>
       )}
       {windowWidth > 750 && (
-        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }}>
+        <StyledNavLink fontSize={{ lg: '18px', base: '16px' }} href='/lore'>
           Lore
         </StyledNavLink>
       )}
@@ -37,9 +37,9 @@ export const Header = ({ windowWidth }) => {
         right={0}
         ml='auto'
         mr='auto'
-        src='/assets/logo_full.svg'
+        src='/assets/logo_header.svg'
         alt='logo'
-        w={{ lg: '190px', base: '100px' }}
+        w={{ lg: '70px', base: '40px' }}
       />
 
       <Flex direction='row' alignItems='center'>
@@ -53,6 +53,10 @@ export const Header = ({ windowWidth }) => {
           src='/icons/twitter_icon.svg'
           alt='twitter'
           w={{ lg: '32px', base: '18px' }}
+          cursor='pointer'
+          onClick={() =>
+            window.open('https://twitter.com/BroodGuild', '_blank')
+          }
         />
       </Flex>
     </StyledContainer>

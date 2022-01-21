@@ -1,36 +1,37 @@
 export const MEMBERSHIP_TYPES = [
   {
-    title: 'Never let it end',
+    title: 'ETHereal Support',
     loot: '2400 loot in RaidBrood DAO',
     points: [
-      'VIP Access to All 2022 Events',
-      'Case of Blood of Moloch',
-      'Whitelisted for Limited Edition Mainnet NFT of brood recipes',
+      'Access to All 2022 Events',
+      'Case of Blood of Moloch (15 collector cans)',
+      'Whitelisted for Limited Edition Mainnet NFT of Brood recipes',
       'All base membership perks'
     ],
-    cost: '666 xDai'
+    cost: '666 xDai',
+    canImage: '/assets/three_cans.svg'
   },
   {
-    title: 'One in each hand',
+    title: 'One in Each Gauntlet',
     loot: '200 loot in RaidBrood DAO',
     points: [
-      'Special EthDenver Event Access',
-      'EthDenver Tasting Room Access',
-      '2 Special Blood of Moloch Collector cans',
+      '2 Special Blood of Moloch collector cans',
       'All base membership perks'
     ],
-    cost: '66 xDai'
+    cost: '84 xDai',
+    canImage: '/assets/two_cans.svg'
   },
   {
-    title: 'Yeah you can come too',
+    title: 'Tall Boy',
     loot: '100 loot in RaidBrood DAO',
     points: [
-      'Base Membership in RaidBrood DAO',
       'Governance on new beers and events',
-      'Gift bag pick up at our events',
-      'Limited edition Blood of Moloch collectors can',
-      'Proof of yeet NFT'
+      'Schwag swag',
+      'POAP',
+      'Limited edition Blood of Moloch collector can*',
+      'Access to ETH Denver 2022 Event'
     ],
-    cost: '33 xDai'
+    cost: '42 xDai',
+    canImage: '/assets/one_can.svg'
   }
 ];
