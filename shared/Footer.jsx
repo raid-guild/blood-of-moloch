@@ -24,7 +24,7 @@ export const Footer = () => {
   return (
     <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
       <Image
-        src='/assets/logo_mono.svg'
+        src='/assets/logo_footer.svg'
         alt='logo'
         w={{ lg: '100px', base: '70px' }}
         py='3rem'
@@ -50,6 +50,10 @@ export const Footer = () => {
             src='/icons/twitter_icon.svg'
             alt='twitter'
             w={{ lg: '32px', base: '18px' }}
+            cursor='pointer'
+            onClick={() =>
+              window.open('https://twitter.com/BroodGuild', '_blank')
+            }
           />
         </Flex>
       </Flex>
