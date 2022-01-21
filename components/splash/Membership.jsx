@@ -70,10 +70,10 @@ export const Membership = () => {
           <Box
             position='relative'
             cursor='pointer'
-            minH={{ lg: '450px', sm: '400px' }}
+            minH={{ lg: '470px', sm: '400px' }}
           >
             <StyledCard
-              minH={{ lg: '450px', sm: '400px' }}
+              minH={{ lg: '470px', sm: '400px' }}
               key={index}
               position='absolute'
               className='fader-slide fader-slide--1'
@@ -111,13 +111,22 @@ export const Membership = () => {
                 ))}
               </StyledList>
               <br />
-              <StyledCostText>{level.cost}</StyledCostText>
+
+              <StyledCostText>
+                {level.cost}
+                {index == 2 && (
+                  <Text fontSize={{ lg: '8px', base: '6px' }} color='white'>
+                    *Must be over 21 to pick up your can
+                  </Text>
+                )}
+              </StyledCostText>
             </StyledCard>
             <StyledCard
-              minH={{ lg: '450px', sm: '400px' }}
+              minH={{ lg: '470px', sm: '400px' }}
               key={index}
               position='absolute'
               className='fader-slide fader-slide--2'
+              justifyContent='center'
             >
               <Image src={level.canImage} />
             </StyledCard>

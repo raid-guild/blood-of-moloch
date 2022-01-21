@@ -21,7 +21,7 @@ export const Header = ({ windowWidth }) => {
   return (
     <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
       {windowWidth < 750 && (
-        <StyledNavLink w={{ lg: '32px', base: '24px' }}>
+        <StyledNavLink w={{ lg: '32px', base: '24px' }} href='/lore'>
           <i className='fas fa-question-circle'></i>
         </StyledNavLink>
       )}
