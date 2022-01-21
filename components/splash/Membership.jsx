@@ -27,6 +27,8 @@ const StyledHeading = styled(Text)`
   margin-bottom: 1rem;
 `;
 const StyledCard = styled(Flex)`
+  width: 100%;
+  position: absolute;
   flex-direction: column;
   background: linear-gradient(180deg, #2b2c34 0%, #0f0f0e 100%);
   border-radius: 8px;
@@ -65,17 +67,16 @@ export const Membership = () => {
       <StyledHeading fontSize={{ lg: '32px', base: '20px' }}>
         Levels of Membership
       </StyledHeading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 3 }} gap={10}>
         {MEMBERSHIP_TYPES.map((level, index) => (
           <Box
+            minH={{ xl: '500px', lg: '500px', md: '500px', sm: '400px' }}
             position='relative'
             cursor='pointer'
-            minH={{ lg: '470px', sm: '400px' }}
           >
             <StyledCard
-              minH={{ lg: '470px', sm: '400px' }}
+              h='100%'
               key={index}
-              position='absolute'
               className='fader-slide fader-slide--1'
             >
               <StyledCardHeading
@@ -115,20 +116,23 @@ export const Membership = () => {
               <StyledCostText>
                 {level.cost}
                 {index == 2 && (
-                  <Text fontSize={{ lg: '8px', base: '6px' }} color='white'>
+                  <Text
+                    fontSize={{ lg: '8px', base: '6px' }}
+                    color='white'
+                    fontFamily={theme.fonts.sourceSansPro}
+                  >
                     *Must be over 21 to pick up your can
                   </Text>
                 )}
               </StyledCostText>
             </StyledCard>
             <StyledCard
-              minH={{ lg: '470px', sm: '400px' }}
+              h={{ xl: '500px', lg: '500px', md: '500px', sm: '400px' }}
               key={index}
-              position='absolute'
               className='fader-slide fader-slide--2'
               justifyContent='center'
             >
-              <Image src={level.canImage} />
+              <Image src={level.canImage} maxH='100%' />
             </StyledCard>
           </Box>
         ))}

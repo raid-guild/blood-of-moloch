@@ -35,7 +35,7 @@ export const Yeet = () => {
       px={{ lg: '8rem', md: '4rem', base: '2rem' }}
     >
       <StyledSubContainer>
-        <StyledHeading fontSize={{ lg: '64px', base: '20px' }}>
+        <StyledHeading fontSize={{ xl: '54px', lg: '44px', base: '20px' }}>
           Yeet for Membership
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
