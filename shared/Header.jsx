@@ -58,9 +58,7 @@ export const Header = ({ windowWidth }) => {
           alt='twitter'
           w={{ lg: '32px', base: '18px' }}
           cursor='pointer'
-          onClick={() =>
-            window.open('https://twitter.com/BroodGuild', '_blank')
-          }
+          onClick={() => window.open('https://twitter.com/RaidGuild', '_blank')}
         />
       </Flex>
     </StyledContainer>

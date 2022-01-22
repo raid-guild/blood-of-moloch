@@ -48,7 +48,7 @@ export const Lore = () => {
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
           Inspired by the tirelessness of fellow Raid Guild members, the noble
           Sasquatch, a cleric and master of potions, concocted a fermented
-          beverage to quench the thirsts of our ongoing battle with Moloch. The
+          beverage to quench the thirsts for our ongoing battle with Moloch. The
           recipe and the brewing of this dark nectar has resulted in what will
           forever be known as Blood Of Moloch.
         </StyledBodyText>

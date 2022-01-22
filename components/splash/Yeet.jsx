@@ -39,7 +39,10 @@ export const Yeet = () => {
           Yeet for Membership
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
-          Raid Brood is the first of it’s kind, a DAO dedicated to craft beer.
+          Raid Brood is the first of its kind, a DAO dedicated to craft beer.
+        </StyledBodyText>
+        <br />
+        <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
           Spun out from Raid Guild, our master brewer has cooked up Blood of
           Moloch, a special Russian Imperial Stout to commemorate EthDenver
           2022. In the spirit of web3, we’ve started a beer club as a DAO and
