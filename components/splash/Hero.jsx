@@ -56,8 +56,8 @@ export const Hero = () => {
         Beer for Slayers of Moloch
       </StyledHeroText>
       <StyledSloganText fontSize={{ lg: '20px', base: '16px' }}>
-        Pooling our web3 powers to conspire against Moloch in exclusive taverns
-        around the world.
+        Pooling our web3 powers to conspire against Moloch in taverns around the
+        world.
       </StyledSloganText>
       <br />
       <StyledButtonPrimary
