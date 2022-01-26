@@ -1,18 +1,27 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { SimpleGrid, Image } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
-const StyledFlex = styled(Flex)`
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const StyledContainer = styled(SimpleGrid)`
+  grid-gap: 1rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Eevee = () => {
   return (
-    <StyledFlex px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
+    <StyledContainer
+      px={{ lg: '8rem', md: '4rem', base: '2rem' }}
+      columns={{ base: 1, md: 2, lg: 2 }}
+    >
+      <Image
+        src='/assets/illustration_four.svg'
+        w={{ lg: '250px', md: '250px', base: '200px' }}
+        alt='blood of moloch text'
+        mx='auto'
+      />
       <Image src='/assets/eevee_gif.gif' alt='can' />
-    </StyledFlex>
+    </StyledContainer>
   );
 };

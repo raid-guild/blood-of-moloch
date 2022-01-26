@@ -70,6 +70,7 @@ export const Membership = () => {
       <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 3 }} gap={10}>
         {MEMBERSHIP_TYPES.map((level, index) => (
           <Box
+            key={index}
             minH={{ xl: '525px', lg: '525px', md: '525px', sm: '450px' }}
             position='relative'
             cursor='pointer'

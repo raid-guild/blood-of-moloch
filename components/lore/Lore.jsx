@@ -54,7 +54,7 @@ export const Lore = () => {
         </StyledBodyText>
       </StyledSubContainer>
       <Image
-        src='/assets/illustration_two.svg'
+        src='/assets/illustration_three.svg'
         alt='illustration'
         w={{ lg: '450px', base: '200px' }}
         ml='auto'
