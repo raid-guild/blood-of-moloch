@@ -1,6 +1,7 @@
 import { Flex, SimpleGrid, Text, Image } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
+import { MEDIA_FILES } from '../../utils/constants';
 
 const StyledContainer = styled(SimpleGrid)`
   grid-gap: 1rem;
@@ -63,7 +64,7 @@ export const Yeet = () => {
         </StyledBodyText>
       </StyledSubContainer>
       <Image
-        src='/assets/illustration_one.svg'
+        src={MEDIA_FILES.illustrations.one}
         alt='illustration'
         w={{ lg: '450px', base: '200px' }}
         ml='auto'

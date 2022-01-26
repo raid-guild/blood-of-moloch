@@ -1,6 +1,7 @@
 import { Flex, Image, Link, Text } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
+import { MEDIA_FILES } from '../utils/constants';
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -24,7 +25,7 @@ export const Footer = () => {
   return (
     <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
       <Image
-        src='/assets/logo_footer.svg'
+        src={MEDIA_FILES.logos.footer}
         alt='logo'
         w={{ lg: '100px', base: '70px' }}
         py='3rem'
@@ -41,7 +42,7 @@ export const Footer = () => {
 
         <Flex direction='row' alignItems='center'>
           <Image
-            src='/icons/discord_icon.svg'
+            src={MEDIA_FILES.icons.discord}
             alt='discord'
             w={{ lg: '32px', base: '18px' }}
             mr='.5rem'
@@ -51,7 +52,7 @@ export const Footer = () => {
             }
           />
           <Image
-            src='/icons/twitter_icon.svg'
+            src={MEDIA_FILES.icons.twitter}
             alt='twitter'
             w={{ lg: '32px', base: '18px' }}
             cursor='pointer'

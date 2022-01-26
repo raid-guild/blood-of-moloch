@@ -1,6 +1,7 @@
 import { Flex, Image, Link } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
+import { MEDIA_FILES } from '../utils/constants';
 
 const StyledContainer = styled(Flex)`
   width: 100%;
@@ -37,7 +38,7 @@ export const Header = ({ windowWidth }) => {
         right={0}
         ml='auto'
         mr='auto'
-        src='/assets/logo_header.svg'
+        src={MEDIA_FILES.logos.header}
         alt='logo'
         cursor='pointer'
         onClick={() => (window.location.href = '/')}
@@ -46,7 +47,7 @@ export const Header = ({ windowWidth }) => {
 
       <Flex direction='row' alignItems='center'>
         <Image
-          src='/icons/discord_icon.svg'
+          src={MEDIA_FILES.icons.discord}
           alt='discord'
           w={{ lg: '32px', base: '18px' }}
           mr='.5rem'
@@ -54,7 +55,7 @@ export const Header = ({ windowWidth }) => {
           onClick={() => window.open('https://discord.gg/XKGM8u8XTQ', '_blank')}
         />
         <Image
-          src='/icons/twitter_icon.svg'
+          src={MEDIA_FILES.icons.twitter}
           alt='twitter'
           w={{ lg: '32px', base: '18px' }}
           cursor='pointer'

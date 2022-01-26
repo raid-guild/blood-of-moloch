@@ -1,5 +1,6 @@
 import { SimpleGrid, Image } from '@chakra-ui/react';
 import styled from '@emotion/styled';
+import { MEDIA_FILES } from '../../utils/constants';
 
 const StyledContainer = styled(SimpleGrid)`
   grid-gap: 1rem;
@@ -16,7 +17,7 @@ export const Eevee = () => {
       columns={{ base: 1, md: 2, lg: 2 }}
     >
       <Image
-        src='/assets/illustration_four.svg'
+        src={MEDIA_FILES.illustrations.four}
         w={{ lg: '250px', md: '250px', base: '200px' }}
         alt='blood of moloch text'
         mx='auto'
