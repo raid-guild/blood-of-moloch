@@ -56,7 +56,7 @@ export const Footer = () => {
             w={{ lg: '32px', base: '18px' }}
             cursor='pointer'
             onClick={() =>
-              window.open('https://twitter.com/RaidGuild', '_blank')
+              window.open('https://twitter.com/RaidBrood', '_blank')
             }
           />
         </Flex>
