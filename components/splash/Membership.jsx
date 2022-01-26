@@ -10,7 +10,7 @@ import {
 
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
-import { MEMBERSHIP_TYPES } from '../../utils/constants';
+import { MEMBERSHIP_TYPES, MEDIA_FILES } from '../../utils/constants';
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -98,7 +98,7 @@ export const Membership = () => {
                 {level.points.map((point, index) => (
                   <HStack key={index} alignItems='start' mb='10px'>
                     <Image
-                      src='/icons/drop_icon.svg'
+                      src={MEDIA_FILES.icons.drop}
                       w='12px'
                       mt='5px'
                       mr='5px'
