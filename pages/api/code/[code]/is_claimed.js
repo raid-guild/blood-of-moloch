@@ -24,4 +24,6 @@ export default async function handler(req, res) {
 
         return returnClaimed(false);
     }
+
+    return res.status(404);
 }
