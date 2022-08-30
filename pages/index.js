@@ -238,7 +238,7 @@ export default function Home() {
         >
           <Box sx={{ display: `flex`, flexDirection: `column`, gap: `1rem` }}>
             <Box sx={{ display: `flex`, gap: `1rem` }}>
-              <a href="" rel="noreferrer" target="_blank">
+              <a href="https://discord.gg/9DwhnHQk" rel="noreferrer" target="_blank">
                 <Image src="/discord.png" />
               </a>
               <a
