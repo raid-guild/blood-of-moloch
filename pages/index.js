@@ -210,7 +210,7 @@ export default function Home() {
           <CenteredPanel>
             <iframe
               src="https://my.spline.design/realisticsodacancopy-a3a8de6488bfc09d3122f167efec28c0/"
-              frameborder="0"
+              frameBorder="0"
               width="100%"
               height="100%"
             ></iframe>
