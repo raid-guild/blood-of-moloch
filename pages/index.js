@@ -12,8 +12,28 @@ import {
   ListItem,
   Image,
 } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 
 export default function Home() {
+
+  const web3Section = useRef(null);
+  const takePilSection = useRef(null);
+  const beerCanSection = useRef(null);
+  const [nextSection, setNextSection] = useState(web3Section);
+
+  const executeScroll = () => {
+    nextSection.current.scrollIntoView({behavior: `smooth`});
+    setNextSection(v => {
+      if(v == web3Section) {
+        return takePilSection;
+      }
+      if(v == takePilSection) {
+        return beerCanSection;
+      }
+      return v;
+    })
+  }
+
   return (
     <>
       <Box sx={{ display: `grid`, gridTemplateColumns: `1fr 5fr` }}>
@@ -21,7 +41,7 @@ export default function Home() {
           <FixedBanner />
         </div>
         <Box>
-          <CenteredPanel>
+          <CenteredPanel onMouseEnter={() => setNextSection(web3Section)}>
             <div>
               <Heading
                 sx={{
@@ -52,7 +72,7 @@ export default function Home() {
               </Heading>
             </div>
           </CenteredPanel>
-          <CenteredPanel>
+          <CenteredPanel customRef={web3Section} onMouseEnter={() => setNextSection(takePilSection)}>
             <div>
               <Heading
                 sx={{
@@ -141,8 +161,7 @@ export default function Home() {
               </HexPanel>
             </div>
           </CenteredPanel>
-
-          <CenteredPanel>
+          <CenteredPanel customRef={takePilSection} onMouseEnter={() => setNextSection(beerCanSection)}>
             <div>
               <Heading
                 sx={{
@@ -207,7 +226,7 @@ export default function Home() {
             </div>
           </CenteredPanel>
           <RedLine />
-          <CenteredPanel>
+          <CenteredPanel customRef={beerCanSection}>
             <iframe
               src="https://my.spline.design/realisticsodacancopy-a3a8de6488bfc09d3122f167efec28c0/"
               frameBorder="0"
@@ -238,7 +257,11 @@ export default function Home() {
         >
           <Box sx={{ display: `flex`, flexDirection: `column`, gap: `1rem` }}>
             <Box sx={{ display: `flex`, gap: `1rem` }}>
-              <a href="https://discord.gg/9DwhnHQk" rel="noreferrer" target="_blank">
+              <a
+                href="https://discord.gg/9DwhnHQk"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <Image src="/discord.png" />
               </a>
               <a
@@ -278,6 +301,7 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
+      <Image src="/Pill.png" sx={{position: `fixed`, right: `5vw`, bottom: `5vh`, width: `60px`}} onClick={() => executeScroll()}/>
     </>
   );
 }
