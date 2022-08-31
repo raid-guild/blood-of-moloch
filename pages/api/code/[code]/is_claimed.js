@@ -10,7 +10,11 @@ export default async function handler(req, res) {
             return res.status(200).json({ claimed });
         };
 
-        const { code } = req.query;
+        const { code, pass_code } = req.query;
+
+        if (!pass_code || pass_code !== process.env.PASS_CODE) {
+            return returnClaimed(true);
+        }
 
         const foundCode = await repository.isValid(code);
         if (!foundCode) {
