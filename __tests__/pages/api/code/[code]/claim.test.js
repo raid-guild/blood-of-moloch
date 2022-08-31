@@ -17,7 +17,8 @@ describe("claim API endpoint", () => {
         expect(res._getStatusCode()).toEqual(404);
     });
 
-    it("should return error 400 if code is invalid", async () => {
+    it("should return error 400 if pass_code is invalid", async () => {
+        process.env.PASS_CODE = "test";
         const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
@@ -27,6 +28,62 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
+                pass_code: "invalid",
+            },
+            body: {
+                address,
+            },
+        });
+
+        await handler(req, res);
+
+        expect(res._getStatusCode()).toEqual(400);
+        expect(JSON.parse(res._getData())).toEqual(
+            expect.objectContaining({
+                error: "Code has already been claimed.",
+            }),
+        );
+    });
+
+    it("should return error 400 if pass_code is not passed", async () => {
+        process.env.PASS_CODE = "test";
+        const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
+
+        const code = "12345";
+        const address = "XYZ";
+
+        const { req, res } = createMocks({
+            method: "POST",
+            query: {
+                code,
+            },
+            body: {
+                address,
+            },
+        });
+
+        await handler(req, res);
+
+        expect(res._getStatusCode()).toEqual(400);
+        expect(JSON.parse(res._getData())).toEqual(
+            expect.objectContaining({
+                error: "Code has already been claimed.",
+            }),
+        );
+    });
+
+    it("should return error 400 if code is invalid", async () => {
+        process.env.PASS_CODE = "test";
+        const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
+
+        const code = "12345";
+        const address = "XYZ";
+
+        const { req, res } = createMocks({
+            method: "POST",
+            query: {
+                code,
+                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
@@ -45,6 +102,7 @@ describe("claim API endpoint", () => {
     });
 
     it("should return success if claiming works", async () => {
+        process.env.PASS_CODE = "test";
         jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(true);
         const claimSpy = jest.spyOn(Contract.prototype, "claim").mockResolvedValue({
             wait: jest.fn().mockResolvedValue({ tx: "test" }),
@@ -57,6 +115,7 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
+                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
@@ -75,6 +134,7 @@ describe("claim API endpoint", () => {
     });
 
     it("should return claim error if it doesn't work", async () => {
+        process.env.PASS_CODE = "test";
         jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(true);
         const claimSpy = jest.spyOn(Contract.prototype, "claim").mockImplementation(() => {
             throw new Error("This is the error message.");
@@ -87,6 +147,7 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
+                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
