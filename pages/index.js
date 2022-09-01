@@ -1,9 +1,10 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 import FixedBanner from "../components/FixedBanner";
 import CenteredPanel from "../components/CenteredPanel";
 import HexPanel from "../components/HexPanel";
 import RedLine from "../components/RedLine";
+import Footer from "../components/Footer";
 import {
   Box,
   Heading,
@@ -44,11 +45,7 @@ export default function Home() {
           <CenteredPanel onMouseEnter={() => setNextSection(web3Section)}>
             <div>
               <Heading
-                sx={{
-                  fontFamily: `'futura-pt', sans-serif`,
-                  fontWeight: `500`,
-                  fontSize: `15vh`,
-                }}
+                className={styles.heading}
               >
                 GOOD FOR{" "}
                 <span
@@ -62,11 +59,7 @@ export default function Home() {
                 </span>
               </Heading>
               <Heading
-                sx={{
-                  fontFamily: `'futura-pt', sans-serif`,
-                  fontWeight: `500`,
-                  fontSize: `15vh`,
-                }}
+                className={styles.heading}
               >
                 BAD FOR MOLOCH.
               </Heading>
@@ -75,11 +68,7 @@ export default function Home() {
           <CenteredPanel customRef={web3Section} onMouseEnter={() => setNextSection(takePilSection)}>
             <div>
               <Heading
-                sx={{
-                  fontFamily: `'futura-pt', sans-serif`,
-                  fontWeight: `400`,
-                  fontSize: `15vh`,
-                }}
+                className={styles.heading}
               >
                 WEB3 MEETS{" "}
                 <span
@@ -164,11 +153,7 @@ export default function Home() {
           <CenteredPanel customRef={takePilSection} onMouseEnter={() => setNextSection(beerCanSection)}>
             <div>
               <Heading
-                sx={{
-                  fontFamily: `'futura-pt', sans-serif`,
-                  fontWeight: `400`,
-                  fontSize: `15vh`,
-                }}
+                className={styles.heading}
               >
                 TAKE THE{" "}
                 <span
@@ -236,71 +221,7 @@ export default function Home() {
           </CenteredPanel>
         </Box>
       </Box>
-      <Box
-        sx={{
-          backgroundImage: `url(/footer.png)`,
-          width: `100vw`,
-          height: `150px`,
-          display: `grid`,
-          gridTemplateColumns: `1fr 5fr`,
-        }}
-      >
-        <div></div>
-        <Box
-          sx={{
-            display: `flex`,
-            alignItems: `center`,
-            justifyContent: `space-between`,
-            width: `80%`,
-            margin: `0 auto`,
-          }}
-        >
-          <Box sx={{ display: `flex`, flexDirection: `column`, gap: `1rem` }}>
-            <Box sx={{ display: `flex`, gap: `1rem` }}>
-              <a
-                href="https://discord.gg/9DwhnHQk"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <Image src="/discord.png" />
-              </a>
-              <a
-                href="https://twitter.com/RaidBrood"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <Image src="/twitter.png" />
-              </a>
-            </Box>
-            <Box>
-              <Text
-                sx={{ color: `white`, fontFamily: `'futura-pt', sans-serif` }}
-              >
-                Made with ⚔️ for our fellow raiders.
-              </Text>
-              <Text
-                sx={{ color: `white`, fontFamily: `'futura-pt', sans-serif` }}
-              >
-                <span style={{ fontWeight: `700`, color: `#E0232C` }}>
-                  &copy; 2022 Raid Brood.
-                </span>{" "}
-                All rights reserved.
-              </Text>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: `grid`,
-              gridTemplateColumns: `1fr 1fr`,
-              placeItems: `center`,
-              gap: `1rem`,
-            }}
-          >
-            <Image src="/WoodsBoss.svg" />
-            <Image src="/RaidBrood.png" />
-          </Box>
-        </Box>
-      </Box>
+      <Footer />
       <Image src="/Pill.png" sx={{position: `fixed`, right: `5vw`, bottom: `5vh`, width: `60px`}} onClick={() => executeScroll()}/>
     </>
   );

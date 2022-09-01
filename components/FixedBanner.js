@@ -1,9 +1,12 @@
 import { Box, Image } from "@chakra-ui/react";
+import styles from "./FixedBanner.module.scss";
 
 export default function FixedBanner(props) {
   return (
-    <Box sx={{position: `fixed`, display: `flex`, flexDirection: `column`, justifyContent: `center`, height: `100vh`}}>
-        <Image src="/redpil-logo.png" sx={{maxHeight: `90vh`}} />
+    <Box
+      className={styles.banner}
+    >
+      <Image src="/redpil-logo.png" className={styles.image} sx={{ maxHeight: `90vh` }} />
     </Box>
   );
 }

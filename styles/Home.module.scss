@@ -1,0 +1,8 @@
+.heading {
+    font-family: 'futura-pt', sans-serif;
+    font-weight: 500;
+    font-size: 15vh;
+    @media screen and (max-width: 760px) {
+        font-size: 48px;
+    }
+}
