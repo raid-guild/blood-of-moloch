@@ -18,6 +18,7 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: "Code has already been claimed." });
         }
 
+        await contract.init();
         try {
             const tx = await contract.claim(address, code);
             const receipt = await tx.wait();
