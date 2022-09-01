@@ -17,6 +17,7 @@ export default async function handler(req, res) {
             return returnClaimed(true);
         }
 
+        await contract.init();
         const claimed = await contract.isClaimed(code);
         if (claimed) {
             return returnClaimed(true);
