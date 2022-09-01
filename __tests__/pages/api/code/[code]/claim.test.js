@@ -19,7 +19,7 @@ describe("claim API endpoint", () => {
 
     it("should return error 400 if pass_code is invalid", async () => {
         process.env.PASS_CODE = "test";
-        const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
+        jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
         const address = "XYZ";
@@ -40,14 +40,14 @@ describe("claim API endpoint", () => {
         expect(res._getStatusCode()).toEqual(400);
         expect(JSON.parse(res._getData())).toEqual(
             expect.objectContaining({
-                error: "Code has already been claimed.",
+                error: "Code cannot be confirmed.",
             }),
         );
     });
 
     it("should return error 400 if pass_code is not passed", async () => {
         process.env.PASS_CODE = "test";
-        const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
+        jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
         const address = "XYZ";
@@ -67,7 +67,7 @@ describe("claim API endpoint", () => {
         expect(res._getStatusCode()).toEqual(400);
         expect(JSON.parse(res._getData())).toEqual(
             expect.objectContaining({
-                error: "Code has already been claimed.",
+                error: "Code cannot be confirmed.",
             }),
         );
     });
