@@ -29,7 +29,8 @@ export default function RedeemPage(props) {
         method: "POST",
         body: JSON.stringify(data)
     }
-    const response = await fetch(`/code/${code}`);
+    const response = await fetch(`/api/code/${code}/claim`, options);
+    console.log({response});
   }
 
   return (
