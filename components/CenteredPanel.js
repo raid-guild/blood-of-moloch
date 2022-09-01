@@ -1,16 +1,11 @@
 import { Box } from "@chakra-ui/react";
-
+import styles from "./CenteredPanel.module.scss";
 export default function CenteredPanel(props) {
   return (
     <Box
     ref={props?.customRef}
     onMouseEnter={props?.onMouseEnter}
-      sx={{
-        display: `grid`,
-        width: `100%`,
-        height: `100vh`,
-        alignItems: `center`
-      }}
+    className={styles.panel}
     >
       {props.children}
     </Box>
