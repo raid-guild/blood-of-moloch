@@ -7673,7 +7673,7 @@
     "web3-core-method" "1.7.5"
     "web3-utils" "1.7.5"
 
-"web3-providers-http@1.7.5":
+"web3-providers-http@^1.7.5", "web3-providers-http@1.7.5":
   "integrity" "sha512-vPgr4Kzy0M3CHtoP/Bh7qwK/D9h2fhjpoqctdMWVJseOfeTgfOphCKN0uwV8w2VpZgDPXA8aeTdBx5OjmDdStA=="
   "resolved" "https://registry.npmjs.org/web3-providers-http/-/web3-providers-http-1.7.5.tgz"
   "version" "1.7.5"

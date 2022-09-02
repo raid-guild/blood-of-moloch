@@ -21,10 +21,13 @@ export default function RedeemPage(props) {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
 
+
   const submitData = async () => {
     const data = {
-        address, password
+        address: address, 
+        password: password
     };
+
     const options = {
         method: "POST",
         body: JSON.stringify(data)

@@ -6,7 +6,7 @@ export default function FixedBanner(props) {
     <Box
       className={styles.banner}
     >
-      <Image src="/redpil-logo.png" className={styles.image} sx={{ maxHeight: `90vh` }} />
+      {/* <Image src="/redpil-logo.png" className={styles.image} sx={{ maxHeight: `90vh` }} /> */}
     </Box>
   );
 }
