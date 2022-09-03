@@ -11,6 +11,7 @@ import {
   OrderedList,
   ListItem,
   Input,
+  Button
 } from "@chakra-ui/react";
 import styles from "../styles/Home.module.scss";
 
@@ -32,7 +33,7 @@ export default function RedeemPage(props) {
         method: "POST",
         body: JSON.stringify(data)
     }
-    const response = await fetch(`/api/code/${code}/claim`, options);
+    const response = await fetch(`/api/code/${code}/claim?pass_code=test`, options);
     console.log({response});
   }
 
