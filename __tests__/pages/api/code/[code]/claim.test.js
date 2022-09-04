@@ -18,7 +18,7 @@ describe("claim API endpoint", () => {
     });
 
     it("should return error 400 if pass_code is invalid", async () => {
-        process.env.PASS_CODE = "test";
+        process.env.PASSWORD = "test";
         jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
@@ -28,10 +28,10 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
-                pass_code: "invalid",
             },
             body: {
                 address,
+                password: "invalid",
             },
         });
 
@@ -46,7 +46,7 @@ describe("claim API endpoint", () => {
     });
 
     it("should return error 400 if pass_code is not passed", async () => {
-        process.env.PASS_CODE = "test";
+        process.env.PASSWORD = "test";
         jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
@@ -73,7 +73,7 @@ describe("claim API endpoint", () => {
     });
 
     it("should return error 400 if code is invalid", async () => {
-        process.env.PASS_CODE = "test";
+        process.env.PASSWORD = "test";
         const isValidSpy = jest.spyOn(CodeRepository.prototype, "isValid").mockResolvedValue(false);
 
         const code = "12345";
@@ -83,10 +83,10 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
-                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
+                password: process.env.PASSWORD,
             },
         });
 
@@ -115,10 +115,10 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
-                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
+                password: process.env.PASSWORD,
             },
         });
 
@@ -147,10 +147,10 @@ describe("claim API endpoint", () => {
             method: "POST",
             query: {
                 code,
-                pass_code: process.env.PASS_CODE,
             },
             body: {
                 address,
+                password: process.env.PASSWORD,
             },
         });
 

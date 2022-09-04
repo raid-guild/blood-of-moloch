@@ -6,13 +6,14 @@ const contract = new Contract();
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const pass_code = process.env.PASS_CODE;
+        // const pass_code = process.env.PASS_CODE;
 
+        // const { code } = req.query;
+        // const { address } = JSON.parse(req.body);
         const { code } = req.query;
-        const { address } = JSON.parse(req.body);
-        
+        const { address, password } = JSON.parse(req.body);
 
-        if (!pass_code || pass_code !== process.env.PASS_CODE) {
+        if (!password || password !== process.env.PASSWORD) {
             return res.status(400).json({ error: "Code cannot be confirmed." });
         }
 

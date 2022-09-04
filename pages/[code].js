@@ -14,6 +14,7 @@ import {
   Button
 } from "@chakra-ui/react";
 import styles from "../styles/Home.module.scss";
+import { ethers } from "ethers";
 
 export default function RedeemPage(props) {
   const router = useRouter();
@@ -87,6 +88,10 @@ export default function RedeemPage(props) {
                       onChange={(e) => setAddress(e.target.value)}
                       sx={{ minWidth: `40vw`, width: `100%` }}
                     />
+                    {console.log("address", address)}
+                    {console.log("address.length", address.length)}
+                    {console.log(address.length > 0 && (ethers.utils.isAddress(address)) )}
+                    {(address.length > 0 && !(ethers.utils.isAddress(address))) ? <Text color='red'>Not a valid address</Text> : null}
                   </div>
                   <div>
                     <Text>Enter Secret Password</Text>
@@ -96,7 +101,7 @@ export default function RedeemPage(props) {
                       sx={{ minWidth: `40vw`, width: `100%` }}
                     />
                   </div>
-                  <Box
+                  <Button
                     sx={{
                       padding: `2ex 2em`,
                       margin: `1ex 0`,
@@ -108,7 +113,7 @@ export default function RedeemPage(props) {
                     onClick={() => submitData()}
                   >
                     Claim
-                  </Box>
+                  </Button>
                 </div>
               </>
             </HexPanel>
