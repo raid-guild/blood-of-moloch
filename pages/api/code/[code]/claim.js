@@ -6,10 +6,7 @@ const contract = new Contract();
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        // const pass_code = process.env.PASS_CODE;
 
-        // const { code } = req.query;
-        // const { address } = JSON.parse(req.body);
         const { code } = req.query;
         const { address, password } = JSON.parse(req.body);
 

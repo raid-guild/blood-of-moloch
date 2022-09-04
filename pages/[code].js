@@ -24,12 +24,6 @@ export default function RedeemPage(props) {
   const [password, setPassword] = useState("");
 
 
-  // const submitData = async () => {
-  //   const data = {
-  //       address: address, 
-  //       password: password
-  //   };
-
   const submitData = async () => {
     const data = {
         address, password
