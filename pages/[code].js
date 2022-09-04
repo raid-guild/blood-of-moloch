@@ -11,10 +11,7 @@ import {
   OrderedList,
   ListItem,
   Input,
-<<<<<<< HEAD
   Button
-=======
->>>>>>> main
 } from "@chakra-ui/react";
 import styles from "../styles/Home.module.scss";
 
@@ -25,29 +22,22 @@ export default function RedeemPage(props) {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
 
-<<<<<<< HEAD
 
-  const submitData = async () => {
-    const data = {
-        address: address, 
-        password: password
-    };
+  // const submitData = async () => {
+  //   const data = {
+  //       address: address, 
+  //       password: password
+  //   };
 
-=======
   const submitData = async () => {
     const data = {
         address, password
     };
->>>>>>> main
     const options = {
         method: "POST",
         body: JSON.stringify(data)
     }
-<<<<<<< HEAD
-    const response = await fetch(`/api/code/${code}/claim?pass_code=test`, options);
-=======
     const response = await fetch(`/api/code/${code}/claim`, options);
->>>>>>> main
     console.log({response});
   }
 
