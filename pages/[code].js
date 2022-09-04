@@ -32,8 +32,11 @@ export default function RedeemPage(props) {
         method: "POST",
         body: JSON.stringify(data)
     }
-    const response = await fetch(`/api/code/${code}/claim`, options);
-    console.log({response});
+
+      const response = await fetch(`/api/code/${code}/claim`, options)
+
+      console.log({response})
+      console.log("reponse.json", await response.json());
   }
 
   return (
@@ -82,9 +85,6 @@ export default function RedeemPage(props) {
                       onChange={(e) => setAddress(e.target.value)}
                       sx={{ minWidth: `40vw`, width: `100%` }}
                     />
-                    {console.log("address", address)}
-                    {console.log("address.length", address.length)}
-                    {console.log(address.length > 0 && (ethers.utils.isAddress(address)) )}
                     {(address.length > 0 && !(ethers.utils.isAddress(address))) ? <Text color='red'>Not a valid address</Text> : null}
                   </div>
                   <div>
