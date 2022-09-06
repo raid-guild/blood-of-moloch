@@ -6,9 +6,9 @@ const contract = new Contract();
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { code } = req.query;
-        const { address, password } = req.body;
 
+        const { code } = req.query;
+        const { address, password } = JSON.parse(req.body);
         if (!password || password !== process.env.PASSWORD) {
             return res.status(400).json({ error: "Code cannot be confirmed." });
         }
@@ -19,9 +19,11 @@ export default async function handler(req, res) {
         }
 
         await contract.init();
+        
         try {
-            const tx = await contract.claim(address, code);
-            const receipt = await tx.wait();
+
+            const receipt = await contract.claim(address, code);
+            console.log("tx.status", receipt.status)
             return res.status(200).json(receipt);
         } catch (err) {
             return res.status(400).json({ error: err.message });

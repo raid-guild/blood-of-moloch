@@ -23,7 +23,8 @@
     "react-hot-toast": "^2.3.0",
     "react-spinners": "^0.13.4",
     "react-use": "^17.4.0",
-    "sass": "^1.54.8"
+    "sass": "^1.54.8",
+    "web3-providers-http": "^1.7.5"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
