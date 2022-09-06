@@ -205,6 +205,18 @@ export default function Home() {
               </HexPanel>
             </div>
           </CenteredPanel>
+          <CenteredPanel>
+            <div>
+              <Heading className={styles.heading}>HOW TO PURCHASE:</Heading>
+              <HexPanel>
+                <div style={{fontFamily: `'futura-pt', sans-serif`}}>
+                  <OrderedList>
+                    <ListItem>Send 55.5xdai to <span style={{fontWeight: `700`, color: `#E0232C`, textDecoration: `underline`}}>0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf</span></ListItem>
+                  </OrderedList>
+                </div>
+              </HexPanel>
+            </div>
+          </CenteredPanel>
           <CenteredPanel customRef={beerCanSection}>
             <iframe
               src="https://my.spline.design/realisticsodacancopy-a3a8de6488bfc09d3122f167efec28c0/"
