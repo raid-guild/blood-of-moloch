@@ -12,14 +12,20 @@ import {
   OrderedList,
   ListItem,
   Image,
+  Input,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
+import toast from "react-hot-toast";
+import { createClient } from "@supabase/supabase-js";
 
 export default function Home() {
   const web3Section = useRef(null);
   const takePilSection = useRef(null);
   const beerCanSection = useRef(null);
+  const purchaseSection = useRef(null);
   const [nextSection, setNextSection] = useState(web3Section);
+  const [hash, setHash] = useState("");
+  const [isHashSubmitted, setIsHashSubmitted] = useState(false);
 
   const executeScroll = () => {
     nextSection.current.scrollIntoView({ behavior: `smooth` });
@@ -28,10 +34,36 @@ export default function Home() {
         return takePilSection;
       }
       if (v == takePilSection) {
+        return purchaseSection;
+      }
+      if (v == purchaseSection) {
         return beerCanSection;
       }
       return v;
     });
+  };
+
+  const copyAddress = async (address) => {
+    await navigator.clipboard.writeText(address);
+    toast.success("Address Copied");
+  };
+
+  const saveTxn = async () => {
+    const supabase = createClient(
+      "https://bxhhwnjdfjwbsefxqbig.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4aGh3bmpkZmp3YnNlZnhxYmlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjI0ODA5NDQsImV4cCI6MTk3ODA1Njk0NH0.788uNaChjARM3J8JU6OSN5PVj4RBBvi5abMxBXa9X3U"
+    );
+    try {
+      const { data, error } = await supabase
+        .from("txns")
+        .insert([{ txn_hash: `${hash}` }]);
+      console.log({ data });
+      toast.success("Txn Submitted");
+      setHash("");
+      setIsHashSubmitted(true);
+    } catch (error) {
+      toast.error("Failed to submit");
+    }
   };
 
   return (
@@ -146,7 +178,7 @@ export default function Home() {
           </CenteredPanel>
           <CenteredPanel
             customRef={takePilSection}
-            onMouseEnter={() => setNextSection(beerCanSection)}
+            onMouseEnter={() => setNextSection(purchaseSection)}
           >
             <div>
               <Heading className={styles.heading}>
@@ -205,14 +237,67 @@ export default function Home() {
               </HexPanel>
             </div>
           </CenteredPanel>
-          <CenteredPanel>
+          <CenteredPanel customRef={purchaseSection} onMouseEnter={() => setNextSection(beerCanSection)}>
             <div>
               <Heading className={styles.heading}>HOW TO PURCHASE:</Heading>
               <HexPanel>
-                <div style={{fontFamily: `'futura-pt', sans-serif`}}>
+                <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
                   <OrderedList>
-                    <ListItem>Send 55.5xdai to <span style={{fontWeight: `700`, color: `#E0232C`, textDecoration: `underline`}}>0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf</span></ListItem>
+                    <ListItem>
+                      Send 55.5xdai to{" "}
+                      <span
+                        style={{
+                          fontWeight: `700`,
+                          color: `#E0232C`,
+                          textDecoration: `underline`,
+                        }}
+                        onClick={() => {
+                          console.log("Click Detected");
+                          copyAddress(
+                            "0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf"
+                          );
+                        }}
+                      >
+                        Raid Brood DAO
+                      </span>
+                      <br />
+                      ON GNOSIS CHAIN.
+                    </ListItem>
+                    <ListItem>Paste Txn Hash in adjacent form.</ListItem>
+                    <ListItem>Claim Pil.</ListItem>
                   </OrderedList>
+                </div>
+                <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
+                  {!isHashSubmitted && (
+                    <>
+                      <div>
+                        <Text>Enter Txn Hash</Text>
+                        <Input
+                          value={hash}
+                          onChange={(e) => setHash(e.target.value)}
+                          sx={{ minWidth: `40vw`, width: `100%` }}
+                        />
+                      </div>
+
+                      <Box
+                        sx={{
+                          padding: `2ex 2em`,
+                          margin: `1ex 0`,
+                          backgroundColor: `#E0232C`,
+                          color: `white`,
+                          textAlign: `center`,
+                          borderRadius: `6px`,
+                          fontFamily: `'futura-pt', sans-serif`,
+                        }}
+                        onClick={() => saveTxn()}
+                      >
+                        Send
+                      </Box>
+                    </>
+                  )}
+                  {isHashSubmitted && (
+                    <Heading>Thanks!</Heading>
+                  )}
                 </div>
               </HexPanel>
             </div>
@@ -242,7 +327,7 @@ export default function Home() {
           width: `60px`,
           zIndex: `1`,
         }}
-        _hover={{cursor: `pointer`}}
+        _hover={{ cursor: `pointer` }}
         onClick={() => executeScroll()}
       />
     </>
