@@ -12,7 +12,7 @@ import {
   OrderedList,
   ListItem,
   Input,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import styles from "../../../styles/Home.module.scss";
 import toast from "react-hot-toast";
@@ -37,21 +37,22 @@ export default function RedeemPage(props) {
       body: JSON.stringify(data),
     };
     try {
-    const res = await fetch(`/api/code/${code}/claim`, options);
-    const response = await res.json();
-    if (response.error) {
-      throw response.error;
-    } else if (response?.receipt?.status == 1) {
-      toast.success("Claim Successful");
-      setIsLoading(false);
-      setIsSuccessful(true);
-    }
+      const res = await fetch(`/api/code/${code}/claim`, options);
+      const response = await res.json();
+      console.log(response);
+      if (response.error) {
+        throw response.error;
+      } else if (response?.status == 1) {
+        toast.success("Claim Successful");
+        setIsLoading(false);
+        setIsSuccessful(true);
+      }
     } catch (error) {
       toast.error("Failed to mint");
       setIsLoading(false);
     }
   };
-  
+
   return (
     <>
       <Box sx={{ display: `grid`, gridTemplateColumns: `1fr 5fr` }}>
@@ -74,7 +75,7 @@ export default function RedeemPage(props) {
             </Heading>
             <HexPanel>
               <>
-                <div style={{fontFamily: `'futura-pt'`}}>
+                <div style={{ fontFamily: `'futura-pt'` }}>
                   <Heading>How to claim:</Heading>
                   <OrderedList>
                     <ListItem>
@@ -91,7 +92,7 @@ export default function RedeemPage(props) {
                     flexDirection: `column`,
                   }}
                 >
-                  <div style={{fontFamily: `'futura-pt'`}}>
+                  <div style={{ fontFamily: `'futura-pt'` }}>
                     <Text>Enter Public Address</Text>
                     <Input
                       value={address}
@@ -115,7 +116,7 @@ export default function RedeemPage(props) {
                       color: `white`,
                       textAlign: `center`,
                       borderRadius: `6px`,
-                      fontFamily: `'futura-pt'`
+                      fontFamily: `'futura-pt'`,
                     }}
                     onClick={() => submitData()}
                   >
@@ -138,7 +139,7 @@ export default function RedeemPage(props) {
             left: `0`,
             top: `0`,
             zIndex: `10`,
-            backgroundColor: `rgba(0,0,0,0.1)`
+            backgroundColor: `rgba(0,0,0,0.1)`,
           }}
         >
           <Box
@@ -152,7 +153,7 @@ export default function RedeemPage(props) {
               flexDirection: `column`,
               alignItems: `center`,
               justifyContent: `center`,
-              gap: `1rem`
+              gap: `1rem`,
             }}
           >
             <Heading className={styles.heading}>Attempting Claim...</Heading>
@@ -171,7 +172,7 @@ export default function RedeemPage(props) {
             left: `0`,
             top: `0`,
             zIndex: `10`,
-            backgroundColor: `rgba(0,0,0,0.1)`
+            backgroundColor: `rgba(0,0,0,0.1)`,
           }}
           onClick={() => setIsSuccessful(false)}
         >
@@ -185,11 +186,11 @@ export default function RedeemPage(props) {
               flexDirection: `column`,
               alignItems: `center`,
               justifyContent: `center`,
-              gap: `1rem`
+              gap: `1rem`,
             }}
           >
             <Heading className={styles.heading}>NFT Minted</Heading>
-            <Image src="/assets/redpil/red-pil.png" sx={{width: `250px`}}/>
+            <Image src="/assets/redpil/red-pil.png" sx={{ width: `250px` }} />
           </Box>
         </Box>
       )}

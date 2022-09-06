@@ -26,6 +26,7 @@ export default async function handler(req, res) {
             console.log("tx.status", receipt.status)
             return res.status(200).json(receipt);
         } catch (err) {
+            console.error(err);
             return res.status(400).json({ error: err.message });
         }
     }
