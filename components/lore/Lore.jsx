@@ -40,7 +40,7 @@ export const Lore = () => {
           Lore
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
-          Through the long winter of '18 and the mania that followed, the
+          Through the long winter of &apos;18 and the mania that followed, the
           mercenaries at Raid Guild have gathered to share stories of battle,
           cleaning the Blood of Moloch from their armor and sharpening their
           swords.

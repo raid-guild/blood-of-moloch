@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import FixedBanner from "../../../components/redpil/FixedBanner";
 import CenteredPanel from "../../../components/redpil/CenteredPanel";
 import HexPanel from "../../../components/redpil/HexPanel";
@@ -13,7 +14,6 @@ import {
   Input,
 } from "@chakra-ui/react";
 import styles from "../../../styles/Home.module.scss";
-import ClipLoader from "react-spinners/ClipLoader";
 
 export default function RedeemPage(props) {
   const router = useRouter();
