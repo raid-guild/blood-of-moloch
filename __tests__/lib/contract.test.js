@@ -31,6 +31,7 @@ describe("Contract", () => {
             init: () => jest.fn(),
         });
         process.env.NETWORK = "gnosis";
+        process.env.GNOSIS_RPC_URL = "https://rpc.ankr.com/gnosis";
         const contract = new Contract();
         await contract.init();
         expect(ethers.providers.JsonRpcProvider).toHaveBeenCalledTimes(1);
