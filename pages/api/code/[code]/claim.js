@@ -1,6 +1,6 @@
 import CodeRepository from "../../../../lib/code_repository";
 import Contract from "../../../../lib/contract";
-import ethers from "ethers";
+import { ethers } from "ethers";
 
 const repository = new CodeRepository();
 const contract = new Contract();
