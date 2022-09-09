@@ -244,7 +244,7 @@ export default function Home() {
                 <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
                   <OrderedList>
                     <ListItem>
-                      Send 55.5xdai to{" "}
+                      Send $6 equivalent to{" "}
                       <span
                         style={{
                           fontWeight: `700`,
@@ -254,14 +254,12 @@ export default function Home() {
                         onClick={() => {
                           console.log("Click Detected");
                           copyAddress(
-                            "0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf"
+                            "0x104d7f12941eb03c15badec9ae20523c34677329"
                           );
                         }}
                       >
-                        Raid Brood DAO
-                      </span>
-                      <br />
-                      ON GNOSIS CHAIN.
+                        raidbrood.eth
+                      </span>.
                     </ListItem>
                     <ListItem>Paste Txn Hash in adjacent form.</ListItem>
                     <ListItem>Claim Pil.</ListItem>
