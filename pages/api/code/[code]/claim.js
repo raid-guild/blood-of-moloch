@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       } else {
         newAddress = address;
       }
-
+      console.log({newAddress});
       const receipt = await contract.claim(newAddress, code);
       console.log("tx.status", receipt.status);
       return res.status(200).json(receipt);
