@@ -10,16 +10,16 @@ export default async function handler(req, res) {
     try {
       const { code } = req.query;
       let { address, password } = JSON.parse(req.body);
-      if (!password || password !== process.env.PASSWORD) {
-        return res.status(400).json({ error: "Code cannot be confirmed." });
-      }
+    //   if (!password || password !== process.env.PASSWORD) {
+    //     return res.status(400).json({ error: "Code cannot be confirmed." });
+    //   }
 
-      const foundCode = await repository.isValid(code);
-      if (!foundCode) {
-        return res
-          .status(400)
-          .json({ error: "Code has already been claimed." });
-      }
+    //   const foundCode = await repository.isValid(code);
+    //   if (!foundCode) {
+    //     return res
+    //       .status(400)
+    //       .json({ error: "Code has already been claimed." });
+    //   }
 
       await contract.init();
       const provider = ethers.providers.getDefaultProvider("homestead", {
