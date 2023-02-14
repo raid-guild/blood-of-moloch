@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { Meta } from "../shared/Meta";
-import { Layout } from "../shared/Layout";
-import { Header } from "../shared/Header";
-import { Footer } from "../shared/Footer";
+import { Meta } from "../../shared/Meta";
+import { Layout } from "../../shared/Layout";
+import { Header } from "../../shared/Header";
+import { Footer } from "../../shared/Footer";
 
-import { Hero } from "../components/splash/Hero";
-import { About } from "../components/splash/About";
-import { Beers } from "../components/splash/Beers";
-import { Brew } from "../components/splash/Brew";
+import { Lore } from "../../components/lore/Lore";
+import { Eevee } from "../../components/lore/Eevee";
+import { Dao } from "../../components/lore/Dao";
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState("");
@@ -30,10 +29,9 @@ export default function Home() {
       <Meta />
       <Header windowWidth={windowWidth} />
 
-      <Hero />
-      <About />
-      <Beers />
-      <Brew />
+      <Lore />
+      <Eevee />
+      <Dao />
 
       <Footer />
     </Layout>
