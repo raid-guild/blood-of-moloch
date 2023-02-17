@@ -1,8 +1,8 @@
-import { Flex, SimpleGrid, Text, Image, Box, Link } from '@chakra-ui/react';
+import { Flex, SimpleGrid, Text, Image, Box, Link } from "@chakra-ui/react";
 
-import styled from '@emotion/styled';
-import { theme } from '../../styles/theme';
-import { BEER_CONTENT } from '../../utils/constants';
+import styled from "@emotion/styled";
+import { theme } from "../../styles/theme";
+import { BEER_CONTENT } from "../../utils/constants";
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -24,9 +24,6 @@ const StyledCard = styled(Flex)`
   flex-direction: column;
   border-radius: 8px;
   padding: 20px 24px;
-  :hover {
-    background-color: ${theme.colors.blackDark};
-  }
 `;
 const StyledCardHeading = styled(Text)`
   width: 100%;
@@ -38,9 +35,9 @@ const StyledCardHeading = styled(Text)`
 const StyledCardText = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.sourceSansPro};
-  color: ${color => color};
+  color: ${(color) => color};
   text-align: left;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
 
 const StyledBodyText = styled(Text)`
@@ -50,44 +47,52 @@ const StyledBodyText = styled(Text)`
   text-align: left;
 `;
 
+const StyledBox = styled(Box)`
+  margin-bottom: 3rem;
+  height: 100%;
+  border-radius: 6px;
+  :hover {
+    background-color: ${theme.colors.blackDark};
+  }
+`;
+
 export const Beers = () => {
   return (
-    <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
-      <StyledHeading fontSize={{ lg: '32px', base: '20px' }}>
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
+      <StyledHeading fontSize={{ lg: "32px", base: "20px" }}>
         Our Brood
       </StyledHeading>
-      <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
+      <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
         At RaidBrood, brews are our weapons in the fight against Moloch. Armed
         with grains, hops, yeast and water, our master brewers are practiced in
         the arts and sciences of brewish battle. This is our arsenal.
       </StyledBodyText>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 3 }} gap={10}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 2 }} gap={10}>
         {BEER_CONTENT.map((beer, index) => (
-          <Box
+          <StyledBox
             key={index}
-            minH={{ xl: '525px', lg: '525px', md: '525px', sm: '450px' }}
-            position='relative'
-            cursor='pointer'
+            minH={{ xl: "525px", lg: "525px", md: "525px", sm: "450px" }}
+            position="relative"
+            cursor="pointer"
           >
             <Link href={beer.path}>
-              <StyledCard h='100%' key={index}>
+              <StyledCard h="100%" key={index}>
                 <StyledCardHeading
-                  minH={{ lg: '75px', sm: '40px' }}
-                  fontSize={{ lg: '36px', base: '16px' }}
+                  minH={{ lg: "75px", sm: "40px" }}
+                  fontSize={{ lg: "36px", base: "16px" }}
                 >
                   {beer.title}
                 </StyledCardHeading>
-                <Image src={beer.label} alt='cans' maxH='100%' />
+                <Image src={beer.label} alt="cans" maxH="100%" />
                 <StyledCardText
-                  fontWeight='bold'
-                  color='#B66AD6'
-                  fontSize={{ lg: '16px', base: '16px' }}
+                  color="#B66AD6"
+                  fontSize={{ lg: "16px", base: "16px" }}
                 >
                   {beer.description}
                 </StyledCardText>
               </StyledCard>
             </Link>
-          </Box>
+          </StyledBox>
         ))}
       </SimpleGrid>
     </StyledContainer>

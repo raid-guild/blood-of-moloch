@@ -1,6 +1,7 @@
-import { Flex, Image, Link, Text } from '@chakra-ui/react';
-import styled from '@emotion/styled';
-import { theme } from '../../styles/theme';
+import { Flex, Image, Link, Text } from "@chakra-ui/react";
+import { PopupButton } from "@typeform/embed-react";
+import styled from "@emotion/styled";
+import { theme } from "../../styles/theme";
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -21,58 +22,57 @@ const StyledBodyText = styled(Text)`
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
+  margin-bottom: 2rem;
+`;
+
+const StyledPopupButton = styled(PopupButton)`
+  font-family: ${theme.fonts.sourceSansPro};
+  color: white;
+  background-color: #ff3864;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px 33px;
+  margin-top: 2rem;
+  :hover {
+    opacity: 0.85;
+  }
+`;
+
+const StyledLink = styled.a`
+  color: #ff3864;
+  opacity: 1;
+  :hover {
+    opacity: 0.85;
+  }
 `;
 
 export const Brew = () => {
   return (
-    <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
-      <Flex w='100%' direction='column' justifyContent='space-between'>
-        <StyledHeading fontSize={{ xl: '54px', lg: '44px', base: '20px' }}>
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
+      <Flex w="100%" direction="column" justifyContent="space-between">
+        <StyledHeading fontSize={{ xl: "54px", lg: "44px", base: "20px" }}>
           Brew a Batch
         </StyledHeading>
-        <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
+        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
           RaidBrood brews custom batches for communities, conferences, and other
-          events. Example brew collaborators include{' '}
-          <a href='https://greenpill.party/'>GreenPill Podcast</a> and{' '}
-          <a href='https://www.sporkdao.org/'>SporkDAO/ETHDenver 2023</a>.
+          events. Example brew collaborators include{" "}
+          <StyledLink href="https://greenpill.party/">
+            GreenPill Podcast
+          </StyledLink>{" "}
+          and{" "}
+          <StyledLink href="https://www.sporkdao.org/">
+            SporkDAO/ETHDenver 2023
+          </StyledLink>
+          .
         </StyledBodyText>
-        <StyledBodyText fontSize={{ lg: '18px', base: '12px' }}>
+        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
           Do you want to join us in the endeavour of exlixir to fuel our fight
           against Moloch by making a batch for you?
         </StyledBodyText>
       </Flex>
-
-      <button
-        data-tf-popup='IGJVI7XW'
-        data-tf-opacity='100'
-        data-tf-size='100'
-        data-tf-iframe-props='title=Brood Tester'
-        data-tf-transitive-search-params
-        data-tf-medium='snippet'
-        style={{
-          all: 'unset',
-          fontFamily: 'Helvetica,Arial,sans-serif',
-          display: 'inline-block',
-          maxWidth: '100%',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          backgroundColor: '#0445AF',
-          color: '#fff',
-          fontSize: '20px',
-          borderRadius: '25px',
-          padding: '0 33px',
-          fontWeight: 'bold',
-          height: '50px',
-          cursor: 'pointer',
-          lineHeight: '50px',
-          textAlign: 'center',
-          margin: '0',
-          textDecoration: 'none',
-        }}
-      >
+      <StyledPopupButton id="IGJVI7XW" className="my-button">
         Contact Us
-      </button>
+      </StyledPopupButton>
     </StyledContainer>
   );
 };
