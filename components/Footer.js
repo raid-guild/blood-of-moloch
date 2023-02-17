@@ -1,10 +1,10 @@
 import { Text, Box, Image } from "@chakra-ui/react";
 
-export default function Footer(props, logo) {
+export default function Footer(props) {
   return (
     <Box
       sx={{
-        backgroundImage: `${logo}`,
+        backgroundImage: `${props.logo}`,
         width: `100vw`,
         height: `150px`,
         display: `grid`,
@@ -30,14 +30,14 @@ export default function Footer(props, logo) {
               rel="noreferrer"
               target="_blank"
             >
-              <Image src="/assets/discord.png" alt={"Discord"} />
+              <Image src="/discord.png" alt={"Discord"} />
             </a>
             <a
               href="https://twitter.com/RaidBrood"
               rel="noreferrer"
               target="_blank"
             >
-              <Image src="/assets/twitter.png" alt={"Twitter"} />
+              <Image src="/twitter.png" alt={"Twitter"} />
             </a>
           </Box>
           <Box>
@@ -64,8 +64,8 @@ export default function Footer(props, logo) {
             gap: `1rem`,
           }}
         >
-          <Image src="/assets/WoodsBoss.svg" alt={"WoodsBossLogo"} />
-          <Image src="/assets/RaidBrood.png" alt={"RaidBroodLogo"} />
+          <Image src="/WoodsBoss.svg" alt={"WoodsBossLogo"} />
+          <Image src="/RaidBrood.png" alt={"RaidBroodLogo"} />
         </Box>
       </Box>
     </Box>

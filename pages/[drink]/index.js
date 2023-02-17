@@ -215,7 +215,7 @@ export default function DrinkPage() {
           <CenteredPanel customRef={beerCanSection}>
             <Can drink={"blood-of-moloch"} />
             <Image
-              src={`/assets/whiterabbit.png`}
+              src={`/whiterabbit.png`}
               alt="rabbit"
               sx={{ position: `absolute`, bottom: `0px`, right: `10%` }}
             />
