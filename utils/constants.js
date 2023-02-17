@@ -1,57 +1,61 @@
 export const MEDIA_FILES = {
   illustrations: {
-    one: "https://res.cloudinary.com/raidguild/image/upload/v1643179233/BroodGuild/illustrations/illustration_one_tgeifv.svg",
-    two: "https://res.cloudinary.com/raidguild/image/upload/v1643179282/BroodGuild/illustrations/illustration_two_kkrfoo.svg",
+    one: 'https://res.cloudinary.com/raidguild/image/upload/v1643179233/BroodGuild/illustrations/illustration_one_tgeifv.svg',
+    two: 'https://res.cloudinary.com/raidguild/image/upload/v1643179282/BroodGuild/illustrations/illustration_two_kkrfoo.svg',
     three:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643179316/BroodGuild/illustrations/char_xbpfo9.png",
-    four: "https://res.cloudinary.com/raidguild/image/upload/v1643179272/BroodGuild/illustrations/illustration_four_vypdoj.svg",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643179316/BroodGuild/illustrations/char_xbpfo9.png',
+    four: 'https://res.cloudinary.com/raidguild/image/upload/v1643179272/BroodGuild/illustrations/illustration_four_vypdoj.svg',
   },
   icons: {
     twitter:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/twitter_icon_abdu0n.svg",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/twitter_icon_abdu0n.svg',
     discord:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/discord_icon_d3w2fz.svg",
-    drop: "https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/drop_icon_lqsnua.svg",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/discord_icon_d3w2fz.svg',
+    drop: 'https://res.cloudinary.com/raidguild/image/upload/v1643179670/BroodGuild/icons/drop_icon_lqsnua.svg',
   },
   logos: {
     header:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180026/BroodGuild/logos/logo_header_ft30av.svg",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180026/BroodGuild/logos/logo_header_ft30av.svg',
     footer:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180026/BroodGuild/logos/logo_footer_vgaciq.svg",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180026/BroodGuild/logos/logo_footer_vgaciq.svg',
   },
 };
 
 export const BEER_CONTENT = [
   {
-    title: "Blood of Moloch",
+    title: 'Blood of Moloch',
     description:
-      "A treacherous Kashmir IPA is smashed. If the sake bomb toward the girl scout trades baseball cards with a Yuengling living with some jersey cow.",
+      'From below his sacrificial altar, we drove our blade into the demon’s flesh. The harvest of battle is blood, intense, complex and rich, with flavors of roasted malts, dark chocolate, dark fruits and espresso. Drink its poison, all 14% abv of it!',
     canImage:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/blood-of-moloch",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg',
+    path: '/blood-of-moloch',
+    label: '/assets/drink/blood-of-moloch/label.svg',
   },
   {
-    title: "Red Pil",
+    title: 'Red Pil',
     description:
-      "A Busch toward an ice house, an ice house living with a bar stool, and a pissed hops are what made America great! ",
+      'Crisp and dry, traditional pilsner profile with a touch of lemongrass, bergamot and blacktea from late Saphir hop additions. Fermented with OldWorld+NewBeast Kveik Yeast. All the clean pilsner taste, with only 1/6 the brewing time.',
     canImage:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/red-pil",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg',
+    path: '/red-pil',
+    label: '/assets/drink/red-pil/label.svg',
   },
   {
-    title: "Green Pil",
+    title: 'Green Pil',
     description:
-      "The sudsy Ipswich Ale recognizes the micro brew. An unwisely unstable Dixie Beer gives the last beer to a Harpoon.",
+      'A hop forward crushable Kveik Pilsner. Made in collaboration with the Green Pil Podcast. $1 form every sale going to fund public goods.',
     canImage:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/green-pil",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg',
+    path: '/green-pil',
+    label: '/assets/drink/green-pil/label.svg',
   },
   {
-    title: "Spork Sour",
+    title: 'Spork Sour',
     description:
-      "Any Ellis Island IPA can brainwash the seldom obsequious chain saw, but it takes a real keg to slyly have a change of heart about the line dancer for a blue moon.",
+      'Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with SporkDAO for ETH Denver 2023.',
     canImage:
-      "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/spork-sour",
+      'https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg',
+    path: '/spork-sour',
+    label: '/assets/drink/spork-sour/label.svg',
   },
 ];
