@@ -49,7 +49,6 @@ const StyledBodyText = styled(Text)`
 
 const StyledBox = styled(Box)`
   margin-bottom: 3rem;
-  height: 100%;
   border-radius: 6px;
   :hover {
     background-color: ${theme.colors.blackDark};
@@ -59,7 +58,7 @@ const StyledBox = styled(Box)`
 export const Beers = () => {
   return (
     <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
-      <StyledHeading fontSize={{ lg: "32px", base: "20px" }}>
+      <StyledHeading fontSize={{ lg: "42px", base: "30px" }}>
         Our Brood
       </StyledHeading>
       <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
@@ -67,11 +66,11 @@ export const Beers = () => {
         with grains, hops, yeast and water, our master brewers are practiced in
         the arts and sciences of brewish battle. This is our arsenal.
       </StyledBodyText>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 2 }} gap={10}>
+      <SimpleGrid columns={{ base: 1, md: 1, lg: 2, xl: 2 }} gap={10}>
         {BEER_CONTENT.map((beer, index) => (
           <StyledBox
             key={index}
-            minH={{ xl: "525px", lg: "525px", md: "525px", sm: "450px" }}
+            minH={{ xl: "585px", lg: "525px", md: "425px", sm: "450px" }}
             position="relative"
             cursor="pointer"
           >
