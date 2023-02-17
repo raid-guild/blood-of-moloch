@@ -1,4 +1,5 @@
-export default function RedLine() {
+export default function Line(bgColor) {
+  let color = bgColor ? bgColor : `#D52731`;
   return (
     <>
       <div
@@ -15,14 +16,14 @@ export default function RedLine() {
             borderRadius: `100px`,
             width: `12px`,
             height: `12px`,
-            backgroundColor: `#D52731`,
+            backgroundColor: color,
           }}
         ></div>
         <div
           style={{
             height: `30vw`,
             width: `5px`,
-            backgroundColor: `#D52731`,
+            backgroundColor: color,
             transform: `translateY(-8px)`,
           }}
         ></div>
@@ -31,7 +32,7 @@ export default function RedLine() {
             borderRadius: `100px`,
             width: `12px`,
             height: `12px`,
-            backgroundColor: `#D52731`,
+            backgroundColor: color,
             transform: `translateY(-16px)`,
           }}
         ></div>

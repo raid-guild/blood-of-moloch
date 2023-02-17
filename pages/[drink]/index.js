@@ -1,10 +1,12 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import styles from "../../styles/Home.module.scss";
-import FixedBanner from "../../components/redpil/FixedBanner";
-import CenteredPanel from "../../components/redpil/CenteredPanel";
-import HexPanel from "../../components/redpil/HexPanel";
-import RedLine from "../../components/redpil/RedLine";
-import Footer from "../../components/redpil/Footer";
+import FixedBanner from "../../components/drink/FixedBanner";
+import CenteredPanel from "../../components/drink/CenteredPanel";
+import HexPanel from "../../components/drink/HexPanel";
+import RedLine from "../../components/drink/RedLine";
+import Footer from "../../components/drink/Footer";
 import {
   Box,
   Heading,
@@ -13,30 +15,35 @@ import {
   ListItem,
   Image,
   Input,
+  useToast,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import toast from "react-hot-toast";
-import { createClient } from "@supabase/supabase-js";
+import Drinks from "../api/copy.json";
 
-export default function Home() {
+export default function DrinkPage() {
+  const router = useRouter();
+  const { drink } = router.query;
+  const toast = useToast();
   const web3Section = useRef(null);
-  const takePilSection = useRef(null);
+  const podSection = useRef(null);
   const beerCanSection = useRef(null);
-  const purchaseSection = useRef(null);
   const [nextSection, setNextSection] = useState(web3Section);
   const [hash, setHash] = useState("");
   const [isHashSubmitted, setIsHashSubmitted] = useState(false);
+
+  const copy = Drinks[drink];
+  // TODO route to 404 or home
+  if (!copy) {
+    return <>Ooopss...</>;
+  }
 
   const executeScroll = () => {
     nextSection.current.scrollIntoView({ behavior: `smooth` });
     setNextSection((v) => {
       if (v == web3Section) {
-        return takePilSection;
+        return podSection;
       }
-      if (v == takePilSection) {
-        return purchaseSection;
-      }
-      if (v == purchaseSection) {
+      if (v == podSection) {
         return beerCanSection;
       }
       return v;
@@ -45,25 +52,13 @@ export default function Home() {
 
   const copyAddress = async (address) => {
     await navigator.clipboard.writeText(address);
-    toast.success("Address Copied");
-  };
-
-  const saveTxn = async () => {
-    const supabase = createClient(
-      "https://bxhhwnjdfjwbsefxqbig.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4aGh3bmpkZmp3YnNlZnhxYmlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjI0ODA5NDQsImV4cCI6MTk3ODA1Njk0NH0.788uNaChjARM3J8JU6OSN5PVj4RBBvi5abMxBXa9X3U"
-    );
-    try {
-      const { data, error } = await supabase
-        .from("txns")
-        .insert([{ txn_hash: `${hash}` }]);
-      console.log({ data });
-      toast.success("Txn Submitted");
-      setHash("");
-      setIsHashSubmitted(true);
-    } catch (error) {
-      toast.error("Failed to submit");
-    }
+    toast.success({
+      title: "Address copied",
+      description: address,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
@@ -75,24 +70,15 @@ export default function Home() {
         <Box>
           <CenteredPanel onMouseEnter={() => setNextSection(web3Section)}>
             <div>
+              <Heading className={styles.heading}>{copy.heading.title}</Heading>
               <Heading className={styles.heading}>
-                GOOD FOR{" "}
-                <span
-                  style={{
-                    fontFamily: `'futura-pt-bold', sans-serif`,
-                    fontWeight: `700`,
-                    color: `#E0232C`,
-                  }}
-                >
-                  HUMANITY.
-                </span>
+                {copy.heading.subtitle}
               </Heading>
-              <Heading className={styles.heading}>BAD FOR MOLOCH.</Heading>
             </div>
           </CenteredPanel>
           <CenteredPanel
             customRef={web3Section}
-            onMouseEnter={() => setNextSection(takePilSection)}
+            onMouseEnter={() => setNextSection(podSection)}
           >
             <div>
               <Heading className={styles.heading}>
@@ -110,19 +96,8 @@ export default function Home() {
               <HexPanel>
                 <>
                   <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
-                    <Heading>RED PIL</Heading>
-                    <Text>
-                      Crisp and dry, traditional pilsner profile with a touch of
-                      lemongrass, bergamot, and black tea from late Saphir hop
-                      additions.
-                    </Text>
-                    <Text>
-                      Fermented with Old World + New Beast Kviek Yeast.
-                    </Text>
-                    <Text>
-                      All the clean pilsner taste, with only 1/6 the brewing
-                      time.
-                    </Text>
+                    <Heading>{copy.name.toUpperCase()}</Heading>
+                    <Text>{copy.beer}</Text>
                   </div>
                   <div
                     style={{
@@ -145,7 +120,7 @@ export default function Home() {
                           color: `#898989`,
                         }}
                       >
-                        42
+                        {`${copy.traits.abv} %`}
                       </Text>
                     </div>
                     <div
@@ -168,7 +143,7 @@ export default function Home() {
                           color: `#898989`,
                         }}
                       >
-                        5.1%
+                        {copy.traits.ibu}
                       </Text>
                     </div>
                   </div>
@@ -177,21 +152,12 @@ export default function Home() {
             </div>
           </CenteredPanel>
           <CenteredPanel
-            customRef={takePilSection}
-            onMouseEnter={() => setNextSection(purchaseSection)}
+            customRef={podSection}
+            onMouseEnter={() => setNextSection(beerCanSection)}
           >
             <div>
               <Heading className={styles.heading}>
-                TAKE THE{" "}
-                <span
-                  style={{
-                    fontFamily: `'futura-pt-bold', sans-serif`,
-                    fontWeight: `700`,
-                    color: `#E0232C`,
-                  }}
-                >
-                  PIL.
-                </span>
+                {copy.callToAction.toUpperCase()}
               </Heading>
               <HexPanel>
                 <>
@@ -205,7 +171,7 @@ export default function Home() {
                         maxWidth: `30ch`,
                       }}
                     >
-                      <ListItem>Take The Pil</ListItem>
+                      <ListItem>{copy.callToAction}</ListItem>
                       <ListItem>
                         Scan your QR code &amp; Enter the Secret Password
                       </ListItem>
@@ -237,69 +203,7 @@ export default function Home() {
               </HexPanel>
             </div>
           </CenteredPanel>
-          <CenteredPanel customRef={purchaseSection} onMouseEnter={() => setNextSection(beerCanSection)}>
-            <div>
-              <Heading className={styles.heading}>HOW TO PURCHASE:</Heading>
-              <HexPanel>
-                <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
-                  <OrderedList>
-                    <ListItem>
-                      Send $6 equivalent to{" "}
-                      <span
-                        style={{
-                          fontWeight: `700`,
-                          color: `#E0232C`,
-                          textDecoration: `underline`,
-                        }}
-                        onClick={() => {
-                          console.log("Click Detected");
-                          copyAddress(
-                            "0x104d7f12941eb03c15badec9ae20523c34677329"
-                          );
-                        }}
-                      >
-                        raidbrood.eth
-                      </span>.
-                    </ListItem>
-                    <ListItem>Paste Txn Hash in adjacent form.</ListItem>
-                    <ListItem>Claim Pil.</ListItem>
-                  </OrderedList>
-                </div>
-                <div style={{ fontFamily: `'futura-pt', sans-serif` }}>
-                  {!isHashSubmitted && (
-                    <>
-                      <div>
-                        <Text>Enter Txn Hash</Text>
-                        <Input
-                          value={hash}
-                          onChange={(e) => setHash(e.target.value)}
-                          sx={{ minWidth: `40vw`, width: `100%` }}
-                        />
-                      </div>
 
-                      <Box
-                        sx={{
-                          padding: `2ex 2em`,
-                          margin: `1ex 0`,
-                          backgroundColor: `#E0232C`,
-                          color: `white`,
-                          textAlign: `center`,
-                          borderRadius: `6px`,
-                          fontFamily: `'futura-pt', sans-serif`,
-                        }}
-                        onClick={() => saveTxn()}
-                      >
-                        Send
-                      </Box>
-                    </>
-                  )}
-                  {isHashSubmitted && (
-                    <Heading>Thanks!</Heading>
-                  )}
-                </div>
-              </HexPanel>
-            </div>
-          </CenteredPanel>
           <CenteredPanel customRef={beerCanSection}>
             <iframe
               src="https://my.spline.design/realisticsodacancopy-a3a8de6488bfc09d3122f167efec28c0/"
@@ -308,7 +212,7 @@ export default function Home() {
               height="100%"
             ></iframe>
             <Image
-              src="/assets/redpil/whiterabbit.png"
+              src={`/assets/whiterabbit.png`}
               alt=""
               sx={{ position: `absolute`, bottom: `0px`, right: `10%` }}
             />
@@ -317,7 +221,8 @@ export default function Home() {
       </Box>
       <Footer />
       <Image
-        src="/assets/redpil/Pill.png"
+        src="/assets/drink/redpil/Pill.png"
+        alt={"logo"}
         sx={{
           position: `fixed`,
           right: `5vw`,
