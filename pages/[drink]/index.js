@@ -16,7 +16,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import Drinks from "../api/copy.json";
+import Drinks from "../api/drinks.json";
 import { Can } from "../../components/drink/Can";
 import { Lore } from "../../components/drink/Lore";
 
