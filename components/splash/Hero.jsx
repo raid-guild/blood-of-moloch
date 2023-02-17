@@ -17,12 +17,13 @@ const StyledHeroText = styled(Text)`
   letter-spacing: 1.2px;
   color: white;
   text-align: center;
+  margin-bottom: 2rem;
 `;
 const StyledSloganText = styled(Text)`
   font-family: ${theme.fonts.sourceSansPro};
   color: white;
   text-align: center;
-  line-height: 24px;
+  max-width: 85%;
 `;
 
 export const Hero = () => {
@@ -38,8 +39,9 @@ export const Hero = () => {
         Beer for Slayers of Moloch
       </StyledHeroText>
       <StyledSloganText fontSize={{ lg: "24px", base: "18px" }}>
-        Pooling our web3 powers to conspire against Moloch in taverns around the
-        world.
+        RaidBrood is a decentralized autonomous organization (DAO) dedicated to
+        bringing craft beer to crypto. Pooling our Web3 powers to conspire
+        against Moloch in taverns around the world.
       </StyledSloganText>
       <br />
     </StyledFlex>

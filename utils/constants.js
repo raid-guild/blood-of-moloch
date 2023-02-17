@@ -25,33 +25,37 @@ export const BEER_CONTENT = [
   {
     title: "Blood of Moloch",
     description:
-      "A treacherous Kashmir IPA is smashed. If the sake bomb toward the girl scout trades baseball cards with a Yuengling living with some jersey cow.",
+      "From below his sacrificial altar, we drove our blade into the demon’s flesh. The harvest of battle is blood, intense, complex and rich, with flavors of roasted malts, dark chocolate, dark fruits and espresso. Drink its poison, all 14% abv of it!",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     path: "/blood-of-moloch",
+    label: "/assets/drink/blood-of-moloch/label.svg",
   },
   {
     title: "Red Pil",
     description:
-      "A Busch toward an ice house, an ice house living with a bar stool, and a pissed hops are what made America great! ",
+      "Crisp and dry, traditional pilsner profile with a touch of lemongrass, bergamot and blacktea from late Saphir hop additions. Fermented with OldWorld+NewBeast Kveik Yeast. All the clean pilsner taste, with only 1/6 the brewing time.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     path: "/red-pil",
+    label: "/assets/drink/red-pil/label.svg",
   },
   {
     title: "Green Pil",
     description:
-      "The sudsy Ipswich Ale recognizes the micro brew. An unwisely unstable Dixie Beer gives the last beer to a Harpoon.",
+      "A hop forward crushable Kveik Pilsner. Made in collaboration with the Green Pil Podcast. $1 form every sale going to fund public goods.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     path: "/green-pil",
+    label: "/assets/drink/green-pil/label.svg",
   },
   {
-    title: "Spork Sour",
+    title: "Spork and Sour",
     description:
-      "Any Ellis Island IPA can brainwash the seldom obsequious chain saw, but it takes a real keg to slyly have a change of heart about the line dancer for a blue moon.",
+      "Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with SporkDAO for ETH Denver 2023.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     path: "/spork-sour",
+    label: "/assets/drink/spork-sour/label.svg",
   },
 ];
