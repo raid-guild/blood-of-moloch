@@ -27,8 +27,7 @@ const StyledBodyText = styled(Text)`
   color: white;
   text-align: left;
 `;
-
-export const Lore = (lore) => {
+const Lore = (props) => {
   return (
     <StyledContainer
       columns={{ base: 1, md: 2, lg: 2 }}
@@ -40,11 +39,11 @@ export const Lore = (lore) => {
           Lore
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
-          {lore.first}
+          {props.lore.first}
         </StyledBodyText>
         <br />
         <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
-          {lore.second}
+          {props.lore.second}
         </StyledBodyText>
       </StyledSubContainer>
       <Image
@@ -58,3 +57,5 @@ export const Lore = (lore) => {
     </StyledContainer>
   );
 };
+
+export default Lore;

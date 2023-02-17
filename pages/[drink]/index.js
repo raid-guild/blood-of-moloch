@@ -4,7 +4,7 @@ import styles from "../../styles/Home.module.scss";
 import FixedBanner from "../../components/drink/FixedBanner";
 import CenteredPanel from "../../components/drink/CenteredPanel";
 import HexPanel from "../../components/HexPanel";
-import Footer from "../../components/Footer";
+import { Footer } from "../../shared/Footer";
 import {
   Box,
   Heading,
@@ -17,8 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import Drinks from "../api/drinks.json";
-import { Can } from "../../components/drink/Can";
-import { Lore } from "../../components/drink/Lore";
+import IconCan from "../../components/drink/IconCan";
+import Lore from "../../components/drink/Lore";
 
 export default function DrinkPage() {
   const router = useRouter();
@@ -213,7 +213,10 @@ export default function DrinkPage() {
           </CenteredPanel>
 
           <CenteredPanel customRef={beerCanSection}>
-            <Can drink={"blood-of-moloch"} />
+            <IconCan
+              can={`/assets/drink/${drink}/can.gif`}
+              icon={`/assets/drink/${drink}/icon.png`}
+            />
             <Image
               src={`/whiterabbit.png`}
               alt="rabbit"

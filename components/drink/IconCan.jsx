@@ -10,19 +10,21 @@ const StyledContainer = styled(SimpleGrid)`
   justify-content: center;
 `;
 
-export const Can = (props) => {
+const IconCan = (props) => {
   return (
     <StyledContainer
       px={{ lg: "8rem", md: "4rem", base: "2rem" }}
       columns={{ base: 1, md: 2, lg: 2 }}
     >
       <Image
-        src={MEDIA_FILES.illustrations.four}
+        src={props.icon}
         w={{ lg: "250px", md: "250px", base: "200px" }}
-        alt="blood of moloch text"
+        alt="icon"
         mx="auto"
       />
-      <Image src={`/assets/drink/${props.drink}/can.gif`} alt="can" />
+      <Image src={props.can} alt="can" />
     </StyledContainer>
   );
 };
+
+export default IconCan;
