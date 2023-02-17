@@ -22,7 +22,7 @@ const StyledBodyText = styled(Text)`
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const StyledPopupButton = styled(PopupButton)`
@@ -50,7 +50,7 @@ export const Brew = () => {
   return (
     <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
       <Flex w="100%" direction="column" justifyContent="space-between">
-        <StyledHeading fontSize={{ xl: "54px", lg: "44px", base: "20px" }}>
+        <StyledHeading fontSize={{ xl: "54px", lg: "44px", base: "30px" }}>
           Brew a Batch
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
