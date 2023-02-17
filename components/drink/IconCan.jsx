@@ -1,6 +1,5 @@
 import { SimpleGrid, Image } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { MEDIA_FILES } from "../../utils/constants";
 
 const StyledContainer = styled(SimpleGrid)`
   grid-gap: 1rem;
