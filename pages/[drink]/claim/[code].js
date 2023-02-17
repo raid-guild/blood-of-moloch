@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import FixedBanner from "../components/FixedBanner";
-import CenteredPanel from "../components/CenteredPanel";
-import HexPanel from "../components/HexPanel";
-import Footer from "../components/Footer";
+import FixedBanner from "../../../components/drink/FixedBanner";
+import CenteredPanel from "../../../components/drink/CenteredPanel";
+import HexPanel from "../../../components/HexPanel";
+import Footer from "../../../components/Footer";
 import {
   Box,
   Heading,
@@ -11,9 +11,9 @@ import {
   OrderedList,
   ListItem,
   Input,
-  Button
+  Button,
 } from "@chakra-ui/react";
-import styles from "../styles/Home.module.scss";
+import styles from "../../../styles/Home.module.scss";
 import { ethers } from "ethers";
 
 export default function RedeemPage(props) {
@@ -23,21 +23,20 @@ export default function RedeemPage(props) {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
 
-
   const submitData = async () => {
     const data = {
-        address, password
+      address,
+      password,
     };
     const options = {
-        method: "POST",
-        body: JSON.stringify(data)
-    }
-      const response = await fetch(`/api/code/${code}/claim`, options)
+      method: "POST",
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(`/api/code/${code}/claim`, options);
 
-      console.log({response})
-      console.log("reponse.json", await response.json());
-  }
-  
+    console.log({ response });
+    console.log("reponse.json", await response.json());
+  };
 
   return (
     <>
@@ -85,7 +84,9 @@ export default function RedeemPage(props) {
                       onChange={(e) => setAddress(e.target.value)}
                       sx={{ minWidth: `40vw`, width: `100%` }}
                     />
-                    {(address.length > 0 && !(ethers.utils.isAddress(address))) ? <Text color='red'>Not a valid address</Text> : null}
+                    {address.length > 0 && !ethers.utils.isAddress(address) ? (
+                      <Text color="red">Not a valid address</Text>
+                    ) : null}
                   </div>
                   <div>
                     <Text>Enter Secret Password</Text>

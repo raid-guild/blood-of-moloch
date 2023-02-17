@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffectOnce } from "react-use";
 import ClipLoader from "react-spinners/ClipLoader";
-import FixedBanner from "../../../components/redpil/FixedBanner";
-import CenteredPanel from "../../../components/redpil/CenteredPanel";
-import Footer from "../../../components/redpil/Footer";
+import FixedBanner from "../../../components/drink/FixedBanner";
+import CenteredPanel from "../../../components/drink/CenteredPanel";
+import Footer from "../../../components/Footer";
 import {
   Box,
   Heading,
@@ -32,11 +32,11 @@ export default function RedeemPage(props) {
     }
   };
   const subtxns = supabase
-  .from('txns')
-  .on('*', payload => {
-    console.log('Change received!', payload)
-  })
-  .subscribe();
+    .from("txns")
+    .on("*", (payload) => {
+      console.log("Change received!", payload);
+    })
+    .subscribe();
 
   useEffectOnce(() => {
     getTxns();

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import FixedBanner from "../../../components/redpil/FixedBanner";
-import CenteredPanel from "../../../components/redpil/CenteredPanel";
-import HexPanel from "../../../components/redpil/HexPanel";
-import Footer from "../../../components/redpil/Footer";
+import FixedBanner from "../../../components/drink/FixedBanner";
+import CenteredPanel from "../../../components/drink/CenteredPanel";
+import HexPanel from "../../../components/HexPanel";
+import Footer from "../../../components/Footer";
 import {
   Box,
   Heading,

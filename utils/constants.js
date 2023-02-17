@@ -36,7 +36,7 @@ export const BEER_CONTENT = [
       "A Busch toward an ice house, an ice house living with a bar stool, and a pissed hops are what made America great! ",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/redpil",
+    path: "/red-pil",
   },
   {
     title: "Green Pil",
@@ -44,7 +44,7 @@ export const BEER_CONTENT = [
       "The sudsy Ipswich Ale recognizes the micro brew. An unwisely unstable Dixie Beer gives the last beer to a Harpoon.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/greenpil",
+    path: "/green-pil",
   },
   {
     title: "Spork Sour",

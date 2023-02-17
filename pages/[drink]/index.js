@@ -1,12 +1,10 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/Home.module.scss";
 import FixedBanner from "../../components/drink/FixedBanner";
 import CenteredPanel from "../../components/drink/CenteredPanel";
-import HexPanel from "../../components/drink/HexPanel";
-import RedLine from "../../components/drink/RedLine";
-import Footer from "../../components/drink/Footer";
+import HexPanel from "../../components/HexPanel";
+import Footer from "../../components/Footer";
 import {
   Box,
   Heading,
@@ -14,32 +12,36 @@ import {
   OrderedList,
   ListItem,
   Image,
-  Input,
   useToast,
+  Center,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import Drinks from "../api/copy.json";
+import { Can } from "../../components/drink/Can";
+import { Lore } from "../../components/drink/Lore";
 
 export default function DrinkPage() {
   const router = useRouter();
   const { drink } = router.query;
   const toast = useToast();
+  const loreSection = useRef(null);
   const web3Section = useRef(null);
   const podSection = useRef(null);
   const beerCanSection = useRef(null);
-  const [nextSection, setNextSection] = useState(web3Section);
-  const [hash, setHash] = useState("");
-  const [isHashSubmitted, setIsHashSubmitted] = useState(false);
+  const [nextSection, setNextSection] = useState(loreSection);
 
   const copy = Drinks[drink];
   // TODO route to 404 or home
   if (!copy) {
-    return <>Ooopss...</>;
+    return <Center>Ooopss...</Center>;
   }
 
   const executeScroll = () => {
     nextSection.current.scrollIntoView({ behavior: `smooth` });
     setNextSection((v) => {
+      if (v == loreSection) {
+        return web3Section;
+      }
       if (v == web3Section) {
         return podSection;
       }
@@ -65,16 +67,22 @@ export default function DrinkPage() {
     <>
       <Box sx={{ display: `grid`, gridTemplateColumns: `1fr 5fr` }}>
         <div>
-          <FixedBanner />
+          <FixedBanner logo={`/assets/drink/${drink}/logo.png`} />
         </div>
         <Box>
-          <CenteredPanel onMouseEnter={() => setNextSection(web3Section)}>
+          <CenteredPanel onMouseEnter={() => setNextSection(loreSection)}>
             <div>
               <Heading className={styles.heading}>{copy.heading.title}</Heading>
               <Heading className={styles.heading}>
                 {copy.heading.subtitle}
               </Heading>
             </div>
+          </CenteredPanel>
+          <CenteredPanel
+            customRef={loreSection}
+            onMouseEnter={() => setNextSection(web3Section)}
+          >
+            <Lore lore={copy.lore} />
           </CenteredPanel>
           <CenteredPanel
             customRef={web3Section}
@@ -205,15 +213,10 @@ export default function DrinkPage() {
           </CenteredPanel>
 
           <CenteredPanel customRef={beerCanSection}>
-            <iframe
-              src="https://my.spline.design/realisticsodacancopy-a3a8de6488bfc09d3122f167efec28c0/"
-              frameBorder="0"
-              width="100%"
-              height="100%"
-            ></iframe>
+            <Can drink={"blood-of-moloch"} />
             <Image
               src={`/assets/whiterabbit.png`}
-              alt=""
+              alt="rabbit"
               sx={{ position: `absolute`, bottom: `0px`, right: `10%` }}
             />
           </CenteredPanel>
@@ -221,7 +224,7 @@ export default function DrinkPage() {
       </Box>
       <Footer />
       <Image
-        src="/assets/drink/redpil/Pill.png"
+        src={`/assets/drink/${drink}/icon.png`}
         alt={"logo"}
         sx={{
           position: `fixed`,
