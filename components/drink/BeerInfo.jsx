@@ -12,7 +12,7 @@ import { theme } from "../../styles/theme";
 const BeerInfo = (props) => {
   const copy = props.copy;
   return (
-    <Flex height={"20%"} background={props.bgColor} py={"5em"}>
+    <Flex background={props.bgColor} py={"5em"} w={"100%"}>
       <HStack w={"60%"} ml={"3em"}>
         <Box style={{ fontFamily: `'futura-pt', sans-serif` }}>
           <Heading fontFamily={theme.fonts.uncial}>
