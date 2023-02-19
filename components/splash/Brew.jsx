@@ -1,7 +1,7 @@
-import { Flex, Image, Link, Text } from "@chakra-ui/react";
-import { PopupButton } from "@typeform/embed-react";
-import styled from "@emotion/styled";
-import { theme } from "../../styles/theme";
+import { Flex, Image, Link, Text } from '@chakra-ui/react';
+import { PopupButton } from '@typeform/embed-react';
+import styled from '@emotion/styled';
+import { theme } from '../../styles/theme';
 
 const StyledContainer = styled(Flex)`
   flex-direction: column;
@@ -15,7 +15,7 @@ const StyledHeading = styled(Text)`
   line-height: 72px;
   color: white;
   text-align: left;
-  margin: 1rem 0 4rem 0;
+  margin-bottom: 1rem;
 `;
 const StyledBodyText = styled(Text)`
   font-family: ${theme.fonts.sourceSansPro};
@@ -29,9 +29,10 @@ const StyledPopupButton = styled(PopupButton)`
   font-family: ${theme.fonts.sourceSansPro};
   color: white;
   background-color: #ff3864;
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 500;
   border-radius: 5px;
-  padding: 10px 33px;
+  padding: 12px 36px;
   margin-top: 2rem;
   :hover {
     opacity: 0.85;
@@ -48,29 +49,29 @@ const StyledLink = styled.a`
 
 export const Brew = () => {
   return (
-    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
-      <Flex w="100%" direction="column" justifyContent="space-between">
-        <StyledHeading fontSize={{ xl: "54px", lg: "44px", base: "30px" }}>
+    <StyledContainer px={{ lg: '8rem', md: '4rem', base: '2rem' }}>
+      <Flex w='100%' direction='column' justifyContent='space-between'>
+        <StyledHeading fontSize={{ xl: '54px', lg: '44px', base: '36px' }}>
           Brew a Batch
         </StyledHeading>
-        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
-          RaidBrood brews custom batches for communities, conferences, and other
-          events. Example brew collaborators include{" "}
-          <StyledLink href="https://greenpill.party/">
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          Raid Brood brews custom batches for communities, conferences, and
+          other events. Example brew collaborators include{' '}
+          <StyledLink href='https://greenpill.party/'>
             GreenPill Podcast
-          </StyledLink>{" "}
-          and{" "}
-          <StyledLink href="https://www.sporkdao.org/">
+          </StyledLink>{' '}
+          and{' '}
+          <StyledLink href='https://www.sporkdao.org/'>
             SporkDAO/ETHDenver 2023
           </StyledLink>
           .
         </StyledBodyText>
-        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
           Do you want to join us in the endeavour of exlixir to fuel our fight
           against Moloch by making a batch for you?
         </StyledBodyText>
       </Flex>
-      <StyledPopupButton id="IGJVI7XW" className="my-button">
+      <StyledPopupButton id='IGJVI7XW' className='my-button'>
         Contact Us
       </StyledPopupButton>
     </StyledContainer>

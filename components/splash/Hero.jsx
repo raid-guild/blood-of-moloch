@@ -33,12 +33,12 @@ export const Hero = () => {
       px={{ lg: '8rem', md: '4rem', base: '2rem' }}
     >
       <StyledHeroText
-        fontSize={{ lg: '72px', base: '24px' }}
-        lineHeight={{ lg: '96px', sm: '32px' }}
+        fontSize={{ lg: '72px', base: '48px' }}
+        lineHeight={{ lg: '96px', sm: '48px' }}
       >
         Beer for Slayers of Moloch
       </StyledHeroText>
-      <StyledSloganText fontSize={{ lg: '28px', base: '18px' }}>
+      <StyledSloganText fontSize={{ lg: '28px', base: '24px' }}>
         Pooling our Web3 powers to conspire against Moloch in taverns around the
         world.
       </StyledSloganText>
