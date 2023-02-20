@@ -39,7 +39,7 @@ const Claim = () => {
       body: JSON.stringify(data),
     };
     try {
-      const res = await fetch(`/api/code/${drink}/${code}/claim`, options);
+      const res = await fetch(`/api/${drink}/${code}/claim`, options);
       const response = await res.json();
       console.log(response);
       if (response.error) {
