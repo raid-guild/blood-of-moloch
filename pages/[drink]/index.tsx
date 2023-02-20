@@ -73,7 +73,7 @@ export default function DrinkPage() {
         customRef={badgeSection}
         onMouseEnter={() => setNextSection(loreSection)}
       >
-        <Badge badge={`/assets/drink/${drink}/badge.png`} />
+        <Badge path={`/assets/drink/${drink}/badge.png`} />
       </CenteredPanel>
       <CenteredPanel
         customRef={loreSection}
