@@ -57,10 +57,10 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
         <Text sx={style.data}>{`${abv} %`}</Text>
       </VStack>
       <div style={style.divider}></div>
-      <div>
+      <VStack>
         <Heading sx={style.heading}>IBU</Heading>
         <Text sx={style.data}>{ibu}</Text>
-      </div>
+      </VStack>
     </HStack>
   );
 };
