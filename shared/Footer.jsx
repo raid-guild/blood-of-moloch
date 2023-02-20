@@ -35,9 +35,6 @@ export const Footer = () => {
           <StyledNavLink fontSize={{ lg: '16px', base: '14px' }}>
             Made with ⚔️ for our fellow raiders
           </StyledNavLink>
-          <StyledRightsText fontSize={{ lg: '14px', base: '12px' }}>
-            © 2022 Raid Guild. All rights reserved.
-          </StyledRightsText>
         </Flex>
 
         <Flex direction='row' alignItems='center'>
