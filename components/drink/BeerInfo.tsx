@@ -9,10 +9,9 @@ import {
 } from "@chakra-ui/react";
 import { theme } from "../../styles/theme";
 
-const BeerInfo = (props) => {
-  const copy = props.copy;
+const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Flex background={props.bgColor} py={"5em"} w={"100%"}>
+    <Flex background={bgColor} py={"5em"} w={"100%"}>
       <HStack w={"60%"} ml={"3em"}>
         <Box style={{ fontFamily: `'futura-pt', sans-serif` }}>
           <Heading fontFamily={theme.fonts.uncial}>

@@ -15,7 +15,12 @@ const StyledBodyText = styled(Text)`
   color: white;
   text-align: left;
 `;
-const Lore = (props) => {
+
+type LoreProps = {
+  first: string;
+  second: string;
+};
+const Lore = ({ first, second }: LoreProps) => {
   return (
     <VStack w={"100%"} bgColor={"black"} py={"5em"}>
       <StyledHeading fontSize={{ lg: "64px", base: "20px" }}>
@@ -23,11 +28,11 @@ const Lore = (props) => {
       </StyledHeading>
       <Box w={"70%"}>
         <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
-          {props.lore.first}
+          {first}
         </StyledBodyText>
         <br />
         <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
-          {props.lore.second}
+          {second}
         </StyledBodyText>
       </Box>
     </VStack>

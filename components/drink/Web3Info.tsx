@@ -2,7 +2,7 @@ import { Heading, Text, VStack } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.scss";
 import { theme } from "../../styles/theme";
 
-const Web3Info = (props) => {
+const Web3Info = () => {
   return (
     <VStack py={"5em"}>
       <Heading className={styles.heading} fontFamily={theme.fonts.uncial}>

@@ -26,7 +26,7 @@ export default function DrinkPage() {
   const labelSection = useRef(null);
   const [nextSection, setNextSection] = useState(logoSection);
 
-  const copy = Drinks[drink];
+  const copy = Drinks[drink as string];
   // TODO route to 404 or home
   if (!copy) {
     return <Center>Ooopss...</Center>;
@@ -34,7 +34,7 @@ export default function DrinkPage() {
 
   const copyAddress = async (address) => {
     await navigator.clipboard.writeText(address);
-    toast.success({
+    toast({
       title: "Address copied",
       description: address,
       status: "success",
@@ -49,7 +49,7 @@ export default function DrinkPage() {
         customRef={logoSection}
         onMouseEnter={() => setNextSection(beerInfoSection)}
       >
-        <LogoHeader logo={`/assets/drink/${drink}/logo.png`} />
+        <LogoHeader path={`/assets/drink/${drink}/logo.png`} />
       </CenteredPanel>
       <CenteredPanel
         customRef={beerInfoSection}
@@ -79,11 +79,11 @@ export default function DrinkPage() {
         customRef={loreSection}
         onMouseEnter={() => setNextSection(labelSection)}
       >
-        <Lore lore={copy.lore} />
+        <Lore first={copy.lore.first} second={copy.lore.second} />
       </CenteredPanel>
 
       <CenteredPanel customRef={labelSection}>
-        <Label label={`/assets/drink/${drink}/label.svg`} />
+        <Label path={`/assets/drink/${drink}/label.svg`} />
       </CenteredPanel>
       <Footer />
     </VStack>

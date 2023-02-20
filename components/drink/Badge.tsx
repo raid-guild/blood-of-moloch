@@ -1,9 +1,9 @@
 import { Center, Image } from "@chakra-ui/react";
 
-const Badge = (props) => {
+const Badge = ({ badge }) => {
   return (
     <Center w={"100%"} py={"5em"}>
-      <Image src={props.badge} boxSize={"sm"} alt="drink badge" />
+      <Image src={badge} boxSize={"sm"} alt="drink badge" />
     </Center>
   );
 };

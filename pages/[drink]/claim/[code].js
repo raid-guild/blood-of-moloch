@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import FixedBanner from "../../../components/drink/FixedBanner";
 import CenteredPanel from "../../../components/drink/CenteredPanel";
 import HexPanel from "../../../components/HexPanel";
 import Footer from "../../../components/Footer";
@@ -41,9 +40,6 @@ export default function RedeemPage(props) {
   return (
     <>
       <Box sx={{ display: `grid`, gridTemplateColumns: `1fr 5fr` }}>
-        <div>
-          <FixedBanner />
-        </div>
         <CenteredPanel>
           <div>
             <Heading className={styles.heading}>

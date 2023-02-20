@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffectOnce } from "react-use";
 import ClipLoader from "react-spinners/ClipLoader";
-import FixedBanner from "../../../components/drink/FixedBanner";
 import CenteredPanel from "../../../components/drink/CenteredPanel";
 import Footer from "../../../components/Footer";
 import {
@@ -45,9 +44,6 @@ export default function RedeemPage(props) {
   return (
     <>
       <Box sx={{ display: `grid`, gridTemplateColumns: `1fr 5fr` }}>
-        <div>
-          <FixedBanner />
-        </div>
         <CenteredPanel>
           <div>
             <Heading>Transactions:</Heading>
