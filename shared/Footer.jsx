@@ -8,6 +8,7 @@ const StyledContainer = styled(Flex)`
   align-items: center;
   background-color: #2b2c34;
   padding-bottom: 2rem;
+  width: 100%;
 `;
 const StyledNavLink = styled(Link)`
   font-family: ${theme.fonts.texturina};

@@ -6,6 +6,7 @@ import {
   HStack,
   VStack,
   Divider,
+  Stack,
 } from "@chakra-ui/react";
 import { theme } from "../../styles/theme";
 
@@ -20,10 +21,14 @@ type TraitsProps = {
 };
 const Description = ({ name, content }: DescriptionProps) => {
   return (
-    <HStack w={"60%"} ml={"3em"}>
-      <Box style={{ fontFamily: `'futura-pt', sans-serif` }}>
+    <HStack minW={"250px"} w={"100%"} ml={"3em"}>
+      <Box>
         <Heading fontFamily={theme.fonts.uncial}>{name.toUpperCase()}</Heading>
-        <Text w={"70%"} textAlign={"left"}>
+        <Text
+          w={"100%"}
+          textAlign={"left"}
+          fontFamily={{ fontFamily: `'futura-pt', sans-serif` }}
+        >
           {content}
         </Text>
       </Box>
@@ -51,7 +56,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
   };
 
   return (
-    <HStack>
+    <HStack minW={"250px"} justifyContent={"center"}>
       <VStack>
         <Heading sx={style.heading}>ABV</Heading>
         <Text sx={style.data}>{`${abv} %`}</Text>
@@ -67,11 +72,17 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
 const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Flex background={bgColor} py={"5em"} w={"100%"}>
+    <Stack
+      direction={["column", "row"]}
+      background={bgColor}
+      justifyContent={"center"}
+      py={"5em"}
+      w={"100%"}
+    >
       <Description name={copy.name} content={copy.beer} />
       <Divider orientation="vertical" />
       <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
-    </Flex>
+    </Stack>
   );
 };
 

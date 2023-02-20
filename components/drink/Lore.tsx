@@ -1,20 +1,5 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
-import styled from "@emotion/styled";
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { theme } from "../../styles/theme";
-
-const StyledHeading = styled(Text)`
-  width: 70%;
-  font-family: ${theme.fonts.uncial};
-  color: white;
-  text-align: left;
-  margin-bottom: 1rem;
-`;
-const StyledBodyText = styled(Text)`
-  font-family: ${theme.fonts.sourceSansPro};
-  letter-spacing: 1.2px;
-  color: white;
-  text-align: left;
-`;
 
 type LoreProps = {
   first: string;
@@ -23,17 +8,25 @@ type LoreProps = {
 const Lore = ({ first, second }: LoreProps) => {
   return (
     <VStack w={"100%"} bgColor={"black"} py={"5em"}>
-      <StyledHeading fontSize={{ lg: "64px", base: "20px" }}>
+      <Heading fontFamily={theme.fonts.uncial} textAlign={"left"}>
         Lore
-      </StyledHeading>
+      </Heading>
       <Box w={"70%"}>
-        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
+        <Text
+          w={"100%"}
+          textAlign={"left"}
+          fontFamily={{ fontFamily: `'futura-pt', sans-serif` }}
+        >
           {first}
-        </StyledBodyText>
+        </Text>
         <br />
-        <StyledBodyText fontSize={{ lg: "18px", base: "12px" }}>
+        <Text
+          w={"100%"}
+          textAlign={"left"}
+          fontFamily={{ fontFamily: `'futura-pt', sans-serif` }}
+        >
           {second}
-        </StyledBodyText>
+        </Text>
       </Box>
     </VStack>
   );

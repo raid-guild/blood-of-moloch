@@ -9,6 +9,7 @@ import { Hero } from "../components/splash/Hero";
 import { About } from "../components/splash/About";
 import { Beers } from "../components/splash/Beers";
 import { Brew } from "../components/splash/Brew";
+import "@fontsource/uncial-antiqua";
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState("");

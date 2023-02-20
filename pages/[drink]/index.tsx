@@ -32,17 +32,6 @@ export default function DrinkPage() {
     return <Center>Ooopss...</Center>;
   }
 
-  const copyAddress = async (address) => {
-    await navigator.clipboard.writeText(address);
-    toast({
-      title: "Address copied",
-      description: address,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-  };
-
   return (
     <VStack w={"100%"}>
       <CenteredPanel
