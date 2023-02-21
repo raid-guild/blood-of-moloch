@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import CenteredPanel from "../../../components/drink/CenteredPanel";
-import HexPanel from "../../../components/HexPanel";
-import Footer from "../../../components/Footer";
+import { Footer } from "../../../shared/Footer";
 import {
   Box,
   Heading,
@@ -14,10 +12,15 @@ import {
   useToast,
   VStack,
   Center,
+  Stack,
+  Spacer,
 } from "@chakra-ui/react";
 import styles from "../../../styles/Home.module.scss";
 import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
+import { ClaimData } from "../../api/[drink]/[code]/claim";
+import { theme } from "../../../styles/theme";
+import Drinks from "../../api/drinks.json";
 
 const Claim = () => {
   const router = useRouter();
@@ -25,192 +28,112 @@ const Claim = () => {
   const { drink, code } = router.query;
 
   const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  const copy = Drinks[drink as string];
+  // TODO route to 404 or home
+  if (!copy) {
+    return <Center>Ooopss...</Center>;
+  }
+
   const submitData = async () => {
-    const data = {
+    const data: ClaimData = {
       address,
-      password,
+      drink: drink as string,
     };
     const options = {
       method: "POST",
       body: JSON.stringify(data),
     };
-    try {
-      const res = await fetch(`/api/${drink}/${code}/claim`, options);
-      const response = await res.json();
-      console.log(response);
-      if (response.error) {
-        throw response.error;
-      } else if (response?.status == 1) {
+
+    await fetch(`/api/${drink}/${code}/claim`, options)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        if (json.error) {
+          throw json.error;
+        } else if (json?.status == 1) {
+          toast({
+            title: "Claim successful",
+            description: `You got a ${drink} NFT`,
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+          setIsLoading(false);
+          setIsSuccessful(true);
+        }
+      })
+      .catch((e) => {
         toast({
-          title: "Claim successful",
-          description: `You got a ${drink} NFT`,
-          status: "success",
+          title: "Claim failed",
+          description: e,
+          status: "error",
           duration: 3000,
           isClosable: true,
         });
         setIsLoading(false);
-        setIsSuccessful(true);
-      }
-    } catch (error) {
-      toast({
-        title: "Claim failed",
-        description: error,
-        status: "error",
-        duration: 3000,
-        isClosable: true,
       });
-      setIsLoading(false);
-    }
   };
 
   console.log(`Page for claiming ${drink} with code ${code}`);
 
   return (
-    <>
-      <VStack w="100%">
+    <Box h={"100vh"}>
+      <VStack bgGradient="linear(to-b, black, #2b2c34)">
         <Center w={"100%"} py={"3em"}>
-          <Heading className={styles.heading}>
-            CLAIM YOUR
-            <span
-              style={{
-                fontFamily: `'futura-pt-bold', sans-serif`,
-                fontWeight: `700`,
-                color: `#E0232C`,
-              }}
-            >
-              {` ${drink} `}
-            </span>
-            NFT.
+          <Heading fontFamily={theme.fonts.uncial}>
+            {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <Center py={"3em"}>
-          <HexPanel>
-            <>
-              <div>
-                <Heading>How to claim:</Heading>
-                <OrderedList>
-                  <ListItem>
-                    Enter your public address and secret password.
-                  </ListItem>
-                  <ListItem>Hit Claim.</ListItem>
-                  <ListItem>Welcome to Web3.</ListItem>
-                </OrderedList>
-              </div>
-              <div
-                style={{
-                  display: `flex`,
-                  gap: `1rem`,
-                  flexDirection: `column`,
-                }}
-              >
-                <div>
-                  <Text>Enter Public Address</Text>
-                  <Input
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    sx={{ minWidth: `40vw`, width: `100%` }}
-                  />
-                  {address.length > 0 && !ethers.utils.isAddress(address) ? (
-                    <Text color="red">Not a valid address</Text>
-                  ) : null}
-                </div>
-                <div>
-                  <Text>Enter Secret Password</Text>
-                  <Input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    sx={{ minWidth: `40vw`, width: `100%` }}
-                  />
-                </div>
-                <Button
-                  sx={{
-                    padding: `2ex 2em`,
-                    margin: `1ex 0`,
-                    backgroundColor: `#E0232C`,
-                    color: `white`,
-                    textAlign: `center`,
-                    borderRadius: `6px`,
-                  }}
-                  onClick={() => submitData()}
-                >
-                  Claim
-                </Button>
-              </div>
-            </>
-          </HexPanel>
-        </Center>
-        {isLoading && (
-          <Box
-            sx={{
-              position: `fixed`,
-              width: `100vw`,
-              height: `100vh`,
-              display: `grid`,
-              placeItems: `center`,
-              left: `0`,
-              top: `0`,
-              zIndex: `10`,
-              backgroundColor: `rgba(0,0,0,0.1)`,
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: `white`,
-                border: `1px solid grey`,
-                borderRadius: `15px`,
-                width: `50vw`,
-                height: `50vh`,
-                display: `flex`,
-                flexDirection: `column`,
-                alignItems: `center`,
-                justifyContent: `center`,
-                gap: `1rem`,
-              }}
+        <Stack
+          justifyContent={"center"}
+          w={"80%"}
+          maxW={"750px"}
+          direction={["column", "row"]}
+        >
+          <VStack alignContent={"space-around"} margin={"auto"}>
+            <Heading fontFamily={theme.fonts.uncial} size={"md"}>
+              How to claim
+            </Heading>{" "}
+            <OrderedList>
+              <ListItem>
+                Enter your public address and secret password.
+              </ListItem>
+              <ListItem>Hit Claim.</ListItem>
+              <ListItem>Welcome to Web3.</ListItem>
+            </OrderedList>
+          </VStack>
+          <Spacer />
+
+          <VStack alignContent={"space-around"} maxW={"450px"} margin={"auto"}>
+            <Heading fontFamily={theme.fonts.uncial} size={"md"}>
+              Enter your wallet address
+            </Heading>
+            <Input
+              w={"100%"}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              borderRadius={"0"}
+            />
+            {address.length > 0 && !ethers.utils.isAddress(address) ? (
+              <Text color="red">Not a valid address</Text>
+            ) : null}
+            <Button
+              bgGradient={"linear(to-r, #EC4899, #7C3AED)"}
+              borderRadius={"0"}
+              disabled={isLoading}
+              w={"100%"}
+              onClick={() => submitData()}
             >
-              <Heading className={styles.heading}>Attempting Claim...</Heading>
-            </Box>
-          </Box>
-        )}
-        {isSuccessful && (
-          <Box
-            sx={{
-              position: `fixed`,
-              width: `100vw`,
-              height: `100vh`,
-              display: `grid`,
-              placeItems: `center`,
-              left: `0`,
-              top: `0`,
-              zIndex: `10`,
-              backgroundColor: `rgba(0,0,0,0.1)`,
-            }}
-            onClick={() => setIsSuccessful(false)}
-          >
-            <Box
-              sx={{
-                backgroundColor: `white`,
-                border: `1px solid grey`,
-                borderRadius: `15px`,
-                padding: `2rem`,
-                display: `flex`,
-                flexDirection: `column`,
-                alignItems: `center`,
-                justifyContent: `center`,
-                gap: `1rem`,
-              }}
-            >
-              <Heading className={styles.heading}>NFT Minted</Heading>
-              <Badge path={`/assets/drink/${drink}/badge.png`} />
-            </Box>
-          </Box>
-        )}
+              Claim
+            </Button>
+          </VStack>
+        </Stack>
       </VStack>
       <Footer />
-    </>
+    </Box>
   );
 };
 

@@ -16,7 +16,6 @@ import Steps from "../../components/drink/Steps";
 export default function DrinkPage() {
   const router = useRouter();
   const { drink } = router.query;
-  const toast = useToast();
   const logoSection = useRef(null);
   const beerInfoSection = useRef(null);
   const web3Section = useRef(null);

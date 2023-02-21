@@ -1,5 +1,4 @@
 import ethers, { providers, Contract, Wallet } from "ethers";
-import PODcontracts from "./POD-contracts.json";
 
 type ClaimProps = {
   account: string;
@@ -7,10 +6,10 @@ type ClaimProps = {
 };
 const usePodContract = () => {
   let provider: providers.BaseProvider;
-  let contract: Contract;
   let account: Wallet;
 
-  const init = async () => {
+  //TODO check on supported contracts
+  const init = async (address: string) => {
     const abi = new ethers.utils.Interface([
       "function mint(address to, string memory claimCode) external",
       "function claimed(string memory claimCode) external view returns (bool)",
@@ -39,19 +38,20 @@ const usePodContract = () => {
 
     const signer = account.connect(provider);
 
-    contract = new ethers.Contract(PODcontracts[network], abi, signer);
+    return new ethers.Contract(address, abi, signer);
   };
 
-  const isClaimed = async (claimCode: string) => {
+  //TODO functions might be redundant
+  const isClaimed = async (contract: Contract, claimCode: string) => {
     return contract.claimed(claimCode);
   };
 
-  const claim = async ({ account, code }: ClaimProps) => {
+  const claim = async (contract: Contract, { account, code }: ClaimProps) => {
     const tx = await contract.mint(account, code);
     return await tx.wait();
   };
 
-  return { provider, contract, account, init, isClaimed, claim };
+  return { provider, account, init, isClaimed, claim };
 };
 
 export { usePodContract };

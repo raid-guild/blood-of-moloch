@@ -1,4 +1,4 @@
-import { Text, Box, Image } from "@chakra-ui/react";
+import { Text, Box, Image, HStack } from "@chakra-ui/react";
 
 export default function Footer(props) {
   return (
@@ -56,17 +56,10 @@ export default function Footer(props) {
             </Text>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: `grid`,
-            gridTemplateColumns: `1fr 1fr`,
-            placeItems: `center`,
-            gap: `1rem`,
-          }}
-        >
+        <HStack>
           <Image src="/WoodsBoss.svg" alt={"WoodsBossLogo"} />
           <Image src="/RaidBrood.png" alt={"RaidBroodLogo"} />
-        </Box>
+        </HStack>
       </Box>
     </Box>
   );
