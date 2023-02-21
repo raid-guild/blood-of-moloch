@@ -80,20 +80,15 @@ const Claim = () => {
   console.log(`Page for claiming ${drink} with code ${code}`);
 
   return (
-    <Box h={"100vh"}>
+    <Box h="calc(100vh)">
       <VStack bgGradient="linear(to-b, black, #2b2c34)">
         <Center w={"100%"} py={"3em"}>
           <Heading fontFamily={theme.fonts.uncial}>
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <Stack
-          justifyContent={"center"}
-          w={"80%"}
-          maxW={"750px"}
-          direction={["column", "row"]}
-        >
-          <VStack alignContent={"space-around"} margin={"auto"}>
+        <Stack w={"80%"} direction={["column", "row"]}>
+          <VStack alignContent={"space-around"} maxW={"350px"} margin={"auto"}>
             <Heading fontFamily={theme.fonts.uncial} size={"md"}>
               How to claim
             </Heading>{" "}
@@ -105,14 +100,16 @@ const Claim = () => {
               <ListItem>Welcome to Web3.</ListItem>
             </OrderedList>
           </VStack>
+
           <Spacer />
 
-          <VStack alignContent={"space-around"} maxW={"450px"} margin={"auto"}>
+          <VStack w={"100%"} maxW={"600px"}>
             <Heading fontFamily={theme.fonts.uncial} size={"md"}>
               Enter your wallet address
             </Heading>
             <Input
               w={"100%"}
+              maxW={"750px"}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               borderRadius={"0"}
@@ -125,6 +122,7 @@ const Claim = () => {
               borderRadius={"0"}
               disabled={isLoading}
               w={"100%"}
+              maxW={"750px"}
               onClick={() => submitData()}
             >
               Claim
