@@ -16,6 +16,7 @@ const usePodContract = () => {
   //TODO check on supported contracts and network
   const init = async (address: string) => {
     let network = process.env.NETWORK;
+    console.log("Network in ENV: ", network);
     if (!["gnosis", "goerli"].includes(network)) {
       throw Error("No supported network found in env vars");
     }
