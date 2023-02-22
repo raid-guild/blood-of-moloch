@@ -7547,7 +7547,7 @@ ts-easing@^0.2.0:
   resolved "https://registry.yarnpkg.com/ts-easing/-/ts-easing-0.2.0.tgz#c8a8a35025105566588d87dbda05dd7fbfa5a4ec"
   integrity sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==
 
-ts-jest@^29.4.0:
+ts-jest@^29.0.5:
   version "29.0.5"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-29.0.5.tgz#c5557dcec8fe434fcb8b70c3e21c6b143bfce066"
   integrity sha512-PL3UciSgIpQ7f6XjVOmbi96vmDHUqAyqDr8YxzopDqX3kfgYtX1cuNeBjP+L9sFXi6nzsGGA6R3fP3DDDJyrxA==
@@ -7661,6 +7661,11 @@ typedarray-to-buffer@^3.1.5:
   integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
   dependencies:
     is-typedarray "^1.0.0"
+
+typescript@^4.9.5:
+  version "4.9.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
+  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 ultron@~1.1.0:
   version "1.1.1"
