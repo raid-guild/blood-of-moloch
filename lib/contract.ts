@@ -1,4 +1,5 @@
-import ethers, { providers, Contract, Wallet } from "ethers";
+import { ethers, providers, Contract, Wallet } from "ethers";
+import { Interface } from "ethers/lib/utils";
 
 type ClaimProps = {
   account: string;
@@ -7,38 +8,21 @@ type ClaimProps = {
 const usePodContract = () => {
   let provider: providers.BaseProvider;
   let account: Wallet;
+  const abi: Interface = new ethers.utils.Interface([
+    "function mint(address to, string memory claimCode) external",
+    "function claimed(string memory claimCode) external view returns (bool)",
+  ]);
 
-  //TODO check on supported contracts
+  //TODO check on supported contracts and network
   const init = async (address: string) => {
-    const abi = new ethers.utils.Interface([
-      "function mint(address to, string memory claimCode) external",
-      "function claimed(string memory claimCode) external view returns (bool)",
-    ]);
-
     let network = process.env.NETWORK;
-
-    switch (network) {
-      case "localhost":
-        provider = new ethers.providers.JsonRpcProvider();
-        break;
-
-      case "gnosis": {
-        provider = new ethers.providers.JsonRpcProvider(
-          process.env.GNOSIS_RPC_URL
-        );
-        account = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-        console.log(account.address);
-        break;
-      }
-
-      default:
-        provider = ethers.providers.getDefaultProvider(process.env.NETWORK);
-        break;
+    if (!["gnosis", "goerli"].includes(network)) {
+      throw Error("No supported network found in env vars");
     }
+    provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+    account = new Wallet(process.env.PRIVATE_KEY, provider);
 
-    const signer = account.connect(provider);
-
-    return new ethers.Contract(address, abi, signer);
+    return new ethers.Contract(address, abi, account);
   };
 
   //TODO functions might be redundant

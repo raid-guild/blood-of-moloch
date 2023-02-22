@@ -8,7 +8,7 @@ describe.only("CodeRepository", () => {
     process.env.FAUNADB_SECRET = "fake";
   });
 
-  it.only("should initialize faunadb client with the secret from env", async () => {
+  it("should initialize faunadb client with the secret from env", async () => {
     const { isValid } = useCodeRepository();
     await isValid("test");
     expect(mock).toHaveBeenCalledTimes(1);

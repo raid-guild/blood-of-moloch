@@ -1,4 +1,4 @@
-import { Client, Exists, Match, Index } from "faunadb";
+import { Client } from "faunadb";
 
 const getFauna = () => {
   return new Client({

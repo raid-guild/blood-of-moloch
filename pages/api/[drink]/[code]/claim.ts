@@ -8,7 +8,7 @@ export type ClaimData = {
   address: string;
 };
 
-const ClaimHandler = async ({ req, res }) => {
+const ClaimHandler = async (req, res) => {
   const { isValid } = useCodeRepository();
   const { init, claim } = usePodContract();
 
@@ -58,7 +58,7 @@ const ClaimHandler = async ({ req, res }) => {
     }
   }
 
-  return res.status(404);
+  return res.status(404).json({ error: "Page not found" });
 };
 
 export default ClaimHandler;

@@ -52,7 +52,14 @@ const Claim = () => {
       .then((json) => {
         console.log(json);
         if (json.error) {
-          throw json.error;
+          toast({
+            title: "Claim failed",
+            description: json.error,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+          setIsLoading(false);
         } else if (json?.status == 1) {
           toast({
             title: "Claim successful",
