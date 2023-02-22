@@ -25,7 +25,7 @@ const ClaimHandler = async (req, res) => {
 
       //TODO hacky network selection
       const network =
-        process.env.NODE_ENV == "production" ? "gnosis" : "goerli";
+        process.env.NODE_ENV === "production" ? "gnosis" : "goerli";
 
       const contractAddress = PODcontracts[network][drink];
 
