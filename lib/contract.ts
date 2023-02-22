@@ -15,12 +15,12 @@ const usePodContract = () => {
 
   //TODO check on supported contracts and network
   const init = async (address: string) => {
-    let network = process.env.NETWORK;
+    let network = process.env.NEXT_APP_NETWORK;
     console.log("Network in ENV: ", network);
     if (!["gnosis", "goerli"].includes(network)) {
       throw Error("No supported network found in env vars");
     }
-    provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+    provider = new ethers.providers.JsonRpcProvider(process.env.NEXT_APP_RPC_URL);
     account = new Wallet(process.env.PRIVATE_KEY, provider);
 
     return new ethers.Contract(address, abi, account);
