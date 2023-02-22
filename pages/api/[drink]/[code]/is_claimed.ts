@@ -2,7 +2,7 @@ import { useCodeRepository } from "../../../../lib/code_repository";
 import { usePodContract } from "../../../../lib/contract";
 import PODcontracts from "../../contracts.json";
 
-export type IsClaimedData = {
+export type DrinkDbData = {
   drink: string;
   code: string;
 };
@@ -15,9 +15,9 @@ const IsClaimedHandler = async (req, res) => {
       return res.status(200).json({ claimed });
     };
 
-    const { drink, code }: IsClaimedData = req.query;
+    const { drink, code }: DrinkDbData = req.query;
 
-    const foundCode = await isValid(code);
+    const foundCode = await isValid({ code, drink });
     if (!foundCode) {
       return returnClaimed(true);
     }

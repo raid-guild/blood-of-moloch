@@ -47,6 +47,8 @@ const Claim = () => {
       body: JSON.stringify(data),
     };
 
+    console.log("POST: ", options);
+
     await fetch(`/api/${drink}/${code}/claim`, options)
       .then((res) => res.json())
       .then((json) => {

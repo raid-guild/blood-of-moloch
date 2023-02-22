@@ -8,6 +8,7 @@ export type ClaimData = {
   address: string;
 };
 
+//TODO handling successful minting
 const ClaimHandler = async (req, res) => {
   const { isValid } = useCodeRepository();
   const { init, claim } = usePodContract();
@@ -17,11 +18,9 @@ const ClaimHandler = async (req, res) => {
       const { code } = req.query;
       let { address: account, drink }: ClaimData = JSON.parse(req.body);
 
-      const foundCode = await isValid(code);
+      const foundCode = await isValid({ code, drink });
       if (!foundCode) {
-        return res
-          .status(400)
-          .json({ error: "Code has already been claimed." });
+        return res.status(400).json({ error: "Code cannot be validated." });
       }
 
       //TODO hacky network selection
