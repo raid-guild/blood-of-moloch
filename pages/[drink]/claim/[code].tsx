@@ -21,6 +21,7 @@ import Drinks from "../../api/drinks.json";
 
 const Claim = () => {
   const router = useRouter();
+  const toast = useToast();
   const { drink, code } = router.query;
 
   const [address, setAddress] = useState("");
@@ -88,6 +89,16 @@ const Claim = () => {
         console.log(json);
         if (json.error === "Code already claimed.") {
           console.log("ALREADY CLAIMED");
+          setIsLoading(false);
+          setAlreadyClaimed(true);
+        } else if (json.error === "Code cannot be validated.") {
+          console.log("ALREADY CLAIMED");
+          toast({
+            status: "error",
+            title: "Oops",
+            description: json.error,
+            duration: 3000,
+          });
           setIsLoading(false);
           setAlreadyClaimed(true);
         } else if (json?.status == 1) {
