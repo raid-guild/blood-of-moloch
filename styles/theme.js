@@ -18,9 +18,6 @@ export const theme = extendTheme({
     },
   },
   components: {
-    Center: {
-      w: "100%",
-    },
     Text: {
       textAlign: "left",
     },
