@@ -135,6 +135,7 @@ const Claim = () => {
           )}
         </VStack>
       </VStack>{" "}
+      <Spacer />
       <Footer />
     </Box>
   );
