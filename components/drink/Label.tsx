@@ -1,6 +1,6 @@
 import { Center, Image } from "@chakra-ui/react";
 
-const Label = ({ bgColor, path }) => {
+const Label = ({ bgColor="transparent", path }) => {
   return (
     <Center w={"100%"} background={bgColor}>
       <Image

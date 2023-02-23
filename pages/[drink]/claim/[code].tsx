@@ -144,7 +144,7 @@ const Claim = () => {
           )}
         </VStack>
       </VStack>{" "}
-      <Footer props={{ h: "10vh" }} />
+      <Footer />
     </Box>
   );
 };

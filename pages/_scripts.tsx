@@ -29,4 +29,4 @@ const Scripts = () => {
   );
 };
 
-export { Scripts };
+export default Scripts;
