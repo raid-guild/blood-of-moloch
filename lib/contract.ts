@@ -1,7 +1,6 @@
 import { ethers, providers, Contract, Wallet } from "ethers";
 import { Interface } from "ethers/lib/utils";
 
-
 const usePodContract = () => {
   let provider: providers.BaseProvider;
   let account: Wallet;
@@ -11,7 +10,7 @@ const usePodContract = () => {
   ]);
 
   //TODO check on supported contracts and network
-  const init = async (address: string) => {
+  const init = (address: string) => {
     let network = process.env.NEXT_PUBLIC_NETWORK;
     console.log("Network in ENV: ", network);
     if (!["gnosis", "goerli"].includes(network)) {

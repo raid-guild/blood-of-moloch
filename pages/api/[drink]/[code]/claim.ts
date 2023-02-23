@@ -31,9 +31,18 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "No contract found" });
       }
 
-      const podContract = await init(contractAddress);
+      console.log(`Contract address: ${contractAddress}`);
+
+      const podContract = init(contractAddress);
+
+      console.log(
+        `Verifying claim for ${code} at ${contractAddress} on ${network}`
+      );
 
       const codeClaimed = await podContract.claimed(code);
+
+      console.log(`Verify response: ${codeClaimed}`);
+
       if (codeClaimed) {
         return res.status(200).json({ error: "Code already claimed." });
       }
@@ -49,6 +58,8 @@ const ClaimHandler = async (req, res) => {
       } else {
         parsedAddress = account;
       }
+
+      console.log(`Minting for ${code} to ${account}`);
 
       const tx = await podContract.mint(account, code);
       const receipt = tx.wait();
