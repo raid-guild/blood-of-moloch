@@ -9,7 +9,6 @@ import {
   Stack,
   Center,
 } from "@chakra-ui/react";
-import { theme } from "../../styles/theme";
 
 type DescriptionProps = {
   name: string;
@@ -24,12 +23,8 @@ const Description = ({ name, content }: DescriptionProps) => {
   return (
     <HStack minW={"250px"} w={"100%"} ml={"3em"}>
       <Box>
-        <Heading fontFamily={theme.fonts.uncial}>{name.toUpperCase()}</Heading>
-        <Text
-          w={"100%"}
-          textAlign={"left"}
-          fontFamily={{ fontFamily: `'futura-pt', sans-serif` }}
-        >
+        <Heading>{name.toUpperCase()}</Heading>
+        <Text w={"100%"} textAlign={"left"}>
           {content}
         </Text>
       </Box>
@@ -50,7 +45,6 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
     },
     data: {
       fontSize: `40px`,
-      fontFamily: `'futura-pt', sans-serif`,
       fontWeight: `200`,
       color: `#898989`,
     },
@@ -74,7 +68,12 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 const BeerInfo = ({ bgColor, copy }) => {
   return (
     <Center background={bgColor}>
-      <Stack direction={["column", "row"]} justifyContent={"center"} py={"5em"} maxW={"750px"}>
+      <Stack
+        direction={["column", "row"]}
+        justifyContent={"center"}
+        py={"5em"}
+        maxW={"750px"}
+      >
         <Description name={copy.name} content={copy.beer} />
         <Divider orientation="vertical" />
         <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />

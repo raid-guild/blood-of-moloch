@@ -13,17 +13,14 @@ import {
   VStack,
   Center,
   Spacer,
-  HStack,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
 import { ClaimData } from "../../api/[drink]/[code]/claim";
-import { theme } from "../../../styles/theme";
 import Drinks from "../../api/drinks.json";
 
 const Claim = () => {
   const router = useRouter();
-  const toast = useToast();
   const { drink, code } = router.query;
 
   const [address, setAddress] = useState("");
@@ -45,9 +42,7 @@ const Claim = () => {
   const ClaimInput = () => {
     return (
       <VStack w={"100%"} maxW={"600px"}>
-        <Heading fontFamily={theme.fonts.uncial} size={"md"}>
-          Enter your wallet address
-        </Heading>
+        <Heading size={"md"}>Enter your wallet address</Heading>
         <Input
           w={"100%"}
           maxW={"600px"}
@@ -118,9 +113,7 @@ const Claim = () => {
         </Center>
         <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"}>
           <VStack maxW={"350px"}>
-            <Heading fontFamily={theme.fonts.uncial} size={"md"}>
-              How to claim
-            </Heading>{" "}
+            <Heading size={"md"}>How to claim</Heading>{" "}
             <OrderedList>
               <ListItem>
                 Enter your public address and secret password.
@@ -134,9 +127,7 @@ const Claim = () => {
 
           {txReceipt ? (
             <>
-              <Heading fontFamily={theme.fonts.uncial} size={"md"}>
-                Proof of Drink minted{" "}
-              </Heading>{" "}
+              <Heading size={"md"}>Proof of Drink minted </Heading>{" "}
               <Badge path={`/assets/drink/${drink}/badge.png`} />
             </>
           ) : (

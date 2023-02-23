@@ -38,6 +38,7 @@ export const theme = extendTheme({
   },
   fonts: {
     heading: `'Uncial Antiqua', cursive`,
+    text: `'futura-pt','sans-serif'`,
     texturina: `'Texturina', serif`,
     jetbrains: `'JetBrains Mono', monospace`,
     rubik: `'Rubik Mono One', sans-serif`,
