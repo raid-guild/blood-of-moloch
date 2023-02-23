@@ -61,6 +61,7 @@ const Claim = () => {
           w={"100%"}
           maxW={"600px"}
           onClick={() => submitData()}
+          isLoading={isLoading}
         >
           {alreadyClaimed ? "ALREADY CLAIMED" : "CLAIM"}
         </Button>
@@ -79,6 +80,7 @@ const Claim = () => {
     };
 
     console.log("POST: ", options);
+    setIsLoading(true);
 
     await fetch(`/api/${drink}/${code}/claim`, options)
       .then((res) => {
@@ -88,8 +90,12 @@ const Claim = () => {
       .then((json) => {
         console.log(json);
         if (json.error === "Code already claimed.") {
-          console.log("ALREADY CLAIMED");
-          setIsLoading(false);
+          toast({
+            status: "error",
+            title: "Oops",
+            description: json.error,
+            duration: 3000,
+          });
           setAlreadyClaimed(true);
         } else if (json.error === "Code cannot be validated.") {
           console.log("ALREADY CLAIMED");
@@ -99,14 +105,17 @@ const Claim = () => {
             description: json.error,
             duration: 3000,
           });
-          setIsLoading(false);
-          setAlreadyClaimed(true);
         } else if (json?.status == 1) {
-          setIsLoading(false);
+          toast({
+            status: "success",
+            title: "Proof of drink minted",
+            duration: 3000,
+          });
           setIsSuccessful(true);
           setTxReceipt(json);
         }
       })
+      .then(() => setIsLoading(false))
       .catch((e) => {
         setIsLoading(false);
       });
@@ -139,7 +148,10 @@ const Claim = () => {
           {txReceipt ? (
             <>
               <Heading size={"md"}>Proof of Drink minted </Heading>{" "}
-              <Badge path={`/assets/drink/${drink}/badge.png`} />
+              <Badge
+                path={`/assets/drink/${drink}/badge.png`}
+                bgColor={"transparent"}
+              />
             </>
           ) : (
             <ClaimInput />
