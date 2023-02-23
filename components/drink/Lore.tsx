@@ -10,13 +10,9 @@ const Lore = ({ first, second }: LoreProps) => {
       <VStack maxW={"750px"} py={"5em"}>
         <Heading textAlign={"left"}>Lore</Heading>
         <Box w={"70%"}>
-          <Text w={"100%"} textAlign={"left"}>
-            {first}
-          </Text>
+          <Text w={"100%"}>{first}</Text>
           <br />
-          <Text w={"100%"} textAlign={"left"}>
-            {second}
-          </Text>
+          <Text w={"100%"}>{second}</Text>
         </Box>
       </VStack>
     </Center>

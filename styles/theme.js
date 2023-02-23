@@ -21,6 +21,9 @@ export const theme = extendTheme({
     Center: {
       w: "100%",
     },
+    Text: {
+      textAlign: "left",
+    },
   },
   colors: {
     transparent: "transparent",
