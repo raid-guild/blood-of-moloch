@@ -28,8 +28,8 @@ export const BEER_CONTENT = [
       "From below his sacrificial altar, we drove our blade into the demon’s flesh. The harvest of battle is blood, intense, complex and rich, with flavors of roasted malts, dark chocolate, dark fruits and espresso. Drink its poison, all 14% abv of it!",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/blood-of-moloch",
-    label: "/assets/drink/blood-of-moloch/label.svg",
+    path: "/bloodofmoloch",
+    label: "/assets/drink/bloodofmoloch/label.svg",
   },
   {
     title: "Red Pil",
@@ -37,8 +37,8 @@ export const BEER_CONTENT = [
       "Crisp and dry, traditional pilsner profile with a touch of lemongrass, bergamot and blacktea from late Saphir hop additions. Fermented with OldWorld+NewBeast Kveik Yeast. All the clean pilsner taste, with only 1/6 the brewing time.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/red-pil",
-    label: "/assets/drink/red-pil/label.svg",
+    path: "/redpil",
+    label: "/assets/drink/redpil/label.svg",
   },
   {
     title: "Green Pil",
@@ -46,8 +46,8 @@ export const BEER_CONTENT = [
       "A hop forward crushable Kveik Pilsner. Made in collaboration with the Green Pil Podcast. $1 form every sale going to fund public goods.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/green-pil",
-    label: "/assets/drink/green-pil/label.svg",
+    path: "/greenpil",
+    label: "/assets/drink/greenpil/label.svg",
   },
   {
     title: "Spork and Sour",
@@ -55,7 +55,7 @@ export const BEER_CONTENT = [
       "Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with SporkDAO for ETH Denver 2023.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/spork-sour",
-    label: "/assets/drink/spork-sour/label.svg",
+    path: "/sporksour",
+    label: "/assets/drink/sporksour/label.svg",
   },
 ];
