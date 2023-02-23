@@ -123,7 +123,7 @@ const Claim = () => {
   };
 
   console.log(
-    `Page for claiming ${drink} with code ${code} on ${process.env.NEXT_APP_NETWORK}`
+    `Page for claiming ${drink} with code ${code} on ${process.env.NEXT_PUBLIC_NETWORK}`
   );
 
   return (

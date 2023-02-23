@@ -23,7 +23,7 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "Code cannot be validated." });
       }
 
-      const network = process.env.NEXT_APP_NETWORK;
+      const network = process.env.NEXT_PUBLIC_NETWORK;
 
       const contractAddress = PODcontracts[network][drink];
 
