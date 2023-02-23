@@ -90,6 +90,7 @@ const Claim = () => {
       .then((json) => {
         console.log(json);
         if (json.error === "Code already claimed.") {
+          console.error(json.error);
           toast({
             status: "error",
             title: "Oops",
@@ -98,7 +99,7 @@ const Claim = () => {
           });
           setAlreadyClaimed(true);
         } else if (json.error === "Code cannot be validated.") {
-          console.log("ALREADY CLAIMED");
+          console.error(json.error);
           toast({
             status: "error",
             title: "Oops",
