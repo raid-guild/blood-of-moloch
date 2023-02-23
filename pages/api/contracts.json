@@ -1,13 +1,13 @@
 {
   "gnosis": {
-    "red-pil": "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
-    "green-pil": "",
-    "spork-sour": ""
+    "redpil": "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
+    "greenpil": "",
+    "sporksour": ""
   },
   "goerli": {
-    "red-pil": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
-    "green-pil": "",
-    "spork-sour": ""
+    "redpil": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
+    "greenpil": "",
+    "sporksour": ""
   },
   "mumbai": "0xfE2CFD6C470AF4b1b4c6D0cfCA89983fCfFFc011",
   "polygon": "0xC169aB1C1f32d4Bc189028b63d0f120fEeaC7A2D"

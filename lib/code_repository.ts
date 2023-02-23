@@ -7,13 +7,13 @@ const useCodeRepository = () => {
   const isValid = async ({ code, drink }: { code: string; drink: string }) => {
     let queryIndex: string;
     switch (drink) {
-      case "red-pil":
+      case "redpil":
         queryIndex = "red_pil_codes_by_code";
         break;
-      case "green-pil":
+      case "greenpil":
         queryIndex = "green_pil_codes_by_code";
         break;
-      case "spork-sour":
+      case "sporksour":
         queryIndex = "spork_sour_codes_by_code";
         break;
       default:

@@ -1,5 +1,5 @@
 {
-  "blood-of-moloch": {
+  "bloodofmoloch": {
     "name": "Bloof of Moloch",
     "heading": { "title": "BLOOD OF", "subtitle": "MOLOCH" },
     "style": "Russian Imperial Stout",
@@ -12,7 +12,7 @@
     },
     "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
   },
-  "green-pil": {
+  "greenpil": {
     "name": "Green Pil",
     "heading": { "title": "GOOD FOR HUMANITY", "subtitle": "BAD FOR MOLOCH" },
     "style": "Italian Style Kveik Pilsner",
@@ -25,7 +25,7 @@
     },
     "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
   },
-  "red-pil": {
+  "redpil": {
     "name": "Red Pil",
     "heading": { "title": "GOOD FOR HUMANITY", "subtitle": "BAD FOR MOLOCH" },
     "style": "Straw Blond Kveik Ale",
@@ -38,7 +38,7 @@
     },
     "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
   },
-  "spork-sour": {
+  "sporksour": {
     "name": "Spork Sour",
     "heading": { "title": "GOOD FOR HUMANITY", "subtitle": "BAD FOR MOLOCH" },
     "style": "Fruited Sour",
