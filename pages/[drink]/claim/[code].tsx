@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Footer } from "../../../shared/Footer";
 import {
   Box,
@@ -90,6 +90,7 @@ const Claim = () => {
       .then((json) => {
         console.log(json);
         if (json.error === "Code already claimed.") {
+          console.error(json.error);
           toast({
             status: "error",
             title: "Oops",
@@ -98,7 +99,7 @@ const Claim = () => {
           });
           setAlreadyClaimed(true);
         } else if (json.error === "Code cannot be validated.") {
-          console.log("ALREADY CLAIMED");
+          console.error(json.error);
           toast({
             status: "error",
             title: "Oops",
@@ -121,7 +122,9 @@ const Claim = () => {
       });
   };
 
-  console.log(`Page for claiming ${drink} with code ${code}`);
+  console.log(
+    `Page for claiming ${drink} with code ${code} on ${process.env.NEXT_PUBLIC_NETWORK}`
+  );
 
   return (
     <Box h={"100vh"} bgColor={" #2b2c34"}>

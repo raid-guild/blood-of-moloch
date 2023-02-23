@@ -11,7 +11,7 @@ export type ClaimData = {
 //TODO handling successful minting
 const ClaimHandler = async (req, res) => {
   const { isValid } = useCodeRepository();
-  const { init, claim, isClaimed } = usePodContract();
+  const { init } = usePodContract();
 
   if (req.method === "POST") {
     try {
@@ -23,9 +23,7 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "Code cannot be validated." });
       }
 
-      //TODO hacky network selection
-      const network =
-        process.env.NODE_ENV === "production" ? "gnosis" : "goerli";
+      const network = process.env.NEXT_PUBLIC_NETWORK;
 
       const contractAddress = PODcontracts[network][drink];
 
@@ -35,7 +33,7 @@ const ClaimHandler = async (req, res) => {
 
       const podContract = await init(contractAddress);
 
-      const codeClaimed = await isClaimed(podContract, code);
+      const codeClaimed = await podContract.claimed(code);
       if (codeClaimed) {
         return res.status(200).json({ error: "Code already claimed." });
       }
@@ -52,10 +50,8 @@ const ClaimHandler = async (req, res) => {
         parsedAddress = account;
       }
 
-      const receipt = await claim(podContract, {
-        account: parsedAddress,
-        code,
-      });
+      const tx = await podContract.mint(account, code);
+      const receipt = tx.wait();
       return res.status(200).json(receipt);
     } catch (err) {
       return res.status(400).json({ error: err.message });
