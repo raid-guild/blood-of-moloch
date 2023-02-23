@@ -19,17 +19,17 @@ describe("Contract", () => {
   it("should only initialize a provider for a supported network", async () => {
     expect(init(defaultContract)).rejects.toThrow();
 
-    process.env.NETWORK = "localhost";
+    process.env.NEXT_APP_NETWORK = "localhost";
     expect(init(defaultContract)).rejects.toThrow();
 
-    process.env.NETWORK = "gnosis";
+    process.env.NEXT_APP_NETWORK = "gnosis";
     process.env.RPC_URL = "https://gnosis.rpc";
 
     expect(await (await init(defaultContract)).provider._isProvider).toBe(true);
   });
 
   it("should create a wallet with the correct key", async () => {
-    process.env.NETWORK = "gnosis";
+    process.env.NEXT_APP_NETWORK = "gnosis";
     const contract = await init(defaultContract);
     expect(await contract.signer.getAddress()).toBe(randomWallet.address);
   });

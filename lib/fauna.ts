@@ -7,12 +7,11 @@ const FaunaDB = () => {
       domain: "db.us.fauna.com",
       scheme: "https",
     });
-    return { client };
+    return client;
   } catch (e) {
     console.error(e.message);
+    return null;
   }
-
-  return null;
 };
 
 export { FaunaDB };

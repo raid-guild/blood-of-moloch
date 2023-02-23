@@ -5,7 +5,7 @@ import { theme } from '../../styles/theme';
 const StyledContainer = styled(SimpleGrid)`
   grid-gap: 1rem;
   background-color: #2b2c34;
-  margin-top: 5rem;
+  padding-top: 5rem;
   padding-bottom: 5rem;
   align-items: center;
 `;
@@ -19,7 +19,7 @@ const StyledHeading = styled(Text)`
   line-height: 40px;
   color: white;
   text-align: left;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 `;
 const StyledBodyText = styled(Text)`
   font-family: ${theme.fonts.sourceSansPro};

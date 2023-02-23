@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../../../shared/Footer";
 import {
   Box,
@@ -12,10 +12,9 @@ import {
   useToast,
   VStack,
   Center,
-  Stack,
   Spacer,
+  HStack,
 } from "@chakra-ui/react";
-import styles from "../../../styles/Home.module.scss";
 import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
 import { ClaimData } from "../../api/[drink]/[code]/claim";
@@ -30,12 +29,48 @@ const Claim = () => {
   const [address, setAddress] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
-
+  const [alreadyClaimed, setAlreadyClaimed] = useState(false);
+  const [txReceipt, setTxReceipt] = useState();
   const copy = Drinks[drink as string];
+
   // TODO route to 404 or home
   if (!copy) {
     return <Center>Ooopss...</Center>;
   }
+
+  console.log("loading: ", isLoading);
+  console.log("successful: ", isSuccessful);
+  console.log("alreadyClaimed: ", alreadyClaimed);
+
+  const ClaimInput = () => {
+    return (
+      <VStack w={"100%"} maxW={"600px"}>
+        <Heading fontFamily={theme.fonts.uncial} size={"md"}>
+          Enter your wallet address
+        </Heading>
+        <Input
+          w={"100%"}
+          maxW={"600px"}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          borderRadius={"0"}
+        />
+        {address.length > 0 && !ethers.utils.isAddress(address) ? (
+          <Text color="red">Not a valid address</Text>
+        ) : null}
+        <Button
+          bgGradient={"linear(to-r, #EC4899, #7C3AED)"}
+          borderRadius={"0"}
+          disabled={isLoading || alreadyClaimed}
+          w={"100%"}
+          maxW={"600px"}
+          onClick={() => submitData()}
+        >
+          {alreadyClaimed ? "ALREADY CLAIMED" : "CLAIM"}
+        </Button>
+      </VStack>
+    );
+  };
 
   const submitData = async () => {
     const data: ClaimData = {
@@ -50,38 +85,23 @@ const Claim = () => {
     console.log("POST: ", options);
 
     await fetch(`/api/${drink}/${code}/claim`, options)
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
       .then((json) => {
         console.log(json);
-        if (json.error) {
-          toast({
-            title: "Claim failed",
-            description: json.error,
-            status: "error",
-            duration: 3000,
-            isClosable: true,
-          });
+        if (json.error === "Code already claimed.") {
+          console.log("ALREADY CLAIMED");
           setIsLoading(false);
+          setAlreadyClaimed(true);
         } else if (json?.status == 1) {
-          toast({
-            title: "Claim successful",
-            description: `You got a ${drink} NFT`,
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          });
           setIsLoading(false);
           setIsSuccessful(true);
+          setTxReceipt(json);
         }
       })
       .catch((e) => {
-        toast({
-          title: "Claim failed",
-          description: e,
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-        });
         setIsLoading(false);
       });
   };
@@ -89,15 +109,15 @@ const Claim = () => {
   console.log(`Page for claiming ${drink} with code ${code}`);
 
   return (
-    <Box h="calc(100vh)">
-      <VStack bgGradient="linear(to-b, black, #2b2c34)">
-        <Center w={"100%"} py={"3em"}>
-          <Heading fontFamily={theme.fonts.uncial}>
+    <Box h={"100vh"} bgColor={" #2b2c34"}>
+      <VStack bgGradient="linear(to-b, black, #2b2c34)" spacing={"3em"}>
+        <Center w={"100%"}>
+          <Heading fontFamily={theme.fonts.uncial} mt={"3em"}>
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <Stack w={"80%"} direction={["column", "row"]}>
-          <VStack alignContent={"space-around"} maxW={"350px"} margin={"auto"}>
+        <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"}>
+          <VStack maxW={"350px"}>
             <Heading fontFamily={theme.fonts.uncial} size={"md"}>
               How to claim
             </Heading>{" "}
@@ -112,34 +132,19 @@ const Claim = () => {
 
           <Spacer />
 
-          <VStack w={"100%"} maxW={"600px"}>
-            <Heading fontFamily={theme.fonts.uncial} size={"md"}>
-              Enter your wallet address
-            </Heading>
-            <Input
-              w={"100%"}
-              maxW={"750px"}
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              borderRadius={"0"}
-            />
-            {address.length > 0 && !ethers.utils.isAddress(address) ? (
-              <Text color="red">Not a valid address</Text>
-            ) : null}
-            <Button
-              bgGradient={"linear(to-r, #EC4899, #7C3AED)"}
-              borderRadius={"0"}
-              disabled={isLoading}
-              w={"100%"}
-              maxW={"750px"}
-              onClick={() => submitData()}
-            >
-              Claim
-            </Button>
-          </VStack>
-        </Stack>
-      </VStack>
-      <Footer />
+          {txReceipt ? (
+            <>
+              <Heading fontFamily={theme.fonts.uncial} size={"md"}>
+                Proof of Drink minted{" "}
+              </Heading>{" "}
+              <Badge path={`/assets/drink/${drink}/badge.png`} />
+            </>
+          ) : (
+            <ClaimInput />
+          )}
+        </VStack>
+      </VStack>{" "}
+      <Footer props={{ h: "10vh" }} />
     </Box>
   );
 };

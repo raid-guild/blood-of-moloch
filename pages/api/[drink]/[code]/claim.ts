@@ -11,7 +11,7 @@ export type ClaimData = {
 //TODO handling successful minting
 const ClaimHandler = async (req, res) => {
   const { isValid } = useCodeRepository();
-  const { init, claim } = usePodContract();
+  const { init, claim, isClaimed } = usePodContract();
 
   if (req.method === "POST") {
     try {
@@ -20,7 +20,7 @@ const ClaimHandler = async (req, res) => {
 
       const foundCode = await isValid({ code, drink });
       if (!foundCode) {
-        return res.status(400).json({ error: "Code cannot be validated." });
+        return res.status(200).json({ error: "Code cannot be validated." });
       }
 
       //TODO hacky network selection
@@ -30,10 +30,15 @@ const ClaimHandler = async (req, res) => {
       const contractAddress = PODcontracts[network][drink];
 
       if (!contractAddress) {
-        return res.status(400).json({ error: "No contract found" });
+        return res.status(200).json({ error: "No contract found" });
       }
 
       const podContract = await init(contractAddress);
+
+      const codeClaimed = await isClaimed(podContract, code);
+      if (codeClaimed) {
+        return res.status(200).json({ error: "Code already claimed." });
+      }
 
       const ensProvider = ethers.providers.getDefaultProvider("homestead", {
         alchemy:
