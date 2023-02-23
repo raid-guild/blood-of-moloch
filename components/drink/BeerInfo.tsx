@@ -73,7 +73,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
 const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Center w={"100%"} background={bgColor}>
+    <Center background={bgColor}>
       <Stack direction={["column", "row"]} justifyContent={"center"} py={"5em"} maxW={"750px"}>
         <Description name={copy.name} content={copy.beer} />
         <Divider orientation="vertical" />

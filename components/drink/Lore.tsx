@@ -7,7 +7,7 @@ type LoreProps = {
 };
 const Lore = ({ first, second }: LoreProps) => {
   return (
-    <Center w={"100%"} bgColor={"black"}>
+    <Center bgColor={"black"}>
       <VStack maxW={"750px"} py={"5em"}>
         <Heading fontFamily={theme.fonts.uncial} textAlign={"left"}>
           Lore

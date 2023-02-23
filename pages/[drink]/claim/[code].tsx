@@ -111,8 +111,8 @@ const Claim = () => {
   return (
     <Box h={"100vh"} bgColor={" #2b2c34"}>
       <VStack bgGradient="linear(to-b, black, #2b2c34)" spacing={"3em"}>
-        <Center w={"100%"}>
-          <Heading fontFamily={theme.fonts.uncial} mt={"3em"}>
+        <Center>
+          <Heading mt={"3em"}>
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>

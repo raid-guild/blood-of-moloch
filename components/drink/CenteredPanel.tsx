@@ -11,7 +11,7 @@ const CenteredPanel = ({
   onMouseEnter,
 }: CenteredPanelProps) => {
   return (
-    <Center w={"100%"} ref={customRef} onMouseEnter={onMouseEnter}>
+    <Center ref={customRef} onMouseEnter={onMouseEnter}>
       {children}
     </Center>
   );

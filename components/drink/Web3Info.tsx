@@ -4,7 +4,7 @@ import { theme } from "../../styles/theme";
 
 const Web3Info = () => {
   return (
-    <Center w={"100%"} bgColor={"black"}>
+    <Center bgColor={"black"}>
       <VStack maxW={"750px"} py={"5em"}>
         <Heading className={styles.heading} fontFamily={theme.fonts.uncial}>
           WEB3 MEETS BEER.

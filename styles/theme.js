@@ -17,6 +17,11 @@ export const theme = extendTheme({
       },
     },
   },
+  components: {
+    Center: {
+      w: "100%",
+    },
+  },
   colors: {
     transparent: "transparent",
     blackDark: "rgba(10, 10, 10, 0.960784)",
@@ -32,6 +37,7 @@ export const theme = extendTheme({
     yellowDark: "#DCCF11",
   },
   fonts: {
+    heading: `'Uncial Antiqua', cursive`,
     texturina: `'Texturina', serif`,
     jetbrains: `'JetBrains Mono', monospace`,
     rubik: `'Rubik Mono One', sans-serif`,
