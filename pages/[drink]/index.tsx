@@ -25,11 +25,15 @@ export default function DrinkPage() {
     <VStack w={"100%"}>
       <LogoHeader path={`/assets/drink/${drink}/logo.png`} />
       <BeerInfo copy={copy} bgColor={"black"} />
-      <Web3Info />
-      <Steps callToAction={copy.callToAction} />
-      <Badge path={`/assets/drink/${drink}/badge.png`} />
-      <Lore first={copy.lore.first} second={copy.lore.second} />
-      <Label path={`/assets/drink/${drink}/label.svg`} />
+      <Web3Info bgColor={"#2b2c34"} />
+      <Steps callToAction={copy.callToAction} bgColor={"black"} />
+      <Badge path={`/assets/drink/${drink}/badge.png`} bgColor={"#2b2c34"} />
+      <Lore
+        first={copy.lore.first}
+        second={copy.lore.second}
+        bgColor={"black"}
+      />
+      <Label path={`/assets/drink/${drink}/label.svg`} bgColor={"#2b2c34"} />
       <Footer />
     </VStack>
   );

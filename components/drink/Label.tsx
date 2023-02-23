@@ -1,8 +1,8 @@
 import { Center, Image } from "@chakra-ui/react";
 
-const Label = ({ bgColor="transparent", path }) => {
+const Label = ({ bgColor = "transparent", path }) => {
   return (
-    <Center background={bgColor}>
+    <Center background={bgColor} w={"100%"}>
       <Image
         maxW={"750px"}
         objectFit={"contain"}

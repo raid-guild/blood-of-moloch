@@ -30,7 +30,7 @@ const LogoHeader = ({ path }) => {
         </HStack>
       </HStack>
 
-      <Center >
+      <Center>
         <Image src={path} objectFit="contain" boxSize={"md"} alt="drink logo" />
       </Center>
     </VStack>

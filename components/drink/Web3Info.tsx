@@ -2,9 +2,9 @@ import { Center, Heading, Text, VStack } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.scss";
 import { theme } from "../../styles/theme";
 
-const Web3Info = () => {
+const Web3Info = ({ bgColor }) => {
   return (
-    <Center bgColor={"black"}>
+    <Center bgColor={bgColor}>
       <VStack maxW={"750px"} py={"5em"}>
         <Heading className={styles.heading} fontFamily={theme.fonts.uncial}>
           WEB3 MEETS BEER.

@@ -3,10 +3,11 @@ import { theme } from "../../styles/theme";
 
 type StepsProps = {
   callToAction: string;
+  bgColor: string;
 };
-const Steps = ({ callToAction }: StepsProps) => {
+const Steps = ({ callToAction, bgColor }: StepsProps) => {
   return (
-    <VStack backgroundColor={"black"} w={"100%"} py={"5em"}>
+    <VStack backgroundColor={bgColor} w={"100%"} py={"5em"}>
       <Heading fontFamily={theme.fonts.uncial} textAlign={"left"}>
         Start Here
       </Heading>

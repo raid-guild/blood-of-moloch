@@ -3,10 +3,11 @@ import { Box, Center, Heading, Text, VStack } from "@chakra-ui/react";
 type LoreProps = {
   first: string;
   second: string;
+  bgColor: string;
 };
-const Lore = ({ first, second }: LoreProps) => {
+const Lore = ({ first, second, bgColor }: LoreProps) => {
   return (
-    <Center bgColor={"black"}>
+    <Center bgColor={bgColor} w={"100%"}>
       <VStack maxW={"750px"} py={"5em"}>
         <Heading textAlign={"left"}>Lore</Heading>
         <Box w={"70%"}>

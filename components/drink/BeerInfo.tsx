@@ -67,7 +67,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
 const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Center background={bgColor}>
+    <Center w={"100% "} background={bgColor}>
       <Stack
         direction={["column", "row"]}
         justifyContent={"center"}
