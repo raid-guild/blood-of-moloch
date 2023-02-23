@@ -121,7 +121,9 @@ const Claim = () => {
       });
   };
 
-  console.log(`Page for claiming ${drink} with code ${code}`);
+  console.log(
+    `Page for claiming ${drink} with code ${code} on ${process.env.NEXT_APP_NETWORK}`
+  );
 
   return (
     <Box h={"100vh"} bgColor={" #2b2c34"}>
