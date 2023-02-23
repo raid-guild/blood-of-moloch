@@ -33,6 +33,10 @@ const ClaimHandler = async (req, res) => {
 
       const podContract = await init(contractAddress);
 
+      console.log(
+        `Verifying claim for ${code} at ${contractAddress} on ${network}`
+      );
+
       const codeClaimed = await podContract.claimed(code);
       if (codeClaimed) {
         return res.status(200).json({ error: "Code already claimed." });
