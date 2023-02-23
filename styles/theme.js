@@ -8,6 +8,15 @@ const breakpoints = {
 };
 
 export const theme = extendTheme({
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+        bg: "gray.400",
+        color: "white",
+      },
+    },
+  },
   colors: {
     transparent: "transparent",
     blackDark: "rgba(10, 10, 10, 0.960784)",
