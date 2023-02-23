@@ -1,11 +1,10 @@
 import { FaunaDB } from "./fauna";
 import { Exists, Match, Index } from "faunadb";
-import { DrinkDbData } from "../pages/api/[drink]/[code]/is_claimed";
 
 const useCodeRepository = () => {
-  const { client } = FaunaDB();
+  const client = FaunaDB();
 
-  const isValid = async ({ code, drink }: DrinkDbData) => {
+  const isValid = async ({ code, drink }: { code: string; drink: string }) => {
     let queryIndex: string;
     switch (drink) {
       case "red-pil":

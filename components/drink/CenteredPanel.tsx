@@ -1,5 +1,4 @@
-import { Box } from "@chakra-ui/react";
-import styles from "./CenteredPanel.module.scss";
+import { Center } from "@chakra-ui/react";
 
 type CenteredPanelProps = {
   onMouseEnter?: () => void;
@@ -12,9 +11,9 @@ const CenteredPanel = ({
   onMouseEnter,
 }: CenteredPanelProps) => {
   return (
-    <Box ref={customRef} className={styles.panel} onMouseEnter={onMouseEnter}>
+    <Center w={"100%"} ref={customRef} onMouseEnter={onMouseEnter}>
       {children}
-    </Box>
+    </Center>
   );
 };
 

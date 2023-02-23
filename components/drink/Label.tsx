@@ -1,8 +1,15 @@
-import { Image } from "@chakra-ui/react";
+import { Center, Image } from "@chakra-ui/react";
 
-const Label = ({ path }) => {
+const Label = ({ bgColor="transparent", path }) => {
   return (
-    <Image w={"100%"} objectFit={"contain"} src={path} alt="Drink can label" />
+    <Center w={"100%"} background={bgColor}>
+      <Image
+        maxW={"750px"}
+        objectFit={"contain"}
+        src={path}
+        alt="Drink can label"
+      />
+    </Center>
   );
 };
 

@@ -7,6 +7,7 @@ import {
   VStack,
   Divider,
   Stack,
+  Center,
 } from "@chakra-ui/react";
 import { theme } from "../../styles/theme";
 
@@ -72,17 +73,13 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
 const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Stack
-      direction={["column", "row"]}
-      background={bgColor}
-      justifyContent={"center"}
-      py={"5em"}
-      w={"100%"}
-    >
-      <Description name={copy.name} content={copy.beer} />
-      <Divider orientation="vertical" />
-      <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
-    </Stack>
+    <Center w={"100%"} background={bgColor}>
+      <Stack direction={["column", "row"]} justifyContent={"center"} py={"5em"} maxW={"750px"}>
+        <Description name={copy.name} content={copy.beer} />
+        <Divider orientation="vertical" />
+        <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
+      </Stack>
+    </Center>
   );
 };
 

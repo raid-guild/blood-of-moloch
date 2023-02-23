@@ -20,15 +20,16 @@ const usePodContract = () => {
     if (!["gnosis", "goerli"].includes(network)) {
       throw Error("No supported network found in env vars");
     }
-    provider = new ethers.providers.JsonRpcProvider(process.env.NEXT_APP_RPC_URL);
+    provider = new ethers.providers.JsonRpcProvider(
+      process.env.NEXT_APP_RPC_URL
+    );
     account = new Wallet(process.env.PRIVATE_KEY, provider);
 
     return new ethers.Contract(address, abi, account);
   };
 
-  //TODO functions might be redundant
-  const isClaimed = async (contract: Contract, claimCode: string) => {
-    return contract.claimed(claimCode);
+  const isClaimed = async (contract: Contract, code: string) => {
+    return contract.claimed(code);
   };
 
   const claim = async (contract: Contract, { account, code }: ClaimProps) => {
