@@ -26,7 +26,13 @@ export default function DrinkPage() {
       <LogoHeader path={`/assets/drink/${drink}/logo.png`} />
       <BeerInfo copy={copy} bgColor={"black"} />
       <Web3Info bgColor={"#2b2c34"} />
-      <Steps callToAction={copy.callToAction} bgColor={"black"} />
+      {copy.callToAction && (
+        <Steps
+          callToAction={copy.callToAction}
+          bgColor={"black"}
+          daoClaimUrl={copy.daoClaimUrl}
+        />
+      )}
       <Badge path={`/assets/drink/${drink}/badge.png`} bgColor={"#2b2c34"} />
       <Lore
         first={copy.lore.first}
