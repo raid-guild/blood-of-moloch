@@ -12,8 +12,10 @@ const Lore = ({ first, second, third, fourth, bgColor }: LoreProps) => {
   return (
     <Center bgColor={bgColor} w={'100%'}>
       <VStack maxW={'750px'} py={'5em'}>
-        <Heading textAlign={'left'}>Lore</Heading>
-        <Box w={'70%'}>
+        <Heading paddingBottom={'24px'} textAlign={'left'}>
+          Lore
+        </Heading>
+        <Box w={'90%'} fontSize={'24px'}>
           <Text w={'100%'}>{first}</Text>
           <br />
           <Text w={'100%'}>{second}</Text>

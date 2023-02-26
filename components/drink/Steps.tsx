@@ -8,10 +8,14 @@ type StepsProps = {
 const Steps = ({ callToAction, bgColor }: StepsProps) => {
   return (
     <VStack backgroundColor={bgColor} w={'100%'} py={'5em'}>
-      <Heading fontFamily={theme.fonts.uncial} textAlign={'left'}>
+      <Heading
+        fontFamily={theme.fonts.uncial}
+        paddingBottom={'24px'}
+        textAlign={'left'}
+      >
         Start Here
       </Heading>
-      <OrderedList fontFamily={theme.fonts.sourceSansPro}>
+      <OrderedList fontFamily={theme.fonts.sourceSansPro} fontSize={'24px'}>
         <ListItem>{callToAction}</ListItem>
         <ListItem>Scan your QR code</ListItem>
         <ListItem>

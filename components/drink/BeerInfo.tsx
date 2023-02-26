@@ -19,12 +19,22 @@ type TraitsProps = {
   ibu: number;
   abv: number;
 };
+
 const Description = ({ name, content }: DescriptionProps) => {
+  const style = {
+    p: {
+      fontFamily: `'Source Sans Pro', sans-serif`,
+      fontStyle: `normal`,
+      fontWeight: `400`,
+      fontSize: `24px`,
+      lineHeight: `32px`,
+    },
+  };
   return (
     <HStack minW={'250px'} w={'100%'} ml={'3em'}>
       <Box>
-        <Heading>{name.toUpperCase()}</Heading>
-        <Text w={'100%'} textAlign={'left'}>
+        <Heading paddingBottom={'36px'}>{name.toUpperCase()}</Heading>
+        <Text sx={style.p} w={'100%'} textAlign={'left'}>
           {content}
         </Text>
       </Box>
