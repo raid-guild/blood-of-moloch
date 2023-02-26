@@ -7,7 +7,7 @@ const StyledContainer = styled(Flex)`
   flex-direction: column;
   align-items: center;
   background-color: #2b2c34;
-  padding-bottom: 2rem;
+  padding: 7rem 0 7rem;
 `;
 const StyledHeading = styled(Text)`
   width: 100%;
