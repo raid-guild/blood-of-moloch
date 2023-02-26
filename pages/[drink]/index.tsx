@@ -31,6 +31,8 @@ export default function DrinkPage() {
       <Lore
         first={copy.lore.first}
         second={copy.lore.second}
+        third={copy.lore.third}
+        fourth={copy.lore.fourth}
         bgColor={"black"}
       />
       <Label path={`/assets/drink/${drink}/label.svg`} bgColor={"#2b2c34"} />
