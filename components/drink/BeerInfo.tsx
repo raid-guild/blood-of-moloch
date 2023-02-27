@@ -34,12 +34,6 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
     heading: {
       fontFamily: `'futura-pt', sans-serif`,
     },
-    divider: {
-      display: `block`,
-      height: `100px`,
-      width: `2px`,
-      backgroundColor: `#EBEBEB`,
-    },
     data: {
       fontSize: `40px`,
       fontWeight: `200`,
@@ -48,12 +42,12 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
   };
 
   return (
-    <Flex minW={'250px'} justifyContent={'center'}>
+    <Flex minW={'250px'} justifyContent={'center'} m="0 !important">
       <VStack>
         <Heading sx={style.heading}>ABV</Heading>
         <Text sx={style.data}>{`${abv} %`}</Text>
       </VStack>
-      <div style={style.divider}></div>
+      <Divider orientation="vertical" mx={4} borderColor="#EBEBEB" maxH="100px" />
       <VStack>
         <Heading sx={style.heading}>IBU</Heading>
         <Text sx={style.data}>{ibu}</Text>
