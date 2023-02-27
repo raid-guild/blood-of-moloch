@@ -4,7 +4,6 @@
     "heading": { "title": "BLOOD OF", "subtitle": "MOLOCH" },
     "style": "Russian Imperial Stout",
     "beer": "From below his sacrificial altar, we drove our blade into the demon’s flesh. The harvest of battle is blood, intense, complex and rich, with flavors of roasted malts, dark chocolate, dark fruits and espresso. Drink its poison, all 14% abv of it!",
-    "callToAction": "Summon Moloch",
     "traits": { "abv": 14, "ibu": 24 },
     "lore": {
       "first": "Through the long winter of '18 and the mania that followed, the mercenaries at Raid Guild have gathered to share stories of battle, cleaning the Blood of Moloch from their armor and sharpening their swords. ",
@@ -23,7 +22,8 @@
       "first": "The solarpunks at GreenPill are expanding the realm of what is possible with and through crypto-economic systems, in service of public goods. Best enjoyed with friends and neighbors, this crushable brew is crafted to cultivate community and conversation in service of a greater good.",
       "second": "Invoke your solarpunk spirit wth a few sips of Green Pil, and heed the call to build a brighter future."
     },
-    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
+    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
+    "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0x63da3a1cf582e40f7b369c120e6c997c20e93b7a"
   },
   "redpil": {
     "name": "Red Pil",
@@ -36,7 +36,8 @@
       "first": "When you know there’s got to be a better way and you’re longing to follow the white rabbit, a sip of this crisp summer brew is like soft lips near your ear, encouraging you to choose the Red Pil.",
       "second": ""
     },
-    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
+    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
+    "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0x29e682AF081caF314df5B9CFD1f78Eb23c2Fc456"
   },
   "sporksour": {
     "name": "Spork Sour",
@@ -49,6 +50,7 @@
       "first": "In the belly of the bitter bear of '23, Moloch’s mischievous and malevolent misdoings ran amok. Alas! A brave brood of #BUIDLers gathered in Colorado to slay Moloch and break the sour spell he cast over crypto and Web3.",
       "second": "In collaboration with SporkDAO, Sasquatch, a wizard in ways of brew and alchemy, harnessed Moloch’s sour spell with his philosopher’s stone and transformed it. This nourishing nectar is the result of painstaking alchemical separation and ferementation. It is sour transmuted, from devious spell to delicious sips."
     },
-    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg"
+    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
+    "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0xd13b5309f3b6a54664db8c273ba314e6cd26c716"
   }
 }
