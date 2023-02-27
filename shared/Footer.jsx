@@ -44,26 +44,22 @@ export const Footer = () => {
             w="100px"
           />
         </Flex>
-        <Flex direction="row" alignItems="end" gridArea="right" ms="auto">
-          <Image
-            src={MEDIA_FILES.icons.discord}
-            alt="discord"
-            w={{ lg: "32px", base: "18px" }}
-            mr=".5rem"
-            cursor="pointer"
-            onClick={() =>
-              window.open("https://discord.gg/XKGM8u8XTQ", "_blank")
-            }
-          />
-          <Image
-            src={MEDIA_FILES.icons.twitter}
-            alt="twitter"
-            w={{ lg: "32px", base: "18px" }}
-            cursor="pointer"
-            onClick={() =>
-              window.open("https://twitter.com/RaidBrood", "_blank")
-            }
-          />
+
+        <Flex direction="row" alignItems="end" gridArea="right" ms="auto" gap={2}>
+          <Link href="https://discord.gg/XKGM8u8XTQ" isExternal>
+            <Image
+              src={MEDIA_FILES.icons.discord}
+              alt="discord"
+              w={{ lg: "32px", base: "18px" }}
+            />
+          </Link>
+          <Link href="https://twitter.com/RaidBrood" isExternal>
+            <Image
+              src={MEDIA_FILES.icons.twitter}
+              alt="twitter"
+              w={{ lg: "32px", base: "18px" }}
+            />
+          </Link>
         </Flex>
       </Grid>
     </StyledContainer>
