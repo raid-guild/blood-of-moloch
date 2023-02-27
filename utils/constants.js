@@ -55,7 +55,7 @@ export const BEER_CONTENT = [
       "Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with SporkDAO for ETH Denver 2023.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
-    path: "/sporksour",
-    label: "/assets/drink/sporksour/label.svg",
+    path: "/sporkandsour",
+    label: "/assets/drink/sporkandsour/label.svg",
   },
 ];

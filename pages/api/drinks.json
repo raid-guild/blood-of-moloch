@@ -41,8 +41,8 @@
     "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0x29e682AF081caF314df5B9CFD1f78Eb23c2Fc456"
   },
-  "sporksour": {
-    "name": "Spork Sour",
+  "sporkandsour": {
+    "name": "Spork and Sour",
     "heading": { "title": "GOOD FOR HUMANITY", "subtitle": "BAD FOR MOLOCH" },
     "style": "Fruited Sour",
     "beer": "Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with SporkDAO for ETH Denver 2023.",
