@@ -8,7 +8,7 @@ import {
   Divider,
   Stack,
   Center,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 type DescriptionProps = {
   name: string;
@@ -21,10 +21,10 @@ type TraitsProps = {
 };
 const Description = ({ name, content }: DescriptionProps) => {
   return (
-    <HStack minW={"250px"} w={"100%"} ml={"3em"}>
+    <HStack minW={'250px'} w={'100%'} ml={'3em'}>
       <Box>
         <Heading>{name.toUpperCase()}</Heading>
-        <Text w={"100%"} textAlign={"left"}>
+        <Text w={'100%'} textAlign={'left'}>
           {content}
         </Text>
       </Box>
@@ -51,7 +51,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
   };
 
   return (
-    <HStack minW={"250px"} justifyContent={"center"}>
+    <HStack minW={'250px'} justifyContent={'center'}>
       <VStack>
         <Heading sx={style.heading}>ABV</Heading>
         <Text sx={style.data}>{`${abv} %`}</Text>
@@ -67,15 +67,15 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
 const BeerInfo = ({ bgColor, copy }) => {
   return (
-    <Center w={"100% "} background={bgColor}>
+    <Center w={'100% '} background={bgColor}>
       <Stack
-        direction={["column", "row"]}
-        justifyContent={"center"}
-        py={"5em"}
-        maxW={"750px"}
+        direction={['column', 'row']}
+        justifyContent={'center'}
+        py={'5em'}
+        maxW={'750px'}
       >
-        <Description name={copy.name} content={copy.beer} />
-        <Divider orientation="vertical" />
+        <Description name={copy.style} content={copy.beer} />
+        <Divider orientation='vertical' />
         <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
       </Stack>
     </Center>

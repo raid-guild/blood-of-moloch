@@ -27,6 +27,7 @@ const StyledBodyText = styled(Text)`
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
+  margin-bottom: 20px;
 `;
 
 const StyledLink = styled.a`
@@ -48,11 +49,15 @@ export const About = () => {
           WTF is Raid Brood?!?
         </StyledHeading>
         <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
-          Raid Brood is the first of its kind, a DAO dedicated to craft beer and
-          crypto.
+          At RaidBrood, we are about brews, not bags. We are beer lovers. We are
+          Web3 builders. We are friends. We hate Moloch.
         </StyledBodyText>
-        <br />
         <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          RaidBrood brews are memetic manifestations in our eternal fight
+          against the dastardly gods of disorder and chaos.
+        </StyledBodyText>
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          The first of its kind, RaidBrood is a DAO dedicated to craft beer.
           Spun out from{' '}
           <StyledLink href='https://www.raidguild.org/'>RaidGuild</StyledLink>,
           our master brewer cooked up Blood of Moloch, a special Russian
@@ -60,9 +65,22 @@ export const About = () => {
           we started a beer club as a{' '}
           <StyledLink href='https://app.daohaus.club/dao/0x64/0xc6dd517a5d0e6c6962a8357ad47455c0f7b693bf'>
             DAO
-          </StyledLink>{' '}
-          and invite you to join, taste, and help shape what the next brew will
-          be at the next major ETH gathering.
+          </StyledLink>
+          .
+        </StyledBodyText>
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          By drinking our beer, you have the opportunity to claim shares in the
+          DAO. These shares let you participate in RaidBrood decisions like
+          shaping which beers we release for the next major ETH gathering. Drink
+          with us and unite in a fellowship of beer lovers, Web3 buidlers,
+          friends, and Moloch-haters.
+        </StyledBodyText>
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          We invite you to join, taste, and help us decide which concoctions we
+          cook up next.
+        </StyledBodyText>
+        <StyledBodyText fontSize={{ lg: '24px', base: '20px' }}>
+          Join the DAO
         </StyledBodyText>
       </StyledSubContainer>
       <Image
