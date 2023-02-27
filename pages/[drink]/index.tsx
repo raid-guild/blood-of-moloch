@@ -23,7 +23,7 @@ export default function DrinkPage() {
 
   return (
     <VStack w={"100%"}>
-      <LogoHeader path={`/assets/drink/${drink}/logo.png`} />
+      <LogoHeader path={`/assets/drink/${drink}/logo.svg`} />
       <BeerInfo copy={copy} bgColor={"black"} />
       <Web3Info bgColor={"#2b2c34"} />
       {copy.callToAction && (
@@ -33,7 +33,7 @@ export default function DrinkPage() {
           daoClaimUrl={copy.daoClaimUrl}
         />
       )}
-      <Badge path={`/assets/drink/${drink}/badge.png`} bgColor={"#2b2c34"} />
+      <Badge path={`/assets/drink/${drink}/badge.svg`} bgColor={"#2b2c34"} />
       <Lore
         first={copy.lore.first}
         second={copy.lore.second}

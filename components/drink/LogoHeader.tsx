@@ -1,11 +1,14 @@
 import { Image, Center, VStack, HStack, Spacer } from "@chakra-ui/react";
+import Link from "next/link";
 import { MEDIA_FILES } from "../../utils/constants";
 
 const LogoHeader = ({ path }) => {
   return (
     <VStack w={"100%"} py={"3em"} bgGradient="linear(to-b, #2b2c34, black)">
       <HStack w={"80%"}>
-        <Image src={MEDIA_FILES.logos.footer} alt="logo" boxSize={"4xs"} />
+        <Link href="/">
+          <Image src={MEDIA_FILES.logos.footer} alt="logo" boxSize={"4xs"} />
+        </Link>
         <Spacer />
         <HStack justifyContent={"flex-end"}>
           <Image
