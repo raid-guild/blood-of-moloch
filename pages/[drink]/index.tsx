@@ -24,10 +24,16 @@ export default function DrinkPage() {
   return (
     <VStack w={'100%'}>
       <LogoHeader path={`/assets/drink/${drink}/logo.png`} />
-      <BeerInfo copy={copy} bgColor={'black'} />
-      <Web3Info bgColor={'#2b2c34'} />
-      <Steps callToAction={copy.callToAction} bgColor={'black'} />
-      <Badge path={`/assets/drink/${drink}/badge.png`} bgColor={'#2b2c34'} />
+      <BeerInfo copy={copy} bgColor={"black"} />
+      <Web3Info bgColor={"#2b2c34"} />
+      {copy.callToAction && (
+        <Steps
+          callToAction={copy.callToAction}
+          bgColor={"black"}
+          daoClaimUrl={copy.daoClaimUrl}
+        />
+      )}
+      <Badge path={`/assets/drink/${drink}/badge.png`} bgColor={"#2b2c34"} />
       <Lore
         first={copy.lore.first}
         second={copy.lore.second}

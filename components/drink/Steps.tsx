@@ -1,11 +1,13 @@
-import { VStack, Heading, OrderedList, ListItem } from '@chakra-ui/react';
-import { theme } from '../../styles/theme';
+import { VStack, Heading, OrderedList, ListItem } from "@chakra-ui/react";
+import Link from "next/link";
+import { theme } from "../../styles/theme";
 
 type StepsProps = {
   callToAction: string;
   bgColor: string;
+  daoClaimUrl: string;
 };
-const Steps = ({ callToAction, bgColor }: StepsProps) => {
+const Steps = ({ callToAction, bgColor, daoClaimUrl }: StepsProps) => {
   return (
     <VStack backgroundColor={bgColor} w={'100%'} py={'5em'}>
       <Heading
