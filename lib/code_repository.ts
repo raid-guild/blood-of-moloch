@@ -13,7 +13,7 @@ const useCodeRepository = () => {
       case "greenpil":
         queryIndex = "green_pil_codes_by_code";
         break;
-      case "sporksour":
+      case "sporkandsour":
         queryIndex = "spork_sour_codes_by_code";
         break;
       default:
