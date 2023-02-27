@@ -1,4 +1,4 @@
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image, Link } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { MEDIA_FILES } from "../utils/constants";
 
@@ -12,36 +12,30 @@ const StyledContainer = styled(Flex)`
 
 export const Header = () => {
   return (
-    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
-      <Image
-        position="absolute"
-        left={0}
-        right={0}
-        ml="auto"
-        mr="auto"
-        src={MEDIA_FILES.logos.header}
-        alt="logo"
-        cursor="pointer"
-        onClick={() => (window.location.href = "/")}
-        w={{ lg: "170px", base: "100px" }}
-      />
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }} pt={4} position="relative">
+      <Link href="/" display="flex" justifyContent="center" mx="auto">
+        <Image
+          src={MEDIA_FILES.logos.header}
+          alt="logo"
+          w={{ lg: "170px", base: "100px" }}
+        />
+      </Link>
 
-      <Flex direction="row" alignItems="center">
-        <Image
-          src={MEDIA_FILES.icons.discord}
-          alt="discord"
-          w={{ lg: "32px", base: "18px" }}
-          mr=".5rem"
-          cursor="pointer"
-          onClick={() => window.open("https://discord.gg/XKGM8u8XTQ", "_blank")}
-        />
-        <Image
-          src={MEDIA_FILES.icons.twitter}
-          alt="twitter"
-          w={{ lg: "32px", base: "18px" }}
-          cursor="pointer"
-          onClick={() => window.open("https://twitter.com/RaidBrood", "_blank")}
-        />
+      <Flex direction="row" alignItems="center" position="absolute" right gap={2}>
+        <Link href="https://discord.gg/XKGM8u8XTQ" isExternal>
+          <Image
+            src={MEDIA_FILES.icons.discord}
+            alt="discord"
+            w={{ lg: "32px", base: "18px" }}
+          />
+        </Link>
+        <Link href="https://twitter.com/RaidBrood" isExternal>
+          <Image
+            src={MEDIA_FILES.icons.twitter}
+            alt="twitter"
+            w={{ lg: "32px", base: "18px" }}
+          />
+        </Link>
       </Flex>
     </StyledContainer>
   );

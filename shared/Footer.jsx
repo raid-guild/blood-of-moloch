@@ -1,4 +1,4 @@
-import { Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Flex, Grid, Image, Link, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { theme } from "../styles/theme";
 import { MEDIA_FILES } from "../utils/constants";
@@ -15,49 +15,53 @@ const StyledNavLink = styled(Link)`
   text-align: center;
   font-weight: bold;
 `;
-const StyledRightsText = styled(Text)`
-  width: 100%;
-  color: #f0efef;
-  text-align: left;
-`;
 
 export const Footer = () => {
   return (
-    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
-      <Image
-        src={MEDIA_FILES.logos.footer}
-        alt="logo"
-        w={{ lg: "100px", base: "70px" }}
-      />
-      <Flex w="100%" direction="row" justifyContent="space-between">
-        <Flex direction="column">
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }} py={12}>
+      <Grid
+        templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+        templateAreas={{
+          base: `
+            "mid mid"
+            "left right"
+          `,
+          lg: `"left mid right"`
+        }}
+        templateRows={{ base: "5rem 1fr", lg: '1fr' }}
+        w="full"
+        rowGap={4}
+      >
+        <Flex gridArea="left" alignItems="end">
           <StyledNavLink fontSize={{ lg: "16px", base: "14px" }}>
             Made with ⚔️ for our fellow raiders
           </StyledNavLink>
         </Flex>
-
-        <Flex direction="row" alignItems="center">
+        <Flex gridArea="mid" justify="center">
           <Image
-            src={MEDIA_FILES.icons.discord}
-            alt="discord"
-            w={{ lg: "32px", base: "18px" }}
-            mr=".5rem"
-            cursor="pointer"
-            onClick={() =>
-              window.open("https://discord.gg/XKGM8u8XTQ", "_blank")
-            }
-          />
-          <Image
-            src={MEDIA_FILES.icons.twitter}
-            alt="twitter"
-            w={{ lg: "32px", base: "18px" }}
-            cursor="pointer"
-            onClick={() =>
-              window.open("https://twitter.com/RaidBrood", "_blank")
-            }
+            src={MEDIA_FILES.logos.footer}
+            alt="logo"
+            w="100px"
           />
         </Flex>
-      </Flex>
+
+        <Flex direction="row" alignItems="end" gridArea="right" ms="auto" gap={2}>
+          <Link href="https://discord.gg/XKGM8u8XTQ" isExternal>
+            <Image
+              src={MEDIA_FILES.icons.discord}
+              alt="discord"
+              w={{ lg: "32px", base: "18px" }}
+            />
+          </Link>
+          <Link href="https://twitter.com/RaidBrood" isExternal>
+            <Image
+              src={MEDIA_FILES.icons.twitter}
+              alt="twitter"
+              w={{ lg: "32px", base: "18px" }}
+            />
+          </Link>
+        </Flex>
+      </Grid>
     </StyledContainer>
   );
 };

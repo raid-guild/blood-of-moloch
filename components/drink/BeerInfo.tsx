@@ -1,8 +1,7 @@
 import {
-  Box,
+  Flex,
   Heading,
   Text,
-  Flex,
   HStack,
   VStack,
   Divider,
@@ -21,14 +20,12 @@ type TraitsProps = {
 };
 const Description = ({ name, content }: DescriptionProps) => {
   return (
-    <HStack minW={'250px'} w={'100%'} ml={'3em'}>
-      <Box>
-        <Heading>{name.toUpperCase()}</Heading>
-        <Text w={'100%'} textAlign={'left'}>
-          {content}
-        </Text>
-      </Box>
-    </HStack>
+    <Flex direction="column" minW={'250px'} px={'3em'} gap={2}>
+      <Heading textTransform="uppercase">{name}</Heading>
+      <Text w={'100%'} textAlign={'left'}>
+        {content}
+      </Text>
+    </Flex>
   );
 };
 
@@ -51,7 +48,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
   };
 
   return (
-    <HStack minW={'250px'} justifyContent={'center'}>
+    <Flex minW={'250px'} justifyContent={'center'}>
       <VStack>
         <Heading sx={style.heading}>ABV</Heading>
         <Text sx={style.data}>{`${abv} %`}</Text>
@@ -61,7 +58,7 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
         <Heading sx={style.heading}>IBU</Heading>
         <Text sx={style.data}>{ibu}</Text>
       </VStack>
-    </HStack>
+    </Flex>
   );
 };
 
@@ -73,9 +70,9 @@ const BeerInfo = ({ bgColor, copy }) => {
         justifyContent={'center'}
         py={'5em'}
         maxW={'750px'}
+
       >
         <Description name={copy.style} content={copy.beer} />
-        <Divider orientation='vertical' />
         <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
       </Stack>
     </Center>
