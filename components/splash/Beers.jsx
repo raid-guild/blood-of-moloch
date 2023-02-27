@@ -1,4 +1,5 @@
 import { Flex, SimpleGrid, Text, Image, Link } from '@chakra-ui/react';
+import NextLink from "next/link";
 
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
@@ -20,18 +21,6 @@ const StyledHeading = styled(Text)`
   margin-bottom: 1rem;
 `;
 
-const StyledCard = styled(Flex)`
-  width: 100%;
-  position: absolute;
-  flex-direction: column;
-  border-radius: 8px;
-  padding: 20px 24px;
-
-  @media (max-width: 480px) {
-    padding: 0 12px;
-  }
-`;
-
 const StyledCardHeading = styled(Text)`
   width: 100%;
   font-family: ${theme.fonts.uncial};
@@ -45,19 +34,6 @@ const StyledBodyText = styled(Text)`
   letter-spacing: 1.2px;
   color: white;
   text-align: left;
-`;
-
-
-const Grid = styled.div`
-  padding-top: 72px;
-
-  @media (max-width: 480px) {
-    padding-top: 12px;
-  }
-`;
-
-const Label = styled.div`
-  padding-top: 12px;
 `;
 
 export const Beers = () => {
@@ -77,30 +53,29 @@ export const Beers = () => {
         pt={{ base: 3, sm: 10, md: 18 }}
       >
         {BEER_CONTENT.map((beer) => (
-          <Link
-            href={beer.path}
-            key={beer.title}
-            data-group
-            _hover={{ bgColor: theme.colors.blackDark }}
-            _focus={{ bgColor: theme.colors.blackDark }}
-            borderRadius="md"
-          >
-            <Flex direction="column" p={8} gap={8}>
-              <StyledCardHeading
-                minH={{ lg: '75px', sm: '40px' }}
-                fontSize={{ lg: '48px', base: '24px' }}
-              >
-                {beer.title}
-              </StyledCardHeading>
-              <Image src={beer.label} alt='cans' maxH='100%' />
-              <Text
-                color='#B66AD6'
-                fontSize={{ lg: '20px', base: '16px' }}
-              >
-                {beer.description}
-              </Text>
-            </Flex>
-          </Link>
+          <NextLink href={beer.path} key={beer.title} passHref>
+            <Link
+              _hover={{ bgColor: theme.colors.blackDark }}
+              _focus={{ bgColor: theme.colors.blackDark }}
+              borderRadius="md"
+            >
+              <Flex direction="column" p={8} gap={8}>
+                <StyledCardHeading
+                  minH={{ lg: '75px', sm: '40px' }}
+                  fontSize={{ lg: '48px', base: '24px' }}
+                >
+                  {beer.title}
+                </StyledCardHeading>
+                <Image src={beer.label} alt='cans' maxH='100%' />
+                <Text
+                  color='#B66AD6'
+                  fontSize={{ lg: '20px', base: '16px' }}
+                >
+                  {beer.description}
+                </Text>
+              </Flex>
+            </Link>
+          </NextLink>
         ))}
       </SimpleGrid>
     </StyledContainer>

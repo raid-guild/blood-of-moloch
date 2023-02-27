@@ -43,7 +43,7 @@ export const BEER_CONTENT = [
   {
     title: "Green Pil",
     description:
-      "A hop forward crushable Kveik Pilsner. Made in collaboration with the Green Pil Podcast. $1 form every sale going to fund public goods.",
+      "A hop forward crushable Kveik Pilsner. Made in collaboration with the Green Pil Podcast. $1 from every sale going to fund public goods.",
     canImage:
       "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     path: "/greenpil",

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import { Footer } from "../../shared/Footer";
-import { Center, VStack } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 import Drinks from "../api/drinks.json";
 import BeerInfo from "../../components/drink/BeerInfo";
 import LogoHeader from "../../components/drink/LogoHeader";
@@ -22,7 +22,7 @@ export default function DrinkPage() {
   }
 
   return (
-    <VStack w={"100%"}>
+    <Flex direction="column">
       <LogoHeader path={`/assets/drink/${drink}/logo.svg`} />
       <BeerInfo copy={copy} bgColor={"black"} />
       <Web3Info bgColor={"#2b2c34"} />
@@ -43,6 +43,6 @@ export default function DrinkPage() {
       />
       <Label path={`/assets/drink/${drink}/label.svg`} bgColor={"#2b2c34"} />
       <Footer />
-    </VStack>
+    </Flex>
   );
 }
