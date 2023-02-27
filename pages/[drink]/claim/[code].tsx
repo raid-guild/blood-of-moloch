@@ -13,6 +13,7 @@ import {
   VStack,
   Center,
   Spacer,
+  Flex,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
@@ -42,7 +43,7 @@ const Claim = () => {
 
   const ClaimInput = () => {
     return (
-      <VStack w={"100%"} maxW={"600px"}>
+      <Flex direction={"column"} maxW={"600px"}>
         <Heading size={"md"}>Enter your wallet address</Heading>
         <Input
           w={"100%"}
@@ -50,6 +51,7 @@ const Claim = () => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           borderRadius={"0"}
+          autoFocus={true}
         />
         {address.length > 0 && !ethers.utils.isAddress(address) ? (
           <Text color="red">Not a valid address</Text>
@@ -65,7 +67,7 @@ const Claim = () => {
         >
           {alreadyClaimed ? "ALREADY CLAIMED" : "CLAIM"}
         </Button>
-      </VStack>
+      </Flex>
     );
   };
 
