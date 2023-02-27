@@ -1,4 +1,4 @@
-import { Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Flex, Grid, Image, Link, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { theme } from "../styles/theme";
 import { MEDIA_FILES } from "../utils/constants";
@@ -15,28 +15,36 @@ const StyledNavLink = styled(Link)`
   text-align: center;
   font-weight: bold;
 `;
-const StyledRightsText = styled(Text)`
-  width: 100%;
-  color: #f0efef;
-  text-align: left;
-`;
 
 export const Footer = () => {
   return (
-    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
-      <Image
-        src={MEDIA_FILES.logos.footer}
-        alt="logo"
-        w={{ lg: "100px", base: "70px" }}
-      />
-      <Flex w="100%" direction="row" justifyContent="space-between">
-        <Flex direction="column">
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }} py={12}>
+      <Grid
+        templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+        templateAreas={{
+          base: `
+            "mid mid"
+            "left right"
+          `,
+          lg: `"left mid right"`
+        }}
+        templateRows={{ base: "5rem 1fr", lg: '1fr' }}
+        w="full"
+        rowGap={4}
+      >
+        <Flex gridArea="left" alignItems="end">
           <StyledNavLink fontSize={{ lg: "16px", base: "14px" }}>
             Made with ⚔️ for our fellow raiders
           </StyledNavLink>
         </Flex>
-
-        <Flex direction="row" alignItems="center">
+        <Flex gridArea="mid" justify="center">
+          <Image
+            src={MEDIA_FILES.logos.footer}
+            alt="logo"
+            w="100px"
+          />
+        </Flex>
+        <Flex direction="row" alignItems="end" gridArea="right" ms="auto">
           <Image
             src={MEDIA_FILES.icons.discord}
             alt="discord"
@@ -57,7 +65,7 @@ export const Footer = () => {
             }
           />
         </Flex>
-      </Flex>
+      </Grid>
     </StyledContainer>
   );
 };

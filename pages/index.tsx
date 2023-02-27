@@ -5,11 +5,11 @@ import { Hero } from "../components/splash/Hero";
 import { About } from "../components/splash/About";
 import { Beers } from "../components/splash/Beers";
 import { Brew } from "../components/splash/Brew";
-import { VStack } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 const Home = () => {
   return (
-    <VStack h={"100vh"}>
+    <Flex direction="column">
       <Header />
 
       <Hero />
@@ -17,7 +17,7 @@ const Home = () => {
       <Beers />
       <Brew />
       <Footer />
-    </VStack>
+    </Flex>
   );
 };
 

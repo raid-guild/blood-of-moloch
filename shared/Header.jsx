@@ -12,7 +12,7 @@ const StyledContainer = styled(Flex)`
 
 export const Header = () => {
   return (
-    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }}>
+    <StyledContainer px={{ lg: "8rem", md: "4rem", base: "2rem" }} pt={4}>
       <Image
         position="absolute"
         left={0}
