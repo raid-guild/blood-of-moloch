@@ -18,12 +18,11 @@ const Steps = ({ callToAction, bgColor, daoClaimUrl }: StepsProps) => {
         <ListItem>Scan your QR code</ListItem>
         <ListItem>Claim the RaidBrood NFT</ListItem>
         <ListItem>
-          {/* <Link href={daoClaimUrl}>
+          <Link href={daoClaimUrl}>
             <a style={{ fontWeight: `700`, color: `#E0232C` }}>
               Claim your DAO shares{" "}
             </a>
-          </Link> */}
-          DAO Share Claiming starts on Feb. 27th.
+          </Link>
         </ListItem>
         ]
       </OrderedList>
