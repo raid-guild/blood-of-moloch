@@ -42,7 +42,7 @@ const Claim = () => {
 
   const ClaimInput = () => {
     return (
-      <VStack w={"100%"} maxW={"600px"}>
+      <VStack w={"100%"} maxW={"600px"} gap={4}>
         <Heading size={"md"}>Enter your wallet address</Heading>
         <Input
           w={"100%"}
@@ -134,20 +134,7 @@ const Claim = () => {
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"}>
-          <VStack maxW={"350px"}>
-            <Heading size={"md"}>How to claim</Heading>{" "}
-            <OrderedList>
-              <ListItem>
-                Enter your public address and secret password.
-              </ListItem>
-              <ListItem>Hit Claim.</ListItem>
-              <ListItem>Welcome to Web3.</ListItem>
-            </OrderedList>
-          </VStack>
-
-          <Spacer />
-
+        <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"} gap={12}>
           {txReceipt ? (
             <>
               <Heading size={"md"}>Proof of Drink minted </Heading>{" "}
