@@ -19,6 +19,7 @@ import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
 import { ClaimData } from "../../api/[drink]/[code]/claim";
 import Drinks from "../../api/drinks.json";
+import Label from "../../../components/drink/Label";
 
 const Claim = () => {
   const router = useRouter();
@@ -95,7 +96,7 @@ const Claim = () => {
           console.error(json.error);
           toast({
             status: "error",
-            title: "Oops",
+            title: "Code Already Claimed",
             description: json.error,
             duration: 3000,
           });
@@ -104,11 +105,19 @@ const Claim = () => {
           console.error(json.error);
           toast({
             status: "error",
-            title: "Oops",
+            title: "Invalid Code",
             description: json.error,
             duration: 3000,
           });
-        } else if (json?.status == 1) {
+        } else if (json.error) {
+          console.error(json.error);
+          toast({
+            status: "error",
+            title: "Claim Error",
+            description: json.error,
+            duration: 3000,
+          });
+        } else if (json.status == 1) {
           toast({
             status: "success",
             title: "Proof of drink minted",
@@ -136,7 +145,7 @@ const Claim = () => {
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"}>
+        <VStack w={"100%%"} direction={["column", "row"]} spacing={"2em"}>
           <VStack maxW={"350px"}>
             <Heading size={"md"}>How to claim</Heading>{" "}
             <OrderedList>
@@ -154,7 +163,7 @@ const Claim = () => {
             <>
               <Heading size={"md"}>Proof of Drink minted </Heading>{" "}
               <Badge
-                path={`/assets/drink/${drink}/badge.png`}
+                path={`/assets/drink/${drink}/badge.svg`}
                 bgColor={"transparent"}
               />
             </>
@@ -164,6 +173,7 @@ const Claim = () => {
         </VStack>
       </VStack>{" "}
       <Spacer />
+      <Label path={`/assets/drink/${drink}/label.svg`} bgColor={"#2b2c34"} />
       <Footer />
     </Box>
   );

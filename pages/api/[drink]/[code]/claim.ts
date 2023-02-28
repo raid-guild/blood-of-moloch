@@ -63,7 +63,8 @@ const ClaimHandler = async (req, res) => {
 
       const tx = await podContract.mint(account, code);
       const receipt = tx.wait();
-      return res.status(200).json(receipt);
+      // return res.status(200).json(receipt);
+      return res.status(200).json({ status: 1 });
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
