@@ -42,6 +42,12 @@ const Claim = () => {
   console.log("successful: ", isSuccessful);
   console.log("alreadyClaimed: ", alreadyClaimed);
 
+  const inValidAddress = (address?: string) => {
+    const addressOrEns =
+      ethers.utils.isAddress(address) || address.includes(".eth");
+    return address.length > 0 && !addressOrEns;
+  };
+
   const ClaimInput = () => {
     return (
       <Flex direction={"column"} maxW={"600px"}>
@@ -54,7 +60,7 @@ const Claim = () => {
           borderRadius={"0"}
           autoFocus={true}
         />
-        {address.length > 0 && !ethers.utils.isAddress(address) ? (
+        {inValidAddress(address) ? (
           <Text color="red">Not a valid address</Text>
         ) : null}
         <Button
