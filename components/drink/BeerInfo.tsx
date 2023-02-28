@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Heading,
   Text,
@@ -43,15 +44,15 @@ const Traits = ({ ibu, abv }: TraitsProps) => {
 
   return (
     <Flex minW={'250px'} justifyContent={'center'} m="0 !important">
-      <VStack>
+      <Flex direction="column" alignItems="center">
         <Heading sx={style.heading}>ABV</Heading>
         <Text sx={style.data}>{`${abv} %`}</Text>
-      </VStack>
-      <Divider orientation="vertical" mx={4} borderColor="#EBEBEB" maxH="100px" />
-      <VStack>
+      </Flex>
+      <Divider orientation="vertical" mx={4} borderColor="#EBEBEB" h="100px" borderLeftWidth="2px !important" />
+      <Flex direction="column" alignItems="center">
         <Heading sx={style.heading}>IBU</Heading>
         <Text sx={style.data}>{ibu}</Text>
-      </VStack>
+      </Flex>
     </Flex>
   );
 };
@@ -64,7 +65,7 @@ const BeerInfo = ({ bgColor, copy }) => {
         justifyContent={'center'}
         py={'5em'}
         maxW={'750px'}
-
+        gap={8}
       >
         <Description name={copy.style} content={copy.beer} />
         <Traits ibu={copy.traits.ibu} abv={copy.traits.abv} />
