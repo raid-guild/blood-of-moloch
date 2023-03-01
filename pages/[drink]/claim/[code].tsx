@@ -89,42 +89,37 @@ const Claim = () => {
     );
   };
 
-  const KeypButtons = () => {
+  const KeypLogin = () => {
+    const LoginButton = ({ provider }) => (
+      <Button
+        m={"2"}
+        color="#EC4899"
+        bg={"#fff"}
+        w={"100%"}
+        maxW={"600px"}
+        onClick={() =>
+          signIn("keyp", null, `login_provider=${provider.toUpperCase()}`)
+        }
+      >
+        {provider}
+      </Button>
+    );
+    if (session?.user?.address)
+      return (
+        <Flex direction={"column"} maxW={"600px"}>
+          <Heading m={"3"} size={"md"}>
+            ✅ Connected with Keyp Wallet {session?.user?.address}
+          </Heading>
+        </Flex>
+      );
     return (
       <Flex direction={"column"} maxW={"600px"}>
         <Heading m={"3"} size={"md"}>
           Create a new wallet
         </Heading>
-        <Button
-          m={"2"}
-          color="#EC4899"
-          w={"100%"}
-          maxW={"600px"}
-          onClick={() => signIn("keyp", null, "login_provider=GOOGLE")}
-          isLoading={isLoading}
-        >
-          Google
-        </Button>
-        <Button
-          m={"2"}
-          color="#EC4899"
-          w={"100%"}
-          maxW={"600px"}
-          onClick={() => signIn("keyp", null, "login_provider=DISCORD")}
-          isLoading={isLoading}
-        >
-          Discord
-        </Button>
-        <Button
-          m={"2"}
-          color="#EC4899"
-          w={"100%"}
-          maxW={"600px"}
-          onClick={() => signIn("keyp", null, "login_provider=CHESS")}
-          isLoading={isLoading}
-        >
-          Chess
-        </Button>
+        <LoginButton provider="Discord" />
+        <LoginButton provider="Google" />
+        <LoginButton provider="Chess" />
       </Flex>
     );
   };
@@ -219,7 +214,7 @@ const Claim = () => {
           ) : (
             <>
               <ClaimInput />
-              <KeypButtons />
+              <KeypLogin />
             </>
           )}
         </VStack>

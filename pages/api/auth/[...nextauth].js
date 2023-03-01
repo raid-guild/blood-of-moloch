@@ -10,7 +10,7 @@ const KeypProvider = {
   clientId: process.env.KEYP_CLIENT_ID,
   wellKnown: `${KEYP_APP_DOMAIN}/oauth/.well-known/openid-configuration`,
   checks: ["pkce"],
-  authorization: { params: { scope: "openid email" } },
+  authorization: { params: { scope: "openid" } },
   client: { token_endpoint_auth_method: "none" },
   profile(profile) {
     return {
