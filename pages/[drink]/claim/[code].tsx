@@ -13,11 +13,13 @@ import {
   VStack,
   Center,
   Spacer,
+  Flex,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import Badge from "../../../components/drink/Badge";
 import { ClaimData } from "../../api/[drink]/[code]/claim";
 import Drinks from "../../api/drinks.json";
+import Label from "../../../components/drink/Label";
 
 const Claim = () => {
   const router = useRouter();
@@ -40,9 +42,15 @@ const Claim = () => {
   console.log("successful: ", isSuccessful);
   console.log("alreadyClaimed: ", alreadyClaimed);
 
+  const inValidAddress = (address?: string) => {
+    const addressOrEns =
+      ethers.utils.isAddress(address) || address.includes(".eth");
+    return address.length > 0 && !addressOrEns;
+  };
+
   const ClaimInput = () => {
     return (
-      <VStack w={"100%"} maxW={"600px"} gap={4}>
+      <Flex direction={"column"} maxW={"600px"}>
         <Heading size={"md"}>Enter your wallet address</Heading>
         <Input
           w={"100%"}
@@ -50,8 +58,9 @@ const Claim = () => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           borderRadius={"0"}
+          autoFocus={true}
         />
-        {address.length > 0 && !ethers.utils.isAddress(address) ? (
+        {inValidAddress(address) ? (
           <Text color="red">Not a valid address</Text>
         ) : null}
         <Button
@@ -65,7 +74,7 @@ const Claim = () => {
         >
           {alreadyClaimed ? "ALREADY CLAIMED" : "CLAIM"}
         </Button>
-      </VStack>
+      </Flex>
     );
   };
 
@@ -93,7 +102,7 @@ const Claim = () => {
           console.error(json.error);
           toast({
             status: "error",
-            title: "Oops",
+            title: "Code Already Claimed",
             description: json.error,
             duration: 3000,
           });
@@ -102,11 +111,19 @@ const Claim = () => {
           console.error(json.error);
           toast({
             status: "error",
-            title: "Oops",
+            title: "Invalid Code",
             description: json.error,
             duration: 3000,
           });
-        } else if (json?.status == 1) {
+        } else if (json.error) {
+          console.error(json.error);
+          toast({
+            status: "error",
+            title: "Claim Error",
+            description: json.error,
+            duration: 3000,
+          });
+        } else if (json.status == 1) {
           toast({
             status: "success",
             title: "Proof of drink minted",
@@ -139,7 +156,7 @@ const Claim = () => {
             <>
               <Heading size={"md"}>Proof of Drink minted </Heading>{" "}
               <Badge
-                path={`/assets/drink/${drink}/badge.png`}
+                path={`/assets/drink/${drink}/badge.svg`}
                 bgColor={"transparent"}
               />
             </>
@@ -149,6 +166,7 @@ const Claim = () => {
         </VStack>
       </VStack>{" "}
       <Spacer />
+      <Label path={`/assets/drink/${drink}/label.svg`} bgColor={"#2b2c34"} />
       <Footer />
     </Box>
   );

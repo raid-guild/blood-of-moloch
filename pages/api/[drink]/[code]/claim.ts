@@ -47,10 +47,17 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "Code already claimed." });
       }
 
-      const ensProvider = ethers.providers.getDefaultProvider("homestead", {
-        alchemy:
-          "https://eth-mainnet.g.alchemy.com/v2/O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi",
-      });
+      // const ensProvider = ethers.providers.getDefaultProvider("homestead", {
+      //   alchemy:
+      //     "https://eth-mainnet.g.alchemy.com/v2/O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi",
+      // });
+
+      const ensProvider = new ethers.providers.AlchemyProvider(
+        "homestead",
+        "O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi"
+      );
+
+      console.log("ensProvider", ensProvider);
 
       let parsedAddress: string;
       if (account.substring(account.length - 4, account.length) == ".eth") {
@@ -63,7 +70,8 @@ const ClaimHandler = async (req, res) => {
 
       const tx = await podContract.mint(account, code);
       const receipt = tx.wait();
-      return res.status(200).json(receipt);
+      // return res.status(200).json(receipt);
+      return res.status(200).json({ status: 1 });
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
