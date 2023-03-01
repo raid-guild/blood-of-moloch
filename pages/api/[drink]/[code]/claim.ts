@@ -57,6 +57,8 @@ const ClaimHandler = async (req, res) => {
         "O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi"
       );
 
+      console.log("ensProvider", ensProvider);
+
       let parsedAddress: string;
       if (account.substring(account.length - 4, account.length) == ".eth") {
         parsedAddress = await ensProvider.resolveName(account);
