@@ -47,10 +47,15 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "Code already claimed." });
       }
 
-      const ensProvider = ethers.providers.getDefaultProvider("homestead", {
-        alchemy:
-          "https://eth-mainnet.g.alchemy.com/v2/O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi",
-      });
+      // const ensProvider = ethers.providers.getDefaultProvider("homestead", {
+      //   alchemy:
+      //     "https://eth-mainnet.g.alchemy.com/v2/O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi",
+      // });
+
+      const ensProvider = new ethers.providers.AlchemyProvider(
+        "homestead",
+        "O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi"
+      );
 
       let parsedAddress: string;
       if (account.substring(account.length - 4, account.length) == ".eth") {
