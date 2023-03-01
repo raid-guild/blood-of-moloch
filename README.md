@@ -18,6 +18,16 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Keyp Setup
+
+1. Copy the file `.sample-env` to `.env`
+2. Create a new application on on https://dev.usekeyp.com.
+
+- Set the redirect URI to `http://localhost:3000/api/auth/callback/keyp` (note that your port may be different).
+- Copy the "CLIENT ID" for your application and set it to `KEYP_CLIENT_ID` in `.env`
+
+3. In the `.env`, set `TOKEN_SECRET` to a random string e.g. `openssl rand -base64 32`. (Do not use your access token here)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

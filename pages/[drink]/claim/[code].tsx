@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Footer } from "../../../shared/Footer";
 import {
   Box,
@@ -20,10 +20,13 @@ import Badge from "../../../components/drink/Badge";
 import { ClaimData } from "../../api/[drink]/[code]/claim";
 import Drinks from "../../api/drinks.json";
 import Label from "../../../components/drink/Label";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Claim = () => {
   const router = useRouter();
   const toast = useToast();
+  const { data: session } = useSession();
+
   const { drink, code } = router.query;
 
   const [address, setAddress] = useState("");
@@ -32,6 +35,12 @@ const Claim = () => {
   const [alreadyClaimed, setAlreadyClaimed] = useState(false);
   const [txReceipt, setTxReceipt] = useState();
   const copy = Drinks[drink as string];
+
+  useEffect(() => {
+    if (session?.user?.address) {
+      setAddress(session?.user?.address);
+    }
+  }, [session]);
 
   // TODO route to 404 or home
   if (!copy) {
@@ -75,6 +84,46 @@ const Claim = () => {
           isLoading={isLoading}
         >
           {alreadyClaimed ? "ALREADY CLAIMED" : "CLAIM"}
+        </Button>
+      </Flex>
+    );
+  };
+
+  const KeypButtons = () => {
+    return (
+      <Flex direction={"column"} maxW={"600px"}>
+        <Heading m={"3"} size={"md"}>
+          Create a new wallet
+        </Heading>
+        <Button
+          m={"2"}
+          color="#EC4899"
+          w={"100%"}
+          maxW={"600px"}
+          onClick={() => signIn("keyp", null, "login_provider=GOOGLE")}
+          isLoading={isLoading}
+        >
+          Google
+        </Button>
+        <Button
+          m={"2"}
+          color="#EC4899"
+          w={"100%"}
+          maxW={"600px"}
+          onClick={() => signIn("keyp", null, "login_provider=DISCORD")}
+          isLoading={isLoading}
+        >
+          Discord
+        </Button>
+        <Button
+          m={"2"}
+          color="#EC4899"
+          w={"100%"}
+          maxW={"600px"}
+          onClick={() => signIn("keyp", null, "login_provider=CHESS")}
+          isLoading={isLoading}
+        >
+          Chess
         </Button>
       </Flex>
     );
@@ -168,7 +217,10 @@ const Claim = () => {
               />
             </>
           ) : (
-            <ClaimInput />
+            <>
+              <ClaimInput />
+              <KeypButtons />
+            </>
           )}
         </VStack>
       </VStack>{" "}
