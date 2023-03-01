@@ -48,6 +48,8 @@ const Claim = () => {
     return address.length > 0 && !addressOrEns;
   };
 
+  console.log(`Address: ${address}`);
+
   const ClaimInput = () => {
     return (
       <Flex direction={"column"} maxW={"600px"}>
@@ -151,7 +153,12 @@ const Claim = () => {
             {`CLAIM YOUR ${copy.name.toUpperCase()} NFT.`}
           </Heading>
         </Center>
-        <VStack w={"100%%"} direction={["column", "row"]} spacing={"3em"} gap={12}>
+        <VStack
+          w={"100%%"}
+          direction={["column", "row"]}
+          spacing={"3em"}
+          gap={12}
+        >
           {txReceipt ? (
             <>
               <Heading size={"md"}>Proof of Drink minted </Heading>{" "}

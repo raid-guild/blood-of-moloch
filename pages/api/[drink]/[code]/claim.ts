@@ -47,28 +47,36 @@ const ClaimHandler = async (req, res) => {
         return res.status(200).json({ error: "Code already claimed." });
       }
 
-      // const ensProvider = ethers.providers.getDefaultProvider("homestead", {
-      //   alchemy:
-      //     "https://eth-mainnet.g.alchemy.com/v2/O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi",
-      // });
-
       const ensProvider = new ethers.providers.AlchemyProvider(
         "homestead",
-        "O7HNhorzCs5RCiGYizhOr1U8Uzy7xjMi"
+        "cd4bk_iwE3JUEUr9quSdEg-SFKyvY2A_"
       );
 
       console.log("ensProvider", ensProvider);
 
-      let parsedAddress: string;
-      if (account.substring(account.length - 4, account.length) == ".eth") {
+      let parsedAddress: string = account;
+      console.log(
+        `Account lenght: ${parsedAddress.length}. -4 = ${
+          parsedAddress.length - 4
+        }`
+      );
+      if (
+        account.substring(parsedAddress.length - 4, parsedAddress.length) ==
+        ".eth"
+      ) {
+        console.log("ENS PROVIDER: ", ensProvider);
         parsedAddress = await ensProvider.resolveName(account);
-      } else {
-        parsedAddress = account;
       }
 
-      console.log(`Minting for ${code} to ${account}`);
+      if (!ethers.utils.isAddress(parsedAddress)) {
+        return res
+          .status(200)
+          .json({ error: `Address is not a valid address: ${parsedAddress}` });
+      }
 
-      const tx = await podContract.mint(account, code);
+      console.log(`Minting for ${code} to ${parsedAddress}`);
+
+      const tx = await podContract.mint(parsedAddress, code);
       const receipt = tx.wait();
       // return res.status(200).json(receipt);
       return res.status(200).json({ status: 1 });
