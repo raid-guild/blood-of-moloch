@@ -17,13 +17,13 @@ const Steps = ({ callToAction, bgColor, daoClaimUrl }: StepsProps) => {
         <ListItem>{callToAction}</ListItem>
         <ListItem>Scan your QR code</ListItem>
         <ListItem>Claim the RaidBrood NFT</ListItem>
-        {/* <ListItem>
+        <ListItem>
           <Link href={daoClaimUrl}>
             <a style={{ fontWeight: `700`, color: `#E0232C` }}>
               Claim your DAO shares{" "}
             </a>
           </Link>
-        </ListItem> */}
+        </ListItem>
         ]
       </OrderedList>
     </VStack>
