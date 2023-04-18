@@ -56,5 +56,21 @@
     },
     "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
     "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0xc5134E012ED3861db640fF00E680B0Ad5C7d425e"
+  },
+  "seoulbound": {
+    "name": "Seoul Bound",
+    "heading": { "title": "GOOD FOR HUMANITY", "subtitle": "BAD FOR MOLOCH" },
+    "style": "Korean Rice Wine",
+    "beer": "Berlinerweiss style sour finished with Colorado fruit, Prickly Pear and Red Raspberry. Made in collaboration with Nonce.",
+    "traits": { "abv": 4.5, "ibu": 4 },
+    "callToAction": "Peel the Spork",
+    "lore": {
+      "first": "In the belly of the bitter bear of '23, Moloch’s mischievous and malevolent misdoings ran amok. Alas! A brave brood of #BUIDLers gathered in Colorado to slay Moloch and break the sour spell he cast over crypto and Web3.",
+      "second": "In collaboration with SporkDAO, Sasquatch, a wizard in ways of brew and alchemy, harnessed Moloch’s sour spell with his philosopher’s stone and transformed it. This nourishing nectar is the result of painstaking alchemical separation and ferementation. It is sour transmuted, from devious spell to delicious sips.",
+      "third": "So it is. As fruits blossom and package strength-giving nourishment, so too will this fruited sour embolden your your spirit and give you the strength required to fight Moloch. The Prickly Pears used in it were brought forth from the Ethereum's Dark Forest of Ethereum, picked with utmost and discerning precision. The Red Raspberries are steeped in the blood-oaths of Solarpunks who have pledged their life to slaying brutal beasts.",
+      "fourth": "In drinking Spork and Sour, you honor the brave souls who summoned it as the strength-giving potion you hold in your hand."
+    },
+    "canImage": "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
+    "daoClaimUrl": "https://onbrooder.daohaus.club/#/claim-shares/0xc5134E012ED3861db640fF00E680B0Ad5C7d425e"
   }
 }
