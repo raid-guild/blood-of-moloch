@@ -2,7 +2,8 @@
   "gnosis": {
     "redpil": "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
     "greenpil": "0x6D6eF9e8eEa0C37e41e0442C2797F17c8476bEec",
-    "sporkandsour": "0xbc0f3dc298d1c319d6865ceb3b12bbc6aaf5f89e"
+    "sporkandsour": "0xbc0f3dc298d1c319d6865ceb3b12bbc6aaf5f89e",
+    "seoulbound": "0x7C8233390e4edA574cf9bf018B598aFa8CF6993a"
   },
   "goerli": {
     "redpil": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
