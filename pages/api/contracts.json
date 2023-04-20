@@ -7,7 +7,8 @@
   "goerli": {
     "redpil": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
     "greenpil": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
-    "sporkandsour": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD"
+    "sporkandsour": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD",
+    "seoulbound": "0xc5550fF6D3F5761De8D9C0083c0075cB5E53d4fD"
   },
   "mumbai": "0xfE2CFD6C470AF4b1b4c6D0cfCA89983fCfFFc011",
   "polygon": "0xC169aB1C1f32d4Bc189028b63d0f120fEeaC7A2D"
