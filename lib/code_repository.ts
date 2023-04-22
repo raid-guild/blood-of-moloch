@@ -16,6 +16,9 @@ const useCodeRepository = () => {
       case "sporkandsour":
         queryIndex = "spork_sour_codes_by_code";
         break;
+      case "seoulbound":
+        queryIndex = "seoul_bound_codes_by_code";
+        break;
       default:
         return;
     }
