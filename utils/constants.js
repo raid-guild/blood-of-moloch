@@ -58,4 +58,13 @@ export const BEER_CONTENT = [
     path: "/sporkandsour",
     label: "/assets/drink/sporkandsour/label.svg",
   },
+  {
+    title: "Seoul Bound",
+    description:
+      "Traditional Korean communal beverage. Milky, off-white, and lightly sparkling rice wine. Made in collaboration with Nonce.",
+    canImage:
+      "https://res.cloudinary.com/raidguild/image/upload/v1643180188/BroodGuild/misc/one_can_la3mhf.svg",
+    path: "/seoulbound",
+    label: "/assets/drink/seoulbound/label.svg",
+  },
 ];
