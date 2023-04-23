@@ -23,7 +23,7 @@ export default function DrinkPage() {
 
   return (
     <Flex direction="column">
-      <LogoHeader path={`/assets/drink/${drink}/logo.svg`} />
+      <LogoHeader path={`/assets/drink/${drink}/logo.${drink === 'seoulbound' ? 'png' : 'svg'}`} />
       <BeerInfo copy={copy} bgColor={"black"} />
       <Web3Info bgColor={"#2b2c34"} />
       {copy.callToAction && (
